@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <!-- Sensor board -->
+  <rect x="120" y="60" width="160" height="120" rx="10" fill="#1a1a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- BME280 chip -->
+  <rect x="170" y="95" width="30" height="30" rx="2" fill="#16213e" stroke="#0f9b58" stroke-width="1"/>
+  <text x="185" y="114" text-anchor="middle" font-family="monospace" font-size="6" fill="#0f9b58">BME</text>
+  <text x="185" y="121" text-anchor="middle" font-family="monospace" font-size="5" fill="#0f9b58">280</text>
+  <!-- ESP32 chip -->
+  <rect x="220" y="85" width="40" height="20" rx="2" fill="#16213e"/>
+  <text x="240" y="98" text-anchor="middle" font-family="monospace" font-size="6" fill="#999">ESP32</text>
+  <!-- Status LED -->
+  <circle cx="145" cy="80" r="4" fill="#0f9b58"/>
+  <!-- Antenna trace -->
+  <path d="M255 75 L255 65 L265 65" stroke="#0f9b58" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Pin headers -->
+  <g fill="#f0ad4e">
+    <rect x="135" y="155" width="6" height="12" rx="1"/>
+    <rect x="148" y="155" width="6" height="12" rx="1"/>
+    <rect x="161" y="155" width="6" height="12" rx="1"/>
+    <rect x="174" y="155" width="6" height="12" rx="1"/>
+  </g>
+  <!-- Readout display -->
+  <g transform="translate(100, 200)">
+    <!-- Temperature -->
+    <g>
+      <svg x="10" y="0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2">
+        <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+      </svg>
+      <text x="36" y="10" font-family="monospace" font-size="11" fill="#dc3545">72.4°F</text>
+    </g>
+    <!-- Humidity -->
+    <g transform="translate(100, 0)">
+      <svg x="10" y="0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+      </svg>
+      <text x="36" y="10" font-family="monospace" font-size="11" fill="#4a90d9">58%</text>
+    </g>
+  </g>
+  <!-- Pressure -->
+  <g transform="translate(145, 230)">
+    <svg x="10" y="0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+    </svg>
+    <text x="36" y="10" font-family="monospace" font-size="11" fill="#0f9b58">1013 hPa</text>
+  </g>
+  <!-- Label -->
+  <text x="200" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Flux TPH Sensor - Greenhouse</text>
+</svg>
