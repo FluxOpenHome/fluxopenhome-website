@@ -226,77 +226,232 @@
     <section class="flux-section" id="pricing">
       <div class="container">
         <div class="flux-section-header">
-          <h2>Simple, Transparent Pricing</h2>
-          <p>Start free. Scale when you're ready.</p>
+          <h2>Plans &amp; Pricing</h2>
+          <p>Start free. Unlock powerful tools as you grow.</p>
         </div>
-        <div class="flux-pricing-grid">
-          <!-- Free -->
-          <div class="flux-pricing-card">
-            <h3>Free</h3>
-            <div class="flux-pricing-price">
-              <span class="flux-pricing-amount">$0</span>
-              <span class="flux-pricing-period">/month</span>
-            </div>
-            <p class="flux-pricing-desc">For getting started</p>
-            <ul class="flux-pricing-features">
-              <li>Up to 5 properties</li>
-              <li>Basic zone control</li>
-              <li>Weather monitoring</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#" class="btn btn-outline" style="width:100%">Get Started</a>
+
+        <!-- Tier Header Cards -->
+        <div style="display:grid;grid-template-columns:200px repeat(4,1fr);gap:0;margin-bottom:0">
+          <div></div>
+          <div style="padding:24px 16px;text-align:center;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:12px 12px 0 0">
+            <h3 style="font-size:1.125rem;margin:0 0 4px">Free</h3>
+            <div style="font-size:2rem;font-weight:700;color:#1a1a2e">$0</div>
+            <div style="font-size:0.75rem;color:#999">/month</div>
           </div>
-          <!-- Pro -->
-          <div class="flux-pricing-card featured">
-            <span class="flux-badge flux-badge-secondary" style="margin-bottom:12px">Most Popular</span>
-            <h3>Pro</h3>
-            <div class="flux-pricing-price">
-              <span class="flux-pricing-amount">Contact</span>
-            </div>
-            <p class="flux-pricing-desc">Up to 25 properties</p>
-            <ul class="flux-pricing-features">
-              <li>Everything in Free</li>
-              <li>PDF reports</li>
-              <li>Team accounts (3 users)</li>
-              <li>Issue tracking</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="#" class="btn btn-secondary" style="width:100%">Contact Sales</a>
+          <div style="padding:24px 16px;text-align:center;background:#4a90d9;border-radius:12px 12px 0 0;position:relative">
+            <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#f0ad4e;color:#fff;font-size:0.65rem;font-weight:600;padding:2px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:0.05em">Most Popular</span>
+            <h3 style="font-size:1.125rem;margin:0 0 4px;color:#fff">Pro</h3>
+            <div style="font-size:2rem;font-weight:700;color:#fff">Contact</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">for pricing</div>
           </div>
-          <!-- Business -->
-          <div class="flux-pricing-card">
-            <h3>Business</h3>
-            <div class="flux-pricing-price">
-              <span class="flux-pricing-amount">Contact</span>
-            </div>
-            <p class="flux-pricing-desc">Up to 100 properties</p>
-            <ul class="flux-pricing-features">
-              <li>Everything in Pro</li>
-              <li>Unlimited team accounts</li>
-              <li>Portfolio analytics</li>
-              <li>API access</li>
-              <li>Dedicated support</li>
-            </ul>
-            <a href="#" class="btn btn-outline" style="width:100%">Contact Sales</a>
+          <div style="padding:24px 16px;text-align:center;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:12px 12px 0 0">
+            <h3 style="font-size:1.125rem;margin:0 0 4px">Business</h3>
+            <div style="font-size:2rem;font-weight:700;color:#1a1a2e">Contact</div>
+            <div style="font-size:0.75rem;color:#999">for pricing</div>
           </div>
-          <!-- Enterprise -->
-          <div class="flux-pricing-card">
-            <h3>Enterprise</h3>
-            <div class="flux-pricing-price">
-              <span class="flux-pricing-amount">Custom</span>
-            </div>
-            <p class="flux-pricing-desc">Unlimited properties</p>
-            <ul class="flux-pricing-features">
-              <li>Everything in Business</li>
-              <li>Custom integrations</li>
-              <li>SLA guarantee</li>
-              <li>On-premise deployment</li>
-              <li>White-label options</li>
-            </ul>
-            <a href="#" class="btn btn-outline" style="width:100%">Contact Sales</a>
+          <div style="padding:24px 16px;text-align:center;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:12px 12px 0 0">
+            <h3 style="font-size:1.125rem;margin:0 0 4px">Enterprise</h3>
+            <div style="font-size:2rem;font-weight:700;color:#1a1a2e">Custom</div>
+            <div style="font-size:0.75rem;color:#999">tailored</div>
           </div>
         </div>
-        <p class="flux-pricing-note">The homeowner Home Assistant Add-on is always free and open source.</p>
+
+        <!-- Feature Comparison Table -->
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:0.875rem">
+            <thead>
+              <tr style="border-bottom:2px solid #e2e8f0">
+                <th style="width:200px;text-align:left;padding:12px 16px;color:#999;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em">Feature</th>
+                <th style="text-align:center;padding:12px 8px;min-width:120px">Free</th>
+                <th style="text-align:center;padding:12px 8px;min-width:120px;background:rgba(74,144,217,0.04)">Pro</th>
+                <th style="text-align:center;padding:12px 8px;min-width:120px">Business</th>
+                <th style="text-align:center;padding:12px 8px;min-width:120px">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Properties -->
+              <tr style="background:#f8f9fa">
+                <td style="padding:12px 16px;font-weight:600;color:#1a1a2e">Properties</td>
+                <td style="text-align:center;padding:12px 8px;font-weight:700">5</td>
+                <td style="text-align:center;padding:12px 8px;font-weight:700;background:rgba(74,144,217,0.04)">25</td>
+                <td style="text-align:center;padding:12px 8px;font-weight:700">100</td>
+                <td style="text-align:center;padding:12px 8px;font-weight:700">Unlimited</td>
+              </tr>
+              <tr style="border-bottom:1px solid #e2e8f0">
+                <td style="padding:12px 16px;font-weight:600;color:#1a1a2e">Team Members</td>
+                <td style="text-align:center;padding:12px 8px">1</td>
+                <td style="text-align:center;padding:12px 8px;background:rgba(74,144,217,0.04)">3</td>
+                <td style="text-align:center;padding:12px 8px">Unlimited</td>
+                <td style="text-align:center;padding:12px 8px">Unlimited</td>
+              </tr>
+
+              <!-- Section: Core -->
+              <tr><td colspan="5" style="padding:16px 16px 8px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;font-weight:600;border-top:2px solid #e2e8f0">Core Management</td></tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Remote Zone Control</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Schedule Management</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Weather Monitoring</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Gophr Probe Monitoring</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">QR Code Property Onboarding</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+
+              <!-- Section: Reporting -->
+              <tr><td colspan="5" style="padding:16px 16px 8px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;font-weight:600;border-top:2px solid #e2e8f0">Reporting &amp; Operations</td></tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Issue Tracking</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">PDF System Reports</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Portfolio Analytics</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Configuration Audit Log</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+
+              <!-- Section: AI & Design Tools -->
+              <tr><td colspan="5" style="padding:16px 16px 8px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;font-weight:600;border-top:2px solid #e2e8f0">AI &amp; Design Tools</td></tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">
+                  <div style="font-weight:500">AI System Analysis</div>
+                  <div style="font-size:0.75rem;color:#999;margin-top:2px">AI-driven diagnostics and performance recommendations for your irrigation systems</div>
+                </td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">
+                  <div style="font-weight:500">Site Map Planning</div>
+                  <div style="font-size:0.75rem;color:#999;margin-top:2px">Visual site layout tools for planning zone coverage, head placement, and pipe runs</div>
+                </td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">
+                  <div style="font-weight:500">Hydraulic Analysis</div>
+                  <div style="font-size:0.75rem;color:#999;margin-top:2px">Calculate flow rates, pressure loss, and pipe sizing to ensure optimal system performance</div>
+                </td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+
+              <!-- Section: Support & Integration -->
+              <tr><td colspan="5" style="padding:16px 16px 8px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#999;font-weight:600;border-top:2px solid #e2e8f0">Support &amp; Integration</td></tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Email Support</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Priority Support</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58;background:rgba(74,144,217,0.04)">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Dedicated Account Manager</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">API Access</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">Custom Integrations</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">SLA Guarantee</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0">
+                <td style="padding:10px 16px">White-Label Options</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc;background:rgba(74,144,217,0.04)">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#ccc">&mdash;</td>
+                <td style="text-align:center;padding:10px 8px;color:#0f9b58">&#10003;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- CTA Row -->
+        <div style="display:grid;grid-template-columns:200px repeat(4,1fr);gap:0;margin-top:24px">
+          <div></div>
+          <div style="text-align:center;padding:0 8px"><a href="#" class="btn btn-outline" style="width:100%;font-size:0.875rem">Get Started</a></div>
+          <div style="text-align:center;padding:0 8px"><a href="#" class="btn btn-secondary" style="width:100%;font-size:0.875rem">Contact Sales</a></div>
+          <div style="text-align:center;padding:0 8px"><a href="#" class="btn btn-outline" style="width:100%;font-size:0.875rem">Contact Sales</a></div>
+          <div style="text-align:center;padding:0 8px"><a href="#" class="btn btn-outline" style="width:100%;font-size:0.875rem">Contact Sales</a></div>
+        </div>
+
+        <p style="text-align:center;margin-top:32px;font-size:0.875rem;color:#666">The homeowner Home Assistant Add-on is always free and open source.</p>
       </div>
     </section>
 
