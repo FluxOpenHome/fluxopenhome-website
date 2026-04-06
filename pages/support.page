@@ -1,0 +1,189 @@
+<div class="support-page">
+
+  <!-- Hero -->
+  <section class="support-hero section-dark">
+    <div class="container">
+      <h1>Support &amp; Documentation</h1>
+      <p class="support-hero-subtitle">Find setup guides, troubleshooting help, and answers to common questions.</p>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="support-links section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Product Documentation</h2>
+        <p>Each product has its own setup guide and documentation on GitHub.</p>
+      </div>
+      <div class="support-link-grid">
+        <!-- Night Light -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/placeholder-nightlight.svg" alt="" class="support-link-thumb">
+            <h3>Night Light</h3>
+            <ul class="support-link-list">
+              <li><a href="https://github.com/FluxOpenHome/NightLight" target="_blank" rel="noopener">Setup Guide (GitHub)</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#effects" target="_blank" rel="noopener">Effects List</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#wled" target="_blank" rel="noopener">WLED Alternative Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#3d-printing" target="_blank" rel="noopener">3D Print Files</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Irrigation Controller -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/placeholder-irrigation.svg" alt="" class="support-link-thumb">
+            <h3>Irrigation Controller</h3>
+            <ul class="support-link-list">
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener">Setup &amp; Installation Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#troubleshooting" target="_blank" rel="noopener">Troubleshooting</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#rain-sensor" target="_blank" rel="noopener">Rain Sensor Configuration</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#expansion" target="_blank" rel="noopener">Expansion Board Setup</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- HA Add-on -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/icon-homeassistant.svg" alt="" class="support-link-thumb" style="padding:20px;background:#f8f9fa;border-radius:8px">
+            <h3>Home Assistant Add-on</h3>
+            <ul class="support-link-list">
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons" target="_blank" rel="noopener">Installation Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#weather" target="_blank" rel="noopener">Weather Rule Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#connection-keys" target="_blank" rel="noopener">Connection Keys</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#moisture" target="_blank" rel="noopener">Gophr Probe Setup</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Remote -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/placeholder-remote.svg" alt="" class="support-link-thumb">
+            <h3>Controller Remote</h3>
+            <ul class="support-link-list">
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote" target="_blank" rel="noopener">M5Stack Dial Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote#crowpanel" target="_blank" rel="noopener">CrowPanel Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote#firmware" target="_blank" rel="noopener">Firmware Updates</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gophr -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/placeholder-gophr.svg" alt="" class="support-link-thumb">
+            <h3>Gophr Soil Probe</h3>
+            <ul class="support-link-list">
+              <li><a href="https://github.com/FluxOpenHome/Gophr" target="_blank" rel="noopener">ESPHome Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/Gophr#zigbee" target="_blank" rel="noopener">Zigbee Protocol Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/Gophr#matter" target="_blank" rel="noopener">Matter Protocol Guide</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Management Dashboard -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/placeholder-enterprise.svg" alt="" class="support-link-thumb">
+            <h3>Management Dashboard</h3>
+            <ul class="support-link-list">
+              <li><a href="/enterprise">Getting Started</a></li>
+              <li><a href="/enterprise#how-it-works">Adding Properties</a></li>
+              <li><a href="/enterprise#pricing">Plans &amp; Pricing</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="support-faq section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need Home Assistant to use Flux products?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. While our products are designed to work beautifully with Home Assistant, the Irrigation Controller also comes in a Direct Connect version that connects directly to our cloud management platform without Home Assistant. The Night Light and Gophr probe can also be flashed with alternative firmware like WLED.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I 3D print the Night Light housing?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We provide STL files for the Night Light housing. You can buy just the circuit board from our store and print the housing yourself. The files are optimized for FDM printers and require no supports.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How many zones does the Irrigation Controller support?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>The base unit supports 8 zones. With expansion boards (MCP23017 I2C), you can expand up to 32 zones total. Zone 8 can also be configured as a master valve or pump start relay.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What protocols does the Gophr probe support?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Gophr supports three protocol options: ESPHome (WiFi, our primary recommendation), Zigbee (for mesh networks and extended range), and Matter (for broad smart home platform compatibility). Choose the variant that fits your setup when purchasing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is the Management Dashboard required?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely not. The management dashboard is entirely optional. All Flux products work independently with Home Assistant. The dashboard is a convenience layer for professionals who manage multiple properties &mdash; it does not gate any hardware functionality.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How do firmware updates work?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>All Flux devices support OTA (Over-the-Air) updates. When connected to Home Assistant, updates can be pushed from the ESPHome dashboard. The Night Light also has a built-in web server for direct browser-based updates, and GitHub-hosted firmware releases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="support-contact section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Still Need Help?</h2>
+        <p>Open a GitHub issue for technical support, or reach out directly.</p>
+      </div>
+      <div class="support-contact-grid">
+        <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="support-contact-card card">
+          <div class="card-body">
+            <img src="/assets/icon-github.svg" alt="" width="40" height="40" style="margin-bottom:16px">
+            <h4>GitHub Issues</h4>
+            <p>Open an issue on the relevant product repository for bugs, feature requests, or technical questions.</p>
+          </div>
+        </a>
+        <div class="support-contact-card card">
+          <div class="card-body">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2" style="margin-bottom:16px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <h4>Email Support</h4>
+            <p>For account, billing, or management dashboard questions, email us directly.</p>
+            <squarespace:block-field id="supportContact" columns="12" label="Contact Info" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

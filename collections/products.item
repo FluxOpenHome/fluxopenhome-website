@@ -1,0 +1,129 @@
+{.section item}
+<article class="product-detail">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="{collection.fullUrl}">Products</a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span aria-current="page">{title}</span>
+    </nav>
+
+    <!-- Product Main Section -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery -->
+      <div class="product-detail-images">
+        <div class="product-detail-main-image">
+          {.section assetUrl}
+            <img src="{@}" alt="{title}" />
+          {.or}
+            <div class="product-card-placeholder product-card-placeholder-lg">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
+          {.end}
+        </div>
+        <!-- Thumbnail strip populated by additional images in CMS -->
+        {.repeated section items}
+          <div class="product-detail-thumb">
+            <img src="{assetUrl}" alt="{title} view" loading="lazy" />
+          </div>
+        {.end}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-detail-info">
+        <!-- Tags/Badges -->
+        <div class="product-detail-badges">
+          {.repeated section tags}
+            {.equal? @ "open-source"}
+              <span class="badge badge-accent">Open Source</span>
+            {.end}
+            {.equal? @ "home-assistant"}
+              <span class="badge badge-accent">Home Assistant</span>
+            {.end}
+            {.equal? @ "direct-connect"}
+              <span class="badge badge-secondary">Direct Connect</span>
+            {.end}
+            {.equal? @ "esphome"}
+              <span class="badge badge-accent">ESPHome</span>
+            {.end}
+            {.equal? @ "3d-printable"}
+              <span class="badge badge-accent">3D Printable</span>
+            {.end}
+          {.end}
+        </div>
+
+        <h1 class="product-detail-title">{title}</h1>
+
+        <!-- Price -->
+        <div class="product-detail-price">
+          {@|product-price}
+        </div>
+
+        <!-- Description -->
+        <div class="product-detail-description">
+          {body}
+        </div>
+
+        <!-- Variants & Add to Cart -->
+        <div class="product-detail-checkout">
+          {@|product-checkout}
+        </div>
+
+        <!-- Quick Specs (inline) -->
+        <div class="product-detail-quick-specs">
+          {.repeated section tags}
+            {.equal? @ "esp32-s3"}
+              <div class="quick-spec">
+                <span class="quick-spec-label">MCU</span>
+                <span class="quick-spec-value">ESP32-S3</span>
+              </div>
+            {.end}
+            {.equal? @ "esp32-c3"}
+              <div class="quick-spec">
+                <span class="quick-spec-label">MCU</span>
+                <span class="quick-spec-value">ESP32-C3</span>
+              </div>
+            {.end}
+          {.end}
+        </div>
+      </div>
+    </div>
+
+    <!-- Extended Content Sections -->
+    <div class="product-detail-sections">
+      <!-- Specifications -->
+      <section class="product-section" id="specifications">
+        <h2>Specifications</h2>
+        <squarespace:block-field id="productSpecs-{id}" columns="12" label="Product Specifications" />
+      </section>
+
+      <!-- Features -->
+      <section class="product-section" id="features">
+        <h2>Features</h2>
+        <squarespace:block-field id="productFeatures-{id}" columns="12" label="Product Features" />
+      </section>
+
+      <!-- Resources & Downloads -->
+      <section class="product-section" id="resources">
+        <h2>Resources</h2>
+        <squarespace:block-field id="productResources-{id}" columns="12" label="Resources & Downloads" />
+      </section>
+    </div>
+
+    <!-- Related Products -->
+    <section class="product-related">
+      <div class="section-header">
+        <h2>Related Products</h2>
+        <p>Complete your setup with these accessories and companion devices.</p>
+      </div>
+      <squarespace:block-field id="relatedProducts-{id}" columns="12" label="Related Products" />
+    </section>
+  </div>
+</article>
+{.end}

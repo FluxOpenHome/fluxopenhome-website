@@ -1,0 +1,203 @@
+// ==============================================
+// Open Source Page
+// ==============================================
+
+// Hero
+.os-hero {
+  padding: @space-4xl 0;
+  background: linear-gradient(135deg, @primary 0%, @primary-light 100%);
+}
+
+.os-hero-content {
+  max-width: 700px;
+
+  h1 {
+    margin: @space-md 0;
+  }
+}
+
+.os-hero-subtitle {
+  font-size: @font-size-lg;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: @space-xl;
+}
+
+.os-hero-actions {
+  display: flex;
+  gap: @space-md;
+  flex-wrap: wrap;
+}
+
+// Protocol Icons
+.os-protocols {
+  padding: @space-3xl 0;
+}
+
+.os-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: @space-xl;
+  text-align: center;
+}
+
+.os-protocol-item {
+  padding: @space-lg;
+
+  img {
+    margin: 0 auto @space-md;
+  }
+
+  h4 {
+    margin-bottom: @space-sm;
+  }
+
+  p {
+    font-size: @font-size-sm;
+    color: @text-secondary;
+  }
+}
+
+// Repository Cards
+.os-repos {
+  padding: @space-4xl 0;
+}
+
+.os-repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: @space-lg;
+}
+
+.os-repo-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid @border;
+
+  &:hover {
+    color: inherit;
+    border-color: @accent;
+  }
+}
+
+.os-repo-header {
+  display: flex;
+  align-items: center;
+  gap: @space-sm;
+  margin-bottom: @space-md;
+  color: @text-secondary;
+}
+
+.os-repo-name {
+  font-size: @font-size-base;
+  font-weight: @font-weight-semi;
+  color: @accent;
+}
+
+.os-repo-desc {
+  font-size: @font-size-sm;
+  color: @text-secondary;
+  line-height: 1.6;
+  margin-bottom: @space-md;
+}
+
+.os-repo-meta {
+  display: flex;
+  align-items: center;
+  gap: @space-lg;
+  font-size: @font-size-xs;
+  color: @text-muted;
+}
+
+.os-repo-lang {
+  display: flex;
+  align-items: center;
+  gap: @space-xs;
+}
+
+.lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.lang-yaml { background-color: #cb171e; }
+.lang-python { background-color: #3572A5; }
+
+// HA Integration Section
+.os-ha-integration {
+  padding: @space-4xl 0;
+}
+
+.os-ha-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: @space-2xl;
+  align-items: center;
+}
+
+.os-ha-content {
+  h2 {
+    margin-bottom: @space-md;
+  }
+
+  > p {
+    color: @text-secondary;
+    margin-bottom: @space-lg;
+  }
+}
+
+.os-feature-list {
+  list-style: none;
+  margin-bottom: @space-xl;
+
+  li {
+    position: relative;
+    padding-left: @space-lg;
+    margin-bottom: @space-sm;
+    font-size: @font-size-sm;
+    color: @text-secondary;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: @accent;
+      opacity: 0.6;
+    }
+  }
+}
+
+.os-ha-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// DIY Section
+.os-diy {
+  padding: @space-4xl 0;
+}
+
+.os-diy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: @space-lg;
+}
+
+.os-diy-card {
+  border: 1px solid @border;
+
+  h3 {
+    margin-bottom: @space-sm;
+  }
+
+  p {
+    font-size: @font-size-sm;
+    color: @text-secondary;
+  }
+}

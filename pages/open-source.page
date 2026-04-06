@@ -1,0 +1,195 @@
+<div class="open-source-page">
+
+  <!-- Hero -->
+  <section class="os-hero section-dark">
+    <div class="container">
+      <div class="os-hero-content">
+        <span class="badge badge-accent">Open Source</span>
+        <h1>Built in the Open</h1>
+        <p class="os-hero-subtitle">Every Flux product ships with full source code, schematics, and 3D print files. No locked-down firmware. No cloud dependency. Your hardware, your rules.</p>
+        <div class="os-hero-actions">
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <img src="/assets/icon-github.svg" alt="" width="20" height="20" style="filter:brightness(10);margin-right:8px"> View on GitHub
+          </a>
+          <a href="#repos" class="btn btn-outline-white btn-lg">Explore Repos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocol Icons -->
+  <section class="os-protocols section-light">
+    <div class="container">
+      <div class="os-protocol-grid">
+        <div class="os-protocol-item">
+          <img src="/assets/icon-esphome.svg" alt="ESPHome" width="48" height="48">
+          <h4>ESPHome</h4>
+          <p>Native integration with the ESPHome ecosystem. Made for ESPHome certified.</p>
+        </div>
+        <div class="os-protocol-item">
+          <img src="/assets/icon-homeassistant.svg" alt="Home Assistant" width="48" height="48">
+          <h4>Home Assistant</h4>
+          <p>Seamless auto-discovery and dashboard integration. Local control, zero cloud.</p>
+        </div>
+        <div class="os-protocol-item">
+          <img src="/assets/icon-matter.svg" alt="Matter" width="48" height="48">
+          <h4>Matter</h4>
+          <p>Future-proof connectivity with Matter protocol support on select devices.</p>
+        </div>
+        <div class="os-protocol-item">
+          <img src="/assets/icon-zigbee.svg" alt="Zigbee" width="48" height="48">
+          <h4>Zigbee</h4>
+          <p>Low-power mesh networking for battery-operated sensors like Gophr.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Repositories -->
+  <section class="os-repos section" id="repos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Repositories</h2>
+        <p>All firmware, add-ons, and documentation are public on GitHub.</p>
+      </div>
+
+      <div class="os-repo-grid">
+        <!-- Irrigation Controller -->
+        <a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener" class="os-repo-card card">
+          <div class="card-body">
+            <div class="os-repo-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="os-repo-name">IrrigationController</span>
+            </div>
+            <p class="os-repo-desc">ESP32-S3 smart irrigation controller with 8-32 zones, weather-based scheduling, and rain sensor support.</p>
+            <div class="os-repo-meta">
+              <span class="os-repo-lang"><span class="lang-dot lang-yaml"></span> YAML</span>
+              <span class="os-repo-version">v1.2.7</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Night Light -->
+        <a href="https://github.com/FluxOpenHome/NightLight" target="_blank" rel="noopener" class="os-repo-card card">
+          <div class="card-body">
+            <div class="os-repo-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="os-repo-name">NightLight</span>
+            </div>
+            <p class="os-repo-desc">ESP32-C3 addressable LED night light with 16 WS2812 LEDs, 13 effects, and WLED compatibility.</p>
+            <div class="os-repo-meta">
+              <span class="os-repo-lang"><span class="lang-dot lang-yaml"></span> YAML</span>
+              <span class="os-repo-version">ESPHome</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- HA Add-on -->
+        <a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons" target="_blank" rel="noopener" class="os-repo-card card">
+          <div class="card-body">
+            <div class="os-repo-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="os-repo-name">ha-flux-irrigation-addons</span>
+            </div>
+            <p class="os-repo-desc">Home Assistant add-on with homeowner dashboard, weather-based smart irrigation, and Gophr probe integration.</p>
+            <div class="os-repo-meta">
+              <span class="os-repo-lang"><span class="lang-dot lang-python"></span> Python</span>
+              <span class="os-repo-version">v1.2.2</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Remote -->
+        <a href="https://github.com/FluxOpenHome/IrrigationControllerRemote" target="_blank" rel="noopener" class="os-repo-card card">
+          <div class="card-body">
+            <div class="os-repo-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="os-repo-name">IrrigationControllerRemote</span>
+            </div>
+            <p class="os-repo-desc">Wall-mounted touchscreen remote for irrigation control. Supports M5Stack Dial and Elecrow CrowPanel.</p>
+            <div class="os-repo-meta">
+              <span class="os-repo-lang"><span class="lang-dot lang-yaml"></span> YAML</span>
+              <span class="os-repo-version">v2.16.0</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Gophr -->
+        <a href="https://github.com/FluxOpenHome/Gophr" target="_blank" rel="noopener" class="os-repo-card card">
+          <div class="card-body">
+            <div class="os-repo-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="os-repo-name">Gophr</span>
+            </div>
+            <p class="os-repo-desc">Capacitive soil moisture probe with 3-depth sensing. ESPHome, Zigbee, and Matter protocol support.</p>
+            <div class="os-repo-meta">
+              <span class="os-repo-lang"><span class="lang-dot lang-yaml"></span> YAML</span>
+              <span class="os-repo-version">v1.4.5</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home Assistant Integration -->
+  <section class="os-ha-integration section-light">
+    <div class="container">
+      <div class="os-ha-grid">
+        <div class="os-ha-content">
+          <h2>Home Assistant Integration</h2>
+          <p>All Flux products are designed for seamless Home Assistant integration. Install the Flux Irrigation Add-on for advanced features:</p>
+          <ul class="os-feature-list">
+            <li>Weather-based smart irrigation with 9 configurable rules</li>
+            <li>Gophr moisture probe monitoring and automated watering decisions</li>
+            <li>Homeowner dashboard with zone scheduling and control</li>
+            <li>Rain sensor management with configurable delay (1-72 hours)</li>
+            <li>PDF system reports for water usage tracking</li>
+            <li>Connection key sharing for management company access</li>
+          </ul>
+          <a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons" target="_blank" rel="noopener" class="btn btn-primary">Install Add-on</a>
+        </div>
+        <div class="os-ha-image">
+          <img src="/assets/icon-homeassistant.svg" alt="Home Assistant" width="200" height="200" style="opacity:0.6">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIY / 3D Printing -->
+  <section class="os-diy section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Build It Yourself</h2>
+        <p>Buy just the circuit board and 3D print the housing yourself. We provide all the files you need.</p>
+      </div>
+      <div class="os-diy-grid">
+        <div class="os-diy-card card">
+          <div class="card-body">
+            <h3>3D Print Files</h3>
+            <p>STL files for Night Light housings and accessories. Optimized for FDM printers with no supports needed.</p>
+          </div>
+        </div>
+        <div class="os-diy-card card">
+          <div class="card-body">
+            <h3>Firmware Source</h3>
+            <p>Full ESPHome YAML configs. Customize effects, GPIO pins, or add your own features.</p>
+          </div>
+        </div>
+        <div class="os-diy-card card">
+          <div class="card-body">
+            <h3>Community Support</h3>
+            <p>Open GitHub issues for help. Contribute improvements. Fork and make it your own.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS Editable Block -->
+  <section class="section">
+    <div class="container">
+      <squarespace:block-field id="openSourceExtra" columns="12" label="Additional Open Source Content" />
+    </div>
+  </section>
+</div>

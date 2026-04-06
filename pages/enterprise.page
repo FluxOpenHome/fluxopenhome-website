@@ -1,0 +1,293 @@
+<div class="enterprise-page">
+
+  <!-- Hero -->
+  <section class="ent-hero section-dark">
+    <div class="container">
+      <div class="ent-hero-content">
+        <span class="badge badge-secondary">For Business</span>
+        <h1>Professional Irrigation Management</h1>
+        <p class="ent-hero-subtitle">Built on the same open source foundation. Scaled for lawn care companies, property managers, and commercial operations.</p>
+        <div class="ent-hero-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg">View Plans</a>
+          <a href="#how-it-works" class="btn btn-outline-white btn-lg">How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two Paths -->
+  <section class="ent-paths section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Same Hardware. Your Choice of Control.</h2>
+        <p>Every Flux irrigation controller runs the same open firmware. Choose the management layer that fits your needs.</p>
+      </div>
+      <div class="ent-paths-grid">
+        <!-- Homeowner Path -->
+        <div class="ent-path-card card">
+          <div class="card-body">
+            <div class="ent-path-icon">
+              <img src="/assets/icon-homeassistant.svg" alt="" width="48" height="48">
+            </div>
+            <h3>Homeowner / DIY</h3>
+            <ul class="ent-path-features">
+              <li>Home Assistant Add-on</li>
+              <li>100% local control</li>
+              <li>Full source code access</li>
+              <li>Weather-based scheduling</li>
+              <li>Gophr probe integration</li>
+              <li>Free forever</li>
+            </ul>
+            <div class="ent-path-cta">
+              <a href="/open-source" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Path -->
+        <div class="ent-path-card ent-path-card-featured card">
+          <div class="card-body">
+            <span class="badge badge-secondary">For Teams</span>
+            <div class="ent-path-icon">
+              <img src="/assets/placeholder-enterprise.svg" alt="" width="48" height="48" style="border-radius:8px">
+            </div>
+            <h3>Management Company</h3>
+            <ul class="ent-path-features">
+              <li>Cloud management dashboard</li>
+              <li>Multi-property monitoring</li>
+              <li>Team accounts &amp; roles</li>
+              <li>Remote zone control</li>
+              <li>PDF reports &amp; analytics</li>
+              <li>Issue tracking &amp; scheduling</li>
+            </ul>
+            <div class="ent-path-cta">
+              <a href="#pricing" class="btn btn-secondary">View Plans</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="ent-features section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Management Dashboard Features</h2>
+        <p>Everything you need to manage irrigation across your entire portfolio.</p>
+      </div>
+      <div class="ent-feature-grid">
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h4>Multi-Property Dashboard</h4>
+          <p>Monitor every property from a single view. Live status indicators, alerts, and zone activity at a glance.</p>
+        </div>
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>Remote Zone Control</h4>
+          <p>Start, stop, and adjust zones from anywhere. Override schedules and set manual run times remotely.</p>
+        </div>
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          </div>
+          <h4>PDF Reports</h4>
+          <p>Generate professional system reports for customers. Water usage, zone activity, and maintenance history.</p>
+        </div>
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Team Accounts</h4>
+          <p>Role-based access for your crew. Assign properties, track service visits, and manage permissions.</p>
+        </div>
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M2 10h20"/></svg>
+          </div>
+          <h4>QR Onboarding</h4>
+          <p>Scan a QR code to add a new property. Connection keys link the homeowner's system to your dashboard.</p>
+        </div>
+        <div class="ent-feature-item">
+          <div class="ent-feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h4>Issue Tracking</h4>
+          <p>Log issues, schedule service visits, and track resolution. Keep your team and customers in the loop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="ent-how section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Connect any Flux irrigation controller to the management dashboard in three steps.</p>
+      </div>
+      <div class="ent-steps">
+        <div class="ent-step">
+          <div class="ent-step-number">1</div>
+          <h3>Install the Controller</h3>
+          <p>Set up the Flux Irrigation Controller at the property. Works with the Home Assistant Add-on or Direct Connect firmware.</p>
+        </div>
+        <div class="ent-step-connector" aria-hidden="true"></div>
+        <div class="ent-step">
+          <div class="ent-step-number">2</div>
+          <h3>Generate a Connection Key</h3>
+          <p>The homeowner generates a connection key from their HA Add-on. Or use Direct Connect for properties without Home Assistant.</p>
+        </div>
+        <div class="ent-step-connector" aria-hidden="true"></div>
+        <div class="ent-step">
+          <div class="ent-step-number">3</div>
+          <h3>Manage from Your Dashboard</h3>
+          <p>Add the property to your dashboard via key or QR scan. Full remote monitoring and control from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Connect -->
+  <section class="ent-direct section-light">
+    <div class="container">
+      <div class="ent-direct-grid">
+        <div class="ent-direct-content">
+          <span class="badge badge-secondary">Direct Connect</span>
+          <h2>No Home Assistant Required</h2>
+          <p>For commercial installs where simplicity matters, the Direct Connect version of the Flux Irrigation Controller connects straight to the cloud management dashboard via WiFi.</p>
+          <ul class="os-feature-list">
+            <li>Same ESP32-S3 hardware, different firmware</li>
+            <li>WebSocket connection to the management server</li>
+            <li>Full zone control, scheduling, and weather rules</li>
+            <li>Ideal for new construction and commercial properties</li>
+            <li>Same open hardware design &mdash; firmware source available</li>
+          </ul>
+        </div>
+        <div class="ent-direct-image">
+          <img src="/assets/placeholder-irrigation.svg" alt="Flux Irrigation Controller" style="max-width:300px">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="ent-pricing section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Start free. Scale when you're ready.</p>
+      </div>
+      <div class="ent-pricing-grid">
+        <!-- Free -->
+        <div class="ent-pricing-card card">
+          <div class="card-body">
+            <h3>Free</h3>
+            <div class="ent-pricing-price">
+              <span class="ent-pricing-amount">$0</span>
+              <span class="ent-pricing-period">/month</span>
+            </div>
+            <p class="ent-pricing-desc">For getting started</p>
+            <ul class="ent-pricing-features">
+              <li>Up to 5 properties</li>
+              <li>Basic zone control</li>
+              <li>Weather monitoring</li>
+              <li>Email support</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%">Get Started</a>
+          </div>
+        </div>
+        <!-- Pro -->
+        <div class="ent-pricing-card ent-pricing-card-featured card">
+          <div class="card-body">
+            <span class="badge badge-secondary" style="margin-bottom:12px">Most Popular</span>
+            <h3>Pro</h3>
+            <div class="ent-pricing-price">
+              <span class="ent-pricing-amount">Contact</span>
+            </div>
+            <p class="ent-pricing-desc">Up to 25 properties</p>
+            <ul class="ent-pricing-features">
+              <li>Everything in Free</li>
+              <li>PDF reports</li>
+              <li>Team accounts (3 users)</li>
+              <li>Issue tracking</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="#" class="btn btn-secondary" style="width:100%">Contact Sales</a>
+          </div>
+        </div>
+        <!-- Business -->
+        <div class="ent-pricing-card card">
+          <div class="card-body">
+            <h3>Business</h3>
+            <div class="ent-pricing-price">
+              <span class="ent-pricing-amount">Contact</span>
+            </div>
+            <p class="ent-pricing-desc">Up to 100 properties</p>
+            <ul class="ent-pricing-features">
+              <li>Everything in Pro</li>
+              <li>Unlimited team accounts</li>
+              <li>Portfolio analytics</li>
+              <li>API access</li>
+              <li>Dedicated support</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%">Contact Sales</a>
+          </div>
+        </div>
+        <!-- Enterprise -->
+        <div class="ent-pricing-card card">
+          <div class="card-body">
+            <h3>Enterprise</h3>
+            <div class="ent-pricing-price">
+              <span class="ent-pricing-amount">Custom</span>
+            </div>
+            <p class="ent-pricing-desc">Unlimited properties</p>
+            <ul class="ent-pricing-features">
+              <li>Everything in Business</li>
+              <li>Custom integrations</li>
+              <li>SLA guarantee</li>
+              <li>On-premise deployment</li>
+              <li>White-label options</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width:100%">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Commitment -->
+  <section class="ent-trust section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Open Source Commitment</h2>
+        <p>The management dashboard is a convenience layer, not a control gate.</p>
+      </div>
+      <div class="ent-trust-grid">
+        <div class="ent-trust-item">
+          <h4>Your Data Stays Local</h4>
+          <p>The Home Assistant Add-on keeps all data on the homeowner's hardware. The management dashboard only sees what they explicitly share via connection key.</p>
+        </div>
+        <div class="ent-trust-item">
+          <h4>No Vendor Lock-in</h4>
+          <p>All Flux hardware runs open firmware. If you leave the management platform, your controllers keep working exactly as before.</p>
+        </div>
+        <div class="ent-trust-item">
+          <h4>The HA Add-on Is Always Free</h4>
+          <p>Homeowners never pay for local control. The Home Assistant Add-on with all its features is free and open source, permanently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS Block -->
+  <section class="section">
+    <div class="container">
+      <squarespace:block-field id="enterpriseExtra" columns="12" label="Additional Enterprise Content" />
+    </div>
+  </section>
+</div>

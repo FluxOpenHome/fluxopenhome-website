@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="24" r="22" fill="#EB0443" opacity="0.05"/>
+  <!-- Zigbee zigzag symbol -->
+  <path d="M14 14h20L14 34h20" stroke="#EB0443" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

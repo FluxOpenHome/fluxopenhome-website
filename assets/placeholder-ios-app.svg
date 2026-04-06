@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <!-- iPhone outline -->
+  <rect x="140" y="15" width="120" height="258" rx="20" fill="#1a1a2e" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Screen -->
+  <rect x="146" y="35" width="108" height="218" rx="4" fill="#0d1117"/>
+  <!-- Dynamic Island -->
+  <rect x="178" y="20" width="44" height="12" rx="6" fill="#000"/>
+  <!-- Status bar -->
+  <text x="158" y="48" font-family="monospace" font-size="7" fill="#999">9:41</text>
+  <text x="242" y="48" text-anchor="end" font-family="monospace" font-size="7" fill="#999">100%</text>
+  <!-- App header -->
+  <rect x="146" y="52" width="108" height="28" fill="#16213e"/>
+  <text x="200" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#ffffff">Flux Controller</text>
+  <!-- Zone list -->
+  <g font-family="Inter, sans-serif">
+    <!-- Zone 1 -->
+    <rect x="152" y="88" width="96" height="30" rx="4" fill="#ffffff" opacity="0.05"/>
+    <circle cx="166" cy="103" r="6" fill="#0f9b58"/>
+    <text x="178" y="100" font-size="8" fill="#ffffff">Front Lawn</text>
+    <text x="178" y="110" font-size="6" fill="#999">12 min remaining</text>
+    <!-- Zone 2 -->
+    <rect x="152" y="124" width="96" height="30" rx="4" fill="#ffffff" opacity="0.05"/>
+    <circle cx="166" cy="139" r="6" fill="#4a90d9" opacity="0.5"/>
+    <text x="178" y="136" font-size="8" fill="#ffffff">Back Yard</text>
+    <text x="178" y="146" font-size="6" fill="#999">Scheduled 9:00 AM</text>
+    <!-- Zone 3 -->
+    <rect x="152" y="160" width="96" height="30" rx="4" fill="#ffffff" opacity="0.05"/>
+    <circle cx="166" cy="175" r="6" fill="#666" opacity="0.3"/>
+    <text x="178" y="172" font-size="8" fill="#ffffff">Garden Beds</text>
+    <text x="178" y="182" font-size="6" fill="#999">Off</text>
+    <!-- Zone 4 -->
+    <rect x="152" y="196" width="96" height="30" rx="4" fill="#ffffff" opacity="0.05"/>
+    <circle cx="166" cy="211" r="6" fill="#666" opacity="0.3"/>
+    <text x="178" y="208" font-size="8" fill="#ffffff">Side Yard</text>
+    <text x="178" y="218" font-size="6" fill="#999">Off</text>
+  </g>
+  <!-- Bottom nav bar -->
+  <rect x="146" y="232" width="108" height="21" fill="#16213e"/>
+  <text x="167" y="245" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#0f9b58">Zones</text>
+  <text x="200" y="245" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#666">Schedule</text>
+  <text x="233" y="245" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#666">Settings</text>
+  <!-- Home indicator -->
+  <rect x="182" y="248" width="36" height="3" rx="1.5" fill="#ffffff" opacity="0.3"/>
+  <!-- Label -->
+  <text x="200" y="290" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Flux Controller for iOS</text>
+</svg>

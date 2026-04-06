@@ -1,0 +1,141 @@
+<div class="homepage">
+
+  <!-- Hero -->
+  <section class="homepage-hero">
+    <div class="homepage-hero-pattern" aria-hidden="true"></div>
+    <div class="container">
+      <div class="homepage-hero-content">
+        <h1>Open Source Smart Home Products</h1>
+        <p class="homepage-hero-subtitle">Built on ESPHome. Designed for Home Assistant. Open to everyone. From smart lighting to intelligent irrigation, Flux Open Home makes smart home hardware that you truly own.</p>
+        <div class="homepage-hero-actions">
+          <a href="/store" class="btn btn-primary btn-lg">Explore Products</a>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Highlights -->
+  <section class="product-highlights">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Products</h2>
+        <p>Open source hardware for your smart home. Buy assembled or build it yourself.</p>
+      </div>
+      <div class="product-highlights-grid">
+        <!-- Night Light -->
+        <a href="/products/night-light" class="highlight-card card">
+          <div class="highlight-card-image">
+            <img src="/assets/placeholder-nightlight.svg" alt="Flux Night Light">
+          </div>
+          <div class="card-body">
+            <h3 class="highlight-card-title">Night Light</h3>
+            <p class="highlight-card-desc">16 addressable LEDs with 13 built-in effects. Board-only or fully assembled.</p>
+          </div>
+        </a>
+        <!-- Irrigation Controller -->
+        <a href="/products/irrigation-controller" class="highlight-card card">
+          <div class="highlight-card-image">
+            <img src="/assets/placeholder-irrigation.svg" alt="Flux Irrigation Controller">
+          </div>
+          <div class="card-body">
+            <h3 class="highlight-card-title">Irrigation Controller</h3>
+            <p class="highlight-card-desc">8-32 zone smart irrigation with weather-based scheduling and rain sensor support.</p>
+          </div>
+        </a>
+        <!-- Controller Remote -->
+        <a href="/products/irrigation-remote" class="highlight-card card">
+          <div class="highlight-card-image">
+            <img src="/assets/placeholder-remote.svg" alt="Flux Controller Remote">
+          </div>
+          <div class="card-body">
+            <h3 class="highlight-card-title">Controller Remote</h3>
+            <p class="highlight-card-desc">Wall-mounted touchscreen for quick zone control. M5Stack Dial and CrowPanel variants.</p>
+          </div>
+        </a>
+        <!-- Gophr Probe -->
+        <a href="/products/gophr-probe" class="highlight-card card">
+          <div class="highlight-card-image">
+            <img src="/assets/placeholder-gophr.svg" alt="Gophr Soil Moisture Probe">
+          </div>
+          <div class="card-body">
+            <h3 class="highlight-card-title">Gophr Probe</h3>
+            <p class="highlight-card-desc">3-depth soil moisture sensing with solar charging. ESPHome, Zigbee, and Matter.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Mission -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content">
+          <h2>Built in the Open</h2>
+          <p>Every Flux product ships with full source code. No locked-down firmware, no mandatory cloud subscriptions, no vendor lock-in. Your hardware runs on your network, under your control.</p>
+          <p>We provide the circuit boards, the firmware, and the 3D print files. You decide how to build it, how to run it, and how to extend it.</p>
+          <a href="/open-source" class="btn btn-outline">Our Open Source Repos</a>
+        </div>
+        <div class="mission-icons">
+          <div class="mission-icon-item">
+            <img src="/assets/icon-esphome.svg" alt="ESPHome">
+            <span>ESPHome</span>
+          </div>
+          <div class="mission-icon-item">
+            <img src="/assets/icon-homeassistant.svg" alt="Home Assistant">
+            <span>Home Assistant</span>
+          </div>
+          <div class="mission-icon-item">
+            <img src="/assets/icon-github.svg" alt="GitHub">
+            <span>GitHub</span>
+          </div>
+          <div class="mission-icon-item">
+            <img src="/assets/icon-matter.svg" alt="Matter">
+            <span>Matter</span>
+          </div>
+          <div class="mission-icon-item">
+            <img src="/assets/icon-zigbee.svg" alt="Zigbee">
+            <span>Zigbee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Teaser -->
+  <section class="enterprise-teaser">
+    <div class="container">
+      <div class="enterprise-teaser-content">
+        <span class="badge badge-secondary">For Business</span>
+        <h2>Professional Irrigation Management</h2>
+        <p>The same open source hardware, scaled for lawn care companies and property managers. Multi-property dashboards, team accounts, and remote monitoring &mdash; built on the same platform homeowners trust.</p>
+        <a href="/enterprise" class="btn btn-outline-white btn-lg">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- iOS App Teaser -->
+  <section class="section">
+    <div class="container">
+      <div class="app-hero-grid" style="align-items:center">
+        <div>
+          <span class="badge badge-accent">iOS App</span>
+          <h2 style="margin:12px 0">Flux Controller for iOS</h2>
+          <p class="text-muted">Control your irrigation system from your iPhone. Works with Home Assistant and Direct Connect controllers. Zone control, scheduling, weather monitoring, and Gophr probe readings.</p>
+          <a href="/ios-app" class="btn btn-primary" style="margin-top:16px">Learn More</a>
+        </div>
+        <div style="text-align:center">
+          <img src="/assets/placeholder-ios-app.svg" alt="Flux Controller iOS App" style="max-width:220px;margin:0 auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMS Editable -->
+  <section class="section">
+    <div class="container">
+      <squarespace:block-field id="homeExtra" columns="12" label="Additional Homepage Content" />
+    </div>
+  </section>
+</div>

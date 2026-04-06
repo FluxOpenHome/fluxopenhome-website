@@ -1,0 +1,93 @@
+// ==============================================
+// Site Footer
+// ==============================================
+
+.site-footer {
+  background-color: @surface-dark;
+  color: rgba(255, 255, 255, 0.7);
+  padding: @space-4xl 0 @space-xl;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: @space-2xl;
+  margin-bottom: @space-2xl;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  margin-bottom: @space-md;
+  opacity: 0.9;
+}
+
+.footer-tagline {
+  font-size: @font-size-sm;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: @space-lg;
+}
+
+.footer-social {
+  display: flex;
+  gap: @space-md;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: @radius-md;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color @transition-fast, background-color @transition-fast;
+
+    &:hover {
+      color: @text-inverse;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.footer-heading {
+  font-size: @font-size-sm;
+  font-weight: @font-weight-semi;
+  color: @text-inverse;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: @space-lg;
+}
+
+.footer-links {
+  li {
+    margin-bottom: @space-sm;
+  }
+
+  a {
+    font-size: @font-size-sm;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color @transition-fast;
+
+    &:hover {
+      color: @text-inverse;
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: @space-xl;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: @font-size-xs;
+  color: rgba(255, 255, 255, 0.35);
+}

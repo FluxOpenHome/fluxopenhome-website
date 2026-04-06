@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <!-- Ground line -->
+  <rect x="40" y="100" width="320" height="2" fill="#e2e8f0"/>
+  <!-- Soil gradient -->
+  <defs>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B7355" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5C4033" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="102" width="320" height="170" fill="url(#soil)"/>
+  <!-- Probe body (above ground) -->
+  <rect x="188" y="50" width="24" height="55" rx="6" fill="#1a1a2e"/>
+  <!-- Solar panel -->
+  <rect x="183" y="40" width="34" height="12" rx="2" fill="#4a90d9"/>
+  <line x1="191" y1="42" x2="191" y2="50" stroke="#16213e" stroke-width="0.5"/>
+  <line x1="200" y1="42" x2="200" y2="50" stroke="#16213e" stroke-width="0.5"/>
+  <line x1="209" y1="42" x2="209" y2="50" stroke="#16213e" stroke-width="0.5"/>
+  <!-- Status LED -->
+  <circle cx="200" cy="65" r="3" fill="#0f9b58"/>
+  <!-- Probe stake (below ground) -->
+  <rect x="194" y="102" width="12" height="140" rx="2" fill="#1a1a2e"/>
+  <!-- Sensor lines at 3 depths -->
+  <!-- Shallow -->
+  <line x1="180" y1="130" x2="220" y2="130" stroke="#0f9b58" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="228" y="134" font-family="monospace" font-size="10" fill="#0f9b58">Shallow</text>
+  <text x="152" y="134" text-anchor="end" font-family="monospace" font-size="9" fill="#666">72%</text>
+  <!-- Mid -->
+  <line x1="180" y1="175" x2="220" y2="175" stroke="#4a90d9" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="228" y="179" font-family="monospace" font-size="10" fill="#4a90d9">Mid</text>
+  <text x="152" y="179" text-anchor="end" font-family="monospace" font-size="9" fill="#666">58%</text>
+  <!-- Deep -->
+  <line x1="180" y1="220" x2="220" y2="220" stroke="#f0ad4e" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="228" y="224" font-family="monospace" font-size="10" fill="#f0ad4e">Deep</text>
+  <text x="152" y="224" text-anchor="end" font-family="monospace" font-size="9" fill="#666">45%</text>
+  <!-- Probe tip -->
+  <polygon points="194,242 206,242 200,255" fill="#1a1a2e"/>
+  <!-- Label -->
+  <text x="200" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Gophr Soil Moisture Probe</text>
+</svg>

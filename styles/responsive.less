@@ -1,0 +1,222 @@
+// ==============================================
+// Responsive Styles (Mobile-First Overrides)
+// ==============================================
+
+// ---- Mobile (default, <768px) ----
+// Base styles are already mobile-friendly.
+// These overrides handle grid collapses.
+
+@media (max-width: @mobile-max) {
+  // Typography
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+
+  // Layout
+  .section { padding: @space-2xl 0; }
+  .section-lg { padding: @space-3xl 0; }
+  .container { padding: 0 @space-md; }
+
+  // Grids collapse to single column
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  // Homepage hero
+  .homepage-hero {
+    min-height: auto;
+    padding: @space-3xl 0;
+  }
+
+  .homepage-hero-content h1 {
+    font-size: 2.25rem;
+  }
+
+  // Product highlights
+  .product-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: @space-md;
+  }
+
+  // Product grid
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Product detail
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-detail-images {
+    position: static;
+  }
+
+  // Open source
+  .os-protocol-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .os-repo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .os-ha-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .os-ha-image {
+    display: none;
+  }
+
+  .os-diy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Enterprise
+  .ent-paths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ent-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ent-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ent-step-connector {
+    width: 2px;
+    height: 30px;
+    margin: 0;
+  }
+
+  .ent-direct-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ent-direct-image {
+    order: -1;
+  }
+
+  .ent-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ent-pricing-card-featured {
+    transform: none;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .ent-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // iOS App
+  .app-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .app-hero-actions {
+    justify-content: center;
+  }
+
+  .app-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-compat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Support
+  .support-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Footer
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: @space-xl;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: @space-sm;
+    text-align: center;
+  }
+
+  // Mission
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ---- Tablet (768px - 1023px) ----
+@media (min-width: @tablet-min) and (max-width: @tablet-max) {
+  // Product grid
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Product highlights
+  .product-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Enterprise features
+  .ent-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Pricing
+  .ent-pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // App features
+  .app-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Support links
+  .support-link-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Footer
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: @space-xl;
+  }
+
+  // Open source
+  .os-repo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ---- Desktop (1024px+) ----
+@media (min-width: @desktop-min) {
+  .section-lg {
+    padding: @space-4xl 0;
+  }
+}
+
+// ---- Wide (1280px+) ----
+@media (min-width: @wide-min) {
+  .homepage-hero-content h1 {
+    font-size: 4rem;
+  }
+}

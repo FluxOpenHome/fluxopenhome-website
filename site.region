@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="{website.siteDescription}">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {squarespace-headers}
+</head>
+<body id="{squarespace.page-id}" class="{squarespace.page-classes}">
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <a href="/" class="logo" aria-label="{website.siteTitle} - Home">
+        <img src="/assets/flux-logo.svg" alt="{website.siteTitle}" class="logo-default" width="160" height="40">
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <squarespace:navigation navigationId="mainNav" template="site-navigation" />
+      </nav>
+
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm header-cta">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo">
+        <img src="/assets/flux-logo.svg" alt="{website.siteTitle}" width="140" height="35">
+      </a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <squarespace:navigation navigationId="mainNav" template="site-navigation" />
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content-container" role="main" data-content-field="main-content">
+    {squarespace.main-content}
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <img src="/assets/flux-logo-white.svg" alt="{website.siteTitle}" class="footer-logo" width="140" height="35">
+          <p class="footer-tagline">Open source smart home products built on ESPHome and designed for Home Assistant.</p>
+          <div class="footer-social">
+            <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Products Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/store">Store</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/open-source">Open Source</a></li>
+            <li><a href="/enterprise">For Business</a></li>
+            <li><a href="/ios-app">iOS App</a></li>
+            <li><a href="/support">Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Community Column -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Community</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home Assistant</a></li>
+            <li><a href="https://esphome.io/" target="_blank" rel="noopener">ESPHome</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 {website.siteTitle}. All rights reserved.</p>
+        <squarespace:block-field id="footerBlocks" columns="12" label="Footer Content" />
+      </div>
+    </div>
+  </footer>
+
+  <squarespace:script src="site.js" combo="true" />
+  {squarespace-footers}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="product-card">
+  <a href="{fullUrl}" class="product-card-link">
+    <div class="product-card-image">
+      {.section assetUrl}
+        <img src="{@}" alt="{title}" loading="lazy" />
+      {.or}
+        <div class="product-card-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+        </div>
+      {.end}
+    </div>
+    <div class="product-card-body">
+      <h3 class="product-card-title">{title}</h3>
+      <p class="product-card-excerpt">{excerpt}</p>
+      <div class="product-card-footer">
+        <span class="product-card-price">{@|product-price}</span>
+        <span class="btn btn-outline btn-sm">View Details</span>
+      </div>
+    </div>
+  </a>
+</div>

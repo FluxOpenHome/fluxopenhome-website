@@ -1,0 +1,11 @@
+{.repeated section items}
+  {.section collection}
+    <a href="{fullUrl}" class="nav-link{.if active} active{.end}">{navigationTitle}</a>
+  {.or}
+    {.section externalLink}
+      <a href="{url}" class="nav-link" target="_blank" rel="noopener">{title}</a>
+    {.or}
+      <a href="/{urlId}" class="nav-link{.if active} active{.end}">{title}</a>
+    {.end}
+  {.end}
+{.end}

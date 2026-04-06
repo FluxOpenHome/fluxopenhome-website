@@ -1,0 +1,152 @@
+// ==============================================
+// Products Page & Product Cards
+// ==============================================
+
+.products-page {
+  padding: @space-4xl 0;
+}
+
+.products-header {
+  margin-bottom: @space-2xl;
+}
+
+// Filter Tabs
+.product-filter {
+  display: flex;
+  gap: @space-sm;
+  margin-bottom: @space-2xl;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: @space-xs;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.filter-tab {
+  padding: @space-sm @space-lg;
+  font-size: @font-size-sm;
+  font-weight: @font-weight-medium;
+  color: @text-secondary;
+  background: @bg-white;
+  border: 1px solid @border;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: all @transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    color: @text-primary;
+    border-color: @text-primary;
+  }
+
+  &.active {
+    color: @text-inverse;
+    background-color: @primary;
+    border-color: @primary;
+  }
+}
+
+// Product Grid
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: @space-lg;
+}
+
+// Product Card
+.product-card {
+  background: @bg-white;
+  border-radius: @radius-lg;
+  border: 1px solid @border;
+  overflow: hidden;
+  transition: box-shadow @transition-normal, transform @transition-normal;
+
+  &:hover {
+    box-shadow: @shadow-md;
+    transform: translateY(-4px);
+
+    .product-card-image img {
+      transform: scale(1.03);
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.product-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.product-card-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: @bg-light;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform @transition-slow;
+  }
+}
+
+.product-card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: @bg-light;
+}
+
+.product-card-body {
+  padding: @space-lg;
+}
+
+.product-card-title {
+  font-size: @font-size-lg;
+  font-weight: @font-weight-semi;
+  margin: @space-sm 0;
+  color: @text-primary;
+}
+
+.product-card-excerpt {
+  font-size: @font-size-sm;
+  color: @text-secondary;
+  line-height: 1.5;
+  margin-bottom: @space-md;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: @space-md;
+  border-top: 1px solid @border;
+}
+
+.product-card-price {
+  font-size: @font-size-lg;
+  font-weight: @font-weight-bold;
+  color: @text-primary;
+}
+
+// Badge spacing within cards
+.product-card-body .badge {
+  margin-bottom: @space-xs;
+}
