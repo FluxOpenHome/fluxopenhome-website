@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" fill="none">
+  <defs>
+    <marker id="arrowHA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#0f9b58"/>
+    </marker>
+    <filter id="shadowHA" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="520" fill="#ffffff" rx="16"/>
+
+  <!-- Title -->
+  <text x="350" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a1a2e">Home Assistant Architecture</text>
+  <text x="350" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#666">100% Local Control — No Cloud Required</text>
+
+  <!-- ============ CENTER: Home Assistant Hub ============ -->
+  <rect x="230" y="180" width="240" height="100" rx="16" fill="#1a1a2e" filter="url(#shadowHA)"/>
+  <rect x="230" y="180" width="240" height="100" rx="16" fill="none" stroke="#0f9b58" stroke-width="2"/>
+  <!-- HA Icon -->
+  <circle cx="280" cy="220" r="18" fill="#18BCF2" opacity="0.15"/>
+  <path d="M280 208l-10 8.5v10a1.2 1.2 0 001.2 1.2h4.8v-6h8v6h4.8a1.2 1.2 0 001.2-1.2v-10z" fill="#18BCF2"/>
+  <text x="310" y="216" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Home Assistant</text>
+  <text x="310" y="234" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">+ Flux Irrigation Add-on</text>
+  <!-- Local badge -->
+  <rect x="310" y="248" width="60" height="18" rx="9" fill="#0f9b58" opacity="0.2"/>
+  <text x="340" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#0f9b58">LOCAL</text>
+
+  <!-- ============ DEVICES (Top Row) ============ -->
+  <!-- Irrigation Controller -->
+  <rect x="40" y="80" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowHA)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="52" y="92" width="16" height="16" rx="3" fill="#1a1a2e"/>
+  <text x="56" y="103" font-family="monospace" font-size="5" fill="#0f9b58">IC</text>
+  <text x="74" y="100" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Irrigation</text>
+  <text x="74" y="114" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Controller</text>
+  <text x="105" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">8-32 Zones</text>
+
+  <!-- Remote Control -->
+  <rect x="530" y="80" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowHA)" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="560" cy="105" r="12" fill="#1a1a2e"/>
+  <circle cx="560" cy="105" r="8" fill="#16213e"/>
+  <text x="578" y="100" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Controller</text>
+  <text x="578" y="114" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Remote</text>
+  <text x="595" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">Touchscreen</text>
+
+  <!-- ============ DEVICES (Bottom Row) ============ -->
+  <!-- Gophr Probe -->
+  <rect x="40" y="320" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowHA)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="58" y="335" width="8" height="30" rx="2" fill="#1a1a2e"/>
+  <line x1="52" y1="345" x2="70" y2="345" stroke="#0f9b58" stroke-width="2"/>
+  <line x1="52" y1="352" x2="70" y2="352" stroke="#4a90d9" stroke-width="2"/>
+  <line x1="52" y1="359" x2="70" y2="359" stroke="#f0ad4e" stroke-width="2"/>
+  <text x="78" y="345" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Gophr</text>
+  <text x="78" y="359" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Probe</text>
+  <text x="105" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">3-Depth Moisture</text>
+
+  <!-- TPH Sensor -->
+  <rect x="530" y="320" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowHA)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="548" y="334" width="20" height="14" rx="2" fill="#1a1a2e"/>
+  <text x="558" y="344" text-anchor="middle" font-family="monospace" font-size="5" fill="#0f9b58">BME</text>
+  <text x="574" y="345" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">TPH</text>
+  <text x="574" y="359" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Sensor</text>
+  <text x="595" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">Temp / Pressure / Humidity</text>
+
+  <!-- ============ WiFi CONNECTIONS ============ -->
+  <!-- Irrigation Controller → HA -->
+  <path d="M170 120 Q200 120 220 160 Q235 190 230 210" stroke="#0f9b58" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowHA)"/>
+  <text x="180" y="158" font-family="Inter, sans-serif" font-size="8" fill="#0f9b58" transform="rotate(-40, 180, 158)">WiFi</text>
+
+  <!-- Remote → HA -->
+  <path d="M530 120 Q500 120 480 160 Q465 190 470 210" stroke="#0f9b58" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowHA)"/>
+  <text x="505" y="158" font-family="Inter, sans-serif" font-size="8" fill="#0f9b58" transform="rotate(40, 505, 158)">WiFi</text>
+
+  <!-- Gophr → HA -->
+  <path d="M170 350 Q200 340 220 310 Q235 285 235 270" stroke="#0f9b58" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowHA)"/>
+  <text x="180" y="316" font-family="Inter, sans-serif" font-size="8" fill="#0f9b58" transform="rotate(40, 180, 316)">WiFi</text>
+
+  <!-- TPH → HA -->
+  <path d="M530 350 Q500 340 480 310 Q465 285 465 270" stroke="#0f9b58" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowHA)"/>
+  <text x="505" y="316" font-family="Inter, sans-serif" font-size="8" fill="#0f9b58" transform="rotate(-40, 505, 316)">WiFi</text>
+
+  <!-- ============ MANAGEMENT COMPANY (Optional) ============ -->
+  <rect x="220" y="430" width="260" height="60" rx="10" fill="#f8f9fa" filter="url(#shadowHA)" stroke="#4a90d9" stroke-width="1" stroke-dasharray="6 3"/>
+  <text x="350" y="456" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#4a90d9">Management Company Dashboard</text>
+  <text x="350" y="474" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">Optional — via Connection Key</text>
+
+  <!-- HA → Management -->
+  <path d="M350 280 L350 425" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#arrowHA)"/>
+  <rect x="320" y="380" width="60" height="18" rx="4" fill="#ffffff" stroke="#4a90d9" stroke-width="1"/>
+  <text x="350" y="392" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a90d9">🔑 Key</text>
+
+  <!-- ============ "Brokers" label ============ -->
+  <text x="350" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.5)">Add-on brokers all devices seamlessly</text>
+</svg>

@@ -101,6 +101,30 @@
       </div>
     </section>
 
+    <!-- Architecture Diagrams -->
+    <section class="flux-section">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>How It All Connects</h2>
+          <p>Every Flux device communicates over WiFi. Choose the architecture that fits your needs.</p>
+        </div>
+
+        <!-- HA Architecture -->
+        <div style="margin-bottom:64px">
+          <h3 style="text-align:center;margin-bottom:8px">Home Assistant Version</h3>
+          <p style="text-align:center;color:#666;font-size:0.875rem;margin-bottom:24px">All devices connect via WiFi to your Home Assistant server. The Flux Irrigation Add-on brokers all devices seamlessly, providing total local control with no cloud dependency. Optionally share a connection key with your management company for remote monitoring.</p>
+          <img src="/assets/diagram-ha-architecture.svg" alt="Home Assistant Architecture - All devices connect via WiFi to Home Assistant which brokers everything locally" style="width:100%;max-width:700px;margin:0 auto;display:block;border:1px solid #e2e8f0;border-radius:12px">
+        </div>
+
+        <!-- Cloud Architecture -->
+        <div>
+          <h3 style="text-align:center;margin-bottom:8px">Direct Connect Cloud Version</h3>
+          <p style="text-align:center;color:#666;font-size:0.875rem;margin-bottom:24px">All devices connect via WiFi directly to the Flux Cloud. The User Portal brokers all devices using MQTT, which is fast and reliable. No Home Assistant required. Both homeowners and management companies access everything through the cloud dashboard.</p>
+          <img src="/assets/diagram-cloud-architecture.svg" alt="Direct Connect Cloud Architecture - All devices connect via WiFi to cloud MQTT broker" style="width:100%;max-width:700px;margin:0 auto;display:block;border:1px solid #e2e8f0;border-radius:12px">
+        </div>
+      </div>
+    </section>
+
     <!-- Specifications -->
     <section class="pd-specs">
       <div class="container">
