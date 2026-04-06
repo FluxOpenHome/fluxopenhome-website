@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gophr Soil Moisture Probe - Flux Open Home</title>
+  <meta name="description" content="Capacitive soil moisture probe with 3-depth sensing. Solar-powered with deep sleep. Choose ESPHome, Zigbee, or Matter protocol.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="flux-breadcrumb" aria-label="Breadcrumb">
+      <div class="container">
+        <ol class="flux-breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/store">Products</a></li>
+          <li aria-current="page">Gophr Probe</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="flux-section flux-product-hero">
+      <div class="container">
+        <div class="flux-product-hero-grid">
+          <div class="flux-product-hero-image">
+            <img src="/assets/placeholder-gophr.svg" alt="Gophr Soil Moisture Probe">
+          </div>
+          <div class="flux-product-hero-info">
+            <div class="flux-product-badges">
+              <span class="flux-badge flux-badge-accent">Open Source</span>
+              <span class="flux-badge flux-badge-secondary">Multi-Protocol</span>
+            </div>
+            <h1>Gophr Soil Moisture Probe</h1>
+            <p class="flux-product-price">From $44.99</p>
+            <p class="flux-product-description">Capacitive soil moisture probe with sensing at three depths (shallow, mid, deep). Solar-powered with deep sleep for extended battery life. Choose ESPHome, Zigbee, or Matter protocol.</p>
+
+            <div class="flux-variant-cards">
+              <div class="flux-variant-card flux-variant-recommended">
+                <span class="flux-variant-tag">Recommended</span>
+                <h4>ESPHome (WiFi)</h4>
+                <p class="flux-variant-spec">Primary recommendation. Integrates directly with the Home Assistant Add-on for automated watering decisions.</p>
+              </div>
+              <div class="flux-variant-card">
+                <h4>Zigbee</h4>
+                <p class="flux-variant-spec">Low-power mesh networking with extended range. Ideal for large properties.</p>
+              </div>
+              <div class="flux-variant-card">
+                <h4>Matter</h4>
+                <p class="flux-variant-spec">Broad smart home platform compatibility. Works with Apple Home, Google Home, and more.</p>
+              </div>
+            </div>
+
+            <a href="/store" class="btn btn-primary btn-lg">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="flux-section flux-section-light" id="specs">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Specifications</h2>
+        </div>
+        <div class="flux-spec-table-wrapper">
+          <table class="flux-spec-table flux-spec-table-two-col">
+            <tbody>
+              <tr>
+                <td>Sensor Type</td>
+                <td>Capacitive soil moisture</td>
+              </tr>
+              <tr>
+                <td>Sensing Depths</td>
+                <td>Shallow, Mid, Deep (3-depth capacitive)</td>
+              </tr>
+              <tr>
+                <td>Power Source</td>
+                <td>Battery powered with solar charging</td>
+              </tr>
+              <tr>
+                <td>Sleep Mode</td>
+                <td>Deep sleep for extended battery life</td>
+              </tr>
+              <tr>
+                <td>Protocols</td>
+                <td>ESPHome (WiFi), Zigbee, Matter</td>
+              </tr>
+              <tr>
+                <td>WiFi Monitoring</td>
+                <td>Signal strength reporting</td>
+              </tr>
+              <tr>
+                <td>Connectivity</td>
+                <td>WiFi 802.11 b/g/n (ESPHome variant)</td>
+              </tr>
+              <tr>
+                <td>Firmware Version</td>
+                <td>v1.4.5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="flux-section" id="features">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Features</h2>
+        </div>
+        <div class="flux-feature-grid">
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h4>3-Depth Sensing</h4>
+            <p>Measure soil moisture at shallow, mid, and deep levels for a complete picture of your soil profile.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h4>Solar Charging</h4>
+            <p>Built-in solar panel keeps the battery topped up for long-term outdoor deployment.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+            </div>
+            <h4>Deep Sleep</h4>
+            <p>Wakes periodically to take readings, then returns to deep sleep to conserve battery.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h4>HA Add-on Integration</h4>
+            <p>Feeds moisture data to the Flux Home Assistant Add-on for moisture-based watering decisions.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <h4>Multi-Protocol</h4>
+            <p>Available in ESPHome (WiFi), Zigbee, and Matter variants to fit your smart home setup.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/><line x1="12" y1="11" x2="12" y2="15"/></svg>
+            </div>
+            <h4>Battery Monitoring</h4>
+            <p>Real-time battery level and charging status reported to Home Assistant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="flux-section flux-section-light" id="integration">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Smart Watering Integration</h2>
+          <p>How Gophr works with the Home Assistant Add-on for automated watering decisions.</p>
+        </div>
+        <div class="flux-integration-grid">
+          <div class="flux-integration-step">
+            <div class="flux-integration-number">1</div>
+            <h4>Gophr Reads Soil</h4>
+            <p>The probe wakes from deep sleep and measures moisture at three depths, then transmits the data over your chosen protocol.</p>
+          </div>
+          <div class="flux-integration-step">
+            <div class="flux-integration-number">2</div>
+            <h4>Add-on Processes Data</h4>
+            <p>The Flux Home Assistant Add-on receives moisture readings and compares them against your configured thresholds.</p>
+          </div>
+          <div class="flux-integration-step">
+            <div class="flux-integration-number">3</div>
+            <h4>Controller Waters</h4>
+            <p>If moisture is below threshold, the Add-on triggers the Flux Irrigation Controller to water the appropriate zones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="flux-section" id="resources">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Resources</h2>
+        </div>
+        <div class="flux-resources-list">
+          <a href="https://github.com/FluxOpenHome/gophr-probe" target="_blank" rel="noopener" class="flux-resource-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <div>
+              <h4>GitHub Repository</h4>
+              <p>FluxOpenHome/gophr-probe &mdash; Source code, schematics, and 3D print files.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

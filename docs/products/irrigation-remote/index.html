@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flux Controller Remote - Flux Open Home</title>
+  <meta name="description" content="Wall-mounted touchscreen remote for the Flux Irrigation Controller. Quick zone control and scheduling at a glance. M5Stack Dial and CrowPanel variants.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="flux-breadcrumb" aria-label="Breadcrumb">
+      <div class="container">
+        <ol class="flux-breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/store">Products</a></li>
+          <li aria-current="page">Controller Remote</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="flux-section flux-product-hero">
+      <div class="container">
+        <div class="flux-product-hero-grid">
+          <div class="flux-product-hero-image">
+            <img src="/assets/placeholder-remote.svg" alt="Flux Controller Remote">
+          </div>
+          <div class="flux-product-hero-info">
+            <div class="flux-product-badges">
+              <span class="flux-badge flux-badge-accent">Open Source</span>
+              <span class="flux-badge flux-badge-secondary">ESPHome</span>
+            </div>
+            <h1>Flux Controller Remote</h1>
+            <p class="flux-product-price">From $49.99</p>
+            <p class="flux-product-description">Wall-mounted touchscreen remote for the Flux Irrigation Controller. Quick zone control and scheduling at a glance. Two hardware variants available.</p>
+
+            <div class="flux-variant-cards">
+              <div class="flux-variant-card">
+                <h4>M5Stack Dial</h4>
+                <p class="flux-variant-price">$49.99</p>
+                <p class="flux-variant-spec">240x240 GC9A01A round display, 8MB flash</p>
+              </div>
+              <div class="flux-variant-card">
+                <h4>Elecrow CrowPanel 2.1"</h4>
+                <p class="flux-variant-price">$59.99</p>
+                <p class="flux-variant-spec">480x480 ST7701 display, 16MB flash + 8MB PSRAM</p>
+              </div>
+            </div>
+
+            <a href="/store" class="btn btn-primary btn-lg">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="flux-section flux-section-light" id="specs">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Specifications</h2>
+          <p>Side-by-side comparison of the two hardware variants.</p>
+        </div>
+        <div class="flux-spec-table-wrapper">
+          <table class="flux-spec-table">
+            <thead>
+              <tr>
+                <th>Specification</th>
+                <th>M5Stack Dial</th>
+                <th>Elecrow CrowPanel 2.1"</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Display</td>
+                <td>240x240 GC9A01A (round)</td>
+                <td>480x480 ST7701</td>
+              </tr>
+              <tr>
+                <td>MCU</td>
+                <td>ESP32-S3</td>
+                <td>ESP32-S3</td>
+              </tr>
+              <tr>
+                <td>Flash</td>
+                <td>8MB</td>
+                <td>16MB</td>
+              </tr>
+              <tr>
+                <td>PSRAM</td>
+                <td>&mdash;</td>
+                <td>8MB</td>
+              </tr>
+              <tr>
+                <td>Input</td>
+                <td>Rotary encoder + touch</td>
+                <td>Capacitive touch</td>
+              </tr>
+              <tr>
+                <td>Connectivity</td>
+                <td>WiFi 802.11 b/g/n</td>
+                <td>WiFi 802.11 b/g/n</td>
+              </tr>
+              <tr>
+                <td>Power</td>
+                <td>USB-C 5V</td>
+                <td>USB-C 5V</td>
+              </tr>
+              <tr>
+                <td>Mounting</td>
+                <td>Wall-mount bracket</td>
+                <td>Wall-mount bracket</td>
+              </tr>
+              <tr>
+                <td>Firmware</td>
+                <td>ESPHome</td>
+                <td>ESPHome</td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>$49.99</td>
+                <td>$59.99</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="flux-section" id="features">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Features</h2>
+        </div>
+        <div class="flux-feature-grid">
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+            </div>
+            <h4>Wall-Mounted</h4>
+            <p>Designed for permanent wall installation near your irrigation controller or entry point.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <h4>Touchscreen Zone Control</h4>
+            <p>Start, stop, and manage individual irrigation zones directly from the display.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h4>Schedule View</h4>
+            <p>View upcoming schedules and active programs at a glance without opening your phone.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            </div>
+            <h4>Pairs with Controller</h4>
+            <p>Communicates directly with the Flux Irrigation Controller over your local WiFi network.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+            </div>
+            <h4>ESPHome Firmware</h4>
+            <p>Fully open source firmware built on ESPHome. Customize and extend to fit your needs.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h4>Firmware v2.16.0</h4>
+            <p>Latest firmware release with improved display rendering and zone status updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="flux-section flux-section-light" id="resources">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Resources</h2>
+        </div>
+        <div class="flux-resources-list">
+          <a href="https://github.com/FluxOpenHome/irrigation-remote" target="_blank" rel="noopener" class="flux-resource-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <div>
+              <h4>GitHub Repository</h4>
+              <p>FluxOpenHome/irrigation-remote &mdash; Source code, schematics, and 3D print files.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

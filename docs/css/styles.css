@@ -1309,3 +1309,1122 @@ a:hover {
     max-width: 720px;
   }
 }
+
+
+/* ==============================================
+   Flux Sections & Badges (shared)
+   ============================================== */
+
+.flux-section {
+  padding: 64px 0;
+}
+
+.flux-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.flux-section-header p {
+  margin-top: 12px;
+}
+
+.flux-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.flux-badge-accent {
+  background-color: rgba(15, 155, 88, 0.1);
+  color: var(--accent);
+}
+
+.flux-badge-secondary {
+  background-color: rgba(74, 144, 217, 0.1);
+  color: var(--secondary);
+}
+
+.flux-badge-dark {
+  background-color: rgba(26, 26, 46, 0.08);
+  color: var(--primary);
+}
+
+
+/* ==============================================
+   Flux Hero (homepage)
+   ============================================== */
+
+.flux-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 96px 0;
+  overflow: hidden;
+}
+
+.flux-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.flux-hero-content {
+  position: relative;
+  max-width: 720px;
+  color: var(--text-inverse);
+}
+
+.flux-hero h1 {
+  color: var(--text-inverse);
+  margin-bottom: 24px;
+}
+
+.flux-hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.flux-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+/* ==============================================
+   Flux Mission / Two-Column
+   ============================================== */
+
+.flux-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.flux-mission-content p {
+  margin-bottom: 16px;
+}
+
+.flux-mission-content .btn {
+  margin-top: 8px;
+}
+
+
+/* ==============================================
+   Flux Enterprise Teaser
+   ============================================== */
+
+.flux-enterprise-teaser {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.flux-enterprise-teaser-content {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--text-inverse);
+}
+
+.flux-enterprise-teaser-content h2 {
+  color: var(--text-inverse);
+  margin: 16px 0;
+}
+
+.flux-enterprise-teaser-content p {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+
+/* ==============================================
+   Flux App Teaser
+   ============================================== */
+
+.flux-app-teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.flux-app-teaser-content .flux-badge {
+  margin-bottom: 12px;
+}
+
+.flux-app-teaser-content h2 {
+  margin-bottom: 16px;
+}
+
+.flux-app-teaser-content p {
+  margin-bottom: 24px;
+}
+
+.flux-app-teaser-mockup img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+
+/* ==============================================
+   Flux Footer
+   ============================================== */
+
+.flux-footer {
+  background-color: var(--surface-dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 64px;
+}
+
+.flux-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.flux-footer-brand .logo img {
+  opacity: 0.9;
+}
+
+.flux-footer-tagline {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin-top: 16px;
+}
+
+.flux-footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.15s ease;
+}
+
+.flux-footer-github:hover {
+  color: var(--text-inverse);
+}
+
+.flux-footer-col h4 {
+  color: var(--text-inverse);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.flux-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flux-footer-col li {
+  margin-bottom: 8px;
+}
+
+.flux-footer-col a {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.15s ease;
+}
+
+.flux-footer-col a:hover {
+  color: var(--text-inverse);
+}
+
+.flux-footer-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+}
+
+.flux-footer-bar p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* ==============================================
+   Product Card Body (homepage grid)
+   ============================================== */
+
+.flux-product-card-image {
+  overflow: hidden;
+}
+
+.flux-product-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.flux-product-card:hover .flux-product-card-image img {
+  transform: scale(1.05);
+}
+
+.flux-product-card-body {
+  padding: 20px;
+}
+
+.flux-product-card-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.flux-product-card-body p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* ==============================================
+   Product Detail Page
+   ============================================== */
+
+/* Breadcrumb */
+.pd-breadcrumb {
+  padding: 16px 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.pd-breadcrumb a {
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.pd-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.pd-breadcrumb span {
+  margin: 0 6px;
+  color: var(--text-muted);
+}
+
+/* Product Hero */
+.pd-hero {
+  padding: 48px 0 64px;
+}
+
+.pd-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.pd-hero-image img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.pd-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pd-hero-info h1 {
+  margin-bottom: 8px;
+}
+
+.pd-hero-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.pd-hero-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.pd-version-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pd-version-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pd-version-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.pd-version-card h4 {
+  font-size: 0.875rem;
+  margin-bottom: 6px;
+}
+
+.pd-version-card p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Specifications Table */
+.pd-specs {
+  padding: 64px 0;
+  background-color: var(--bg-light);
+}
+
+.pd-specs-table {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.pd-specs-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.pd-specs-table td {
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  vertical-align: top;
+}
+
+.pd-specs-table td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+  width: 200px;
+  white-space: nowrap;
+}
+
+.pd-specs-table td:last-child {
+  color: var(--text-secondary);
+}
+
+/* Feature Grid */
+.pd-features {
+  padding: 64px 0;
+}
+
+.pd-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.pd-feature-card {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pd-feature-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.pd-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: rgba(15, 155, 88, 0.08);
+  margin-bottom: 16px;
+}
+
+.pd-feature-card h4 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.pd-feature-card p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* HA Add-on Section */
+.pd-addon {
+  padding: 64px 0;
+  background-color: var(--bg-light);
+}
+
+.pd-addon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.pd-addon-content h2 {
+  margin-bottom: 16px;
+}
+
+.pd-addon-content > p {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.pd-addon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.pd-addon-list li {
+  position: relative;
+  padding: 6px 0 6px 20px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.pd-addon-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0.6;
+}
+
+/* iOS App Callout */
+.pd-ios {
+  padding: 48px 0;
+}
+
+.pd-ios-inner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  color: var(--text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.pd-ios-inner h3 {
+  color: var(--text-inverse);
+  margin-bottom: 8px;
+}
+
+.pd-ios-inner p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* Companion Products */
+.pd-companions {
+  padding: 64px 0;
+  background-color: var(--bg-light);
+}
+
+.pd-companion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pd-companion-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.pd-companion-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  color: inherit;
+}
+
+.pd-companion-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.pd-companion-card h4 {
+  font-size: 0.9375rem;
+  margin-bottom: 4px;
+}
+
+.pd-companion-card .pd-companion-price {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Resources Section */
+.pd-resources {
+  padding: 64px 0;
+}
+
+.pd-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pd-resource-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pd-resource-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+}
+
+.pd-resource-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: rgba(74, 144, 217, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-resource-card h4 {
+  font-size: 0.9375rem;
+  margin-bottom: 4px;
+}
+
+.pd-resource-card p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* ==============================================
+   Product Detail Page - Responsive
+   ============================================== */
+
+@media (max-width: 767px) {
+  .pd-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pd-version-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-addon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-companion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pd-resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-ios-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flux-hero { padding: 64px 0; }
+  .flux-hero-actions { flex-direction: column; }
+  .flux-hero-actions .btn { width: 100%; }
+
+  .flux-mission-grid { grid-template-columns: 1fr; gap: 32px; }
+  .flux-app-teaser-grid { grid-template-columns: 1fr; gap: 32px; }
+  .flux-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pd-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .pd-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pd-companion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flux-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+
+/* ==============================================
+   Flux Breadcrumb
+   ============================================== */
+
+.flux-breadcrumb {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.flux-breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.flux-breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.flux-breadcrumb-list li a {
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.flux-breadcrumb-list li a:hover {
+  color: var(--accent);
+}
+
+.flux-breadcrumb-list li + li::before {
+  content: '/';
+  margin: 0 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.flux-breadcrumb-list li[aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+
+/* ==============================================
+   Flux Product Hero (Detail Page)
+   ============================================== */
+
+.flux-product-hero {
+  padding: 48px 0 64px;
+}
+
+.flux-product-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.flux-product-hero-image img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.flux-product-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.flux-product-hero-info h1 {
+  margin-bottom: 8px;
+}
+
+.flux-product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.flux-product-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+
+/* ==============================================
+   Flux Variant Cards
+   ============================================== */
+
+.flux-variant-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.flux-variant-cards:has(.flux-variant-card:nth-child(3)) {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flux-variant-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flux-variant-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.flux-variant-card h4 {
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+
+.flux-variant-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.flux-variant-spec {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.flux-variant-recommended {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.flux-variant-tag {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+
+
+/* ==============================================
+   Flux Section Light
+   ============================================== */
+
+.flux-section-light {
+  background-color: var(--bg-light);
+}
+
+
+/* ==============================================
+   Flux Spec Table
+   ============================================== */
+
+.flux-spec-table-wrapper {
+  overflow-x: auto;
+}
+
+.flux-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.flux-spec-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  background-color: var(--bg-white);
+}
+
+.flux-spec-table tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.flux-spec-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.flux-spec-table tbody td {
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.flux-spec-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  width: 200px;
+}
+
+.flux-spec-table-two-col {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.flux-spec-table-two-col td:first-child {
+  width: 220px;
+}
+
+
+/* ==============================================
+   Flux Resource Links
+   ============================================== */
+
+.flux-resources-list {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.flux-resource-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flux-resource-link:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+}
+
+.flux-resource-link svg {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.flux-resource-link:hover svg {
+  color: var(--accent);
+}
+
+.flux-resource-link h4 {
+  font-size: 0.9375rem;
+  margin-bottom: 4px;
+}
+
+.flux-resource-link p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* ==============================================
+   Flux Integration Steps (Gophr)
+   ============================================== */
+
+.flux-integration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flux-integration-step {
+  text-align: center;
+  padding: 24px;
+}
+
+.flux-integration-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.flux-integration-step h4 {
+  margin-bottom: 8px;
+}
+
+.flux-integration-step p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* ==============================================
+   Flux Use Case Grid (TPH Sensor)
+   ============================================== */
+
+.flux-use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flux-use-case-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-white);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.flux-use-case-item:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.flux-use-case-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: rgba(15, 155, 88, 0.08);
+}
+
+.flux-use-case-item h4 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.flux-use-case-item p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ==============================================
+   Product Detail - Responsive
+   ============================================== */
+
+@media (max-width: 767px) {
+  .flux-product-hero {
+    padding: 32px 0 48px;
+  }
+
+  .flux-product-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .flux-variant-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .flux-variant-cards:has(.flux-variant-card:nth-child(3)) {
+    grid-template-columns: 1fr;
+  }
+
+  .flux-integration-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .flux-use-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flux-spec-table tbody td:first-child {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .flux-product-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .flux-variant-cards:has(.flux-variant-card:nth-child(3)) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flux-integration-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .flux-use-case-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

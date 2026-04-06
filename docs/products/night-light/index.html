@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flux Night Light - Open Source ESP32-C3 Smart Night Light</title>
+  <meta name="description" content="ESP32-C3 powered night light with 16 WS2812 addressable LEDs, 13 built-in effects, and full Home Assistant integration via ESPHome. Open source hardware you truly own.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+  <style>
+    /* Product Detail Page Styles */
+    .breadcrumb {
+      padding: 16px 0;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .breadcrumb a {
+      color: var(--text-secondary);
+      transition: color 0.15s ease;
+    }
+    .breadcrumb a:hover {
+      color: var(--accent);
+    }
+    .breadcrumb .separator {
+      margin: 0 8px;
+      color: var(--text-muted);
+    }
+
+    .product-hero {
+      padding: 32px 0 64px;
+    }
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .product-image-container {
+      background: var(--bg-light);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-image-container img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    .product-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      background-color: rgba(15, 155, 88, 0.1);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .product-description {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .purchase-options {
+      margin-bottom: 24px;
+    }
+    .purchase-options h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .option-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .option-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .option-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+    .option-card h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .option-card .option-price {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .option-card p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Spec Table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .spec-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+    .spec-table td {
+      padding: 12px 16px;
+      font-size: 0.9375rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .spec-table tr:last-child td {
+      border-bottom: none;
+    }
+    .spec-table td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+      width: 200px;
+      white-space: nowrap;
+    }
+    .spec-table td:last-child {
+      color: var(--text-secondary);
+    }
+
+    /* Effects Grid */
+    .effects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .effect-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      text-align: center;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .effect-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Accessory Cards */
+    .accessory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .accessory-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: box-shadow 0.2s ease;
+    }
+    .accessory-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .accessory-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 4px;
+    }
+    .accessory-card .accessory-price {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .accessory-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Resource Cards */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .resource-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .resource-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+      color: var(--accent);
+    }
+    .resource-card svg {
+      flex-shrink: 0;
+      color: var(--secondary);
+    }
+
+    /* Section helpers */
+    .section-bg-light {
+      background-color: var(--bg-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .option-cards {
+        grid-template-columns: 1fr;
+      }
+      .effects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .accessory-grid {
+        grid-template-columns: 1fr;
+      }
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+      .spec-table td:first-child {
+        width: auto;
+      }
+      .flux-feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .product-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .effects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .flux-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="separator">/</span>
+        <a href="/">Products</a>
+        <span class="separator">/</span>
+        <span>Night Light</span>
+      </nav>
+    </div>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-hero-grid">
+          <div class="product-image-container">
+            <img src="/assets/placeholder-nightlight.svg" alt="Flux Night Light">
+          </div>
+          <div class="product-info">
+            <div class="product-badges">
+              <span class="product-badge">Open Source</span>
+              <span class="product-badge">Home Assistant</span>
+              <span class="product-badge">ESPHome</span>
+              <span class="product-badge">3D Printable</span>
+            </div>
+            <h1>Flux Night Light</h1>
+            <div class="product-price">From $24.99</div>
+            <p class="product-description">ESP32-C3 powered night light with 16 WS2812 addressable LEDs in a 4x4 grid. 13 built-in effects. Full Home Assistant integration via ESPHome. Buy the board and 3D print the housing, or get it fully assembled.</p>
+            <div class="purchase-options">
+              <h3>Purchase Options</h3>
+              <div class="option-cards">
+                <div class="option-card">
+                  <h4>Board Only</h4>
+                  <div class="option-price">$24.99</div>
+                  <p>Buy just the PCB. 3D print files included.</p>
+                </div>
+                <div class="option-card">
+                  <h4>Fully Assembled</h4>
+                  <div class="option-price">$39.99</div>
+                  <p>Ready to plug in and use.</p>
+                </div>
+              </div>
+              <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="section">
+      <div class="container">
+        <div class="flux-section-header mb-48" style="text-align:center">
+          <h2>Specifications</h2>
+          <p>Everything you need to know about the hardware.</p>
+        </div>
+        <table class="spec-table">
+          <tr>
+            <td>MCU</td>
+            <td>ESP32-C3</td>
+          </tr>
+          <tr>
+            <td>LEDs</td>
+            <td>16x WS2812B, 4x4 grid</td>
+          </tr>
+          <tr>
+            <td>Data Pin</td>
+            <td>GPIO10</td>
+          </tr>
+          <tr>
+            <td>WiFi</td>
+            <td>802.11 b/g/n</td>
+          </tr>
+          <tr>
+            <td>Firmware</td>
+            <td>ESPHome</td>
+          </tr>
+          <tr>
+            <td>Power</td>
+            <td>5V DC via USB-C or adapter</td>
+          </tr>
+          <tr>
+            <td>Dimensions</td>
+            <td>Compact</td>
+          </tr>
+          <tr>
+            <td>WLED Compatible</td>
+            <td>Yes</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Effects -->
+    <section class="section section-bg-light">
+      <div class="container">
+        <div class="flux-section-header mb-48" style="text-align:center">
+          <h2>13 Built-in Effects</h2>
+          <p>Cycle through effects from Home Assistant, the built-in web server, or automations.</p>
+        </div>
+        <div class="effects-grid">
+          <div class="effect-card">Pulse</div>
+          <div class="effect-card">Random</div>
+          <div class="effect-card">Strobe</div>
+          <div class="effect-card">Flicker</div>
+          <div class="effect-card">Rainbow</div>
+          <div class="effect-card">Color Wipe</div>
+          <div class="effect-card">Scan</div>
+          <div class="effect-card">Twinkle</div>
+          <div class="effect-card">Random Twinkle</div>
+          <div class="effect-card">Fireworks</div>
+          <div class="effect-card">Flicker</div>
+          <div class="effect-card">Fire</div>
+          <div class="effect-card">Flux Logo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+      <div class="container">
+        <div class="flux-section-header mb-48" style="text-align:center">
+          <h2>Features</h2>
+          <p>Designed for the smart home, built for tinkerers.</p>
+        </div>
+        <div class="flux-feature-grid">
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h4>Full HA Integration</h4>
+            <p>Color picker, brightness slider, and effect selection directly in Home Assistant.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            </div>
+            <h4>State Persistence</h4>
+            <p>Remembers color, brightness, and active effect across power loss.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <h4>OTA Updates</h4>
+            <p>Firmware updates delivered over HTTP from GitHub releases.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <h4>WiFi Provisioning</h4>
+            <p>Bluetooth LE Improv or captive portal for initial WiFi setup.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4>Built-in Web Server</h4>
+            <p>Port 80 web interface for direct device control without Home Assistant.</p>
+          </div>
+          <div class="flux-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4>WLED Compatible</h4>
+            <p>Flash WLED instead of ESPHome. Same hardware, your choice of firmware.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessories -->
+    <section class="section section-bg-light">
+      <div class="container">
+        <div class="flux-section-header mb-48" style="text-align:center">
+          <h2>Accessories</h2>
+          <p>Add-ons to complete your setup.</p>
+        </div>
+        <div class="accessory-grid">
+          <div class="accessory-card">
+            <h3>Power Adapter</h3>
+            <div class="accessory-price">$9.99</div>
+            <p>5V USB-C adapter</p>
+          </div>
+          <div class="accessory-card">
+            <h3>Lamp Kit</h3>
+            <div class="accessory-price">$14.99</div>
+            <p>Diffuser and mounting accessories</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="/store" class="btn btn-primary btn-lg">Shop Accessories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="section">
+      <div class="container">
+        <div class="flux-section-header mb-48" style="text-align:center">
+          <h2>Resources</h2>
+          <p>Documentation, source code, and community guides.</p>
+        </div>
+        <div class="resource-grid">
+          <a href="https://github.com/FluxOpenHome/NightLight" target="_blank" rel="noopener" class="resource-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub Repository
+          </a>
+          <a href="https://github.com/FluxOpenHome/NightLight/tree/main/3d-prints" target="_blank" rel="noopener" class="resource-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            3D Print Files
+          </a>
+          <a href="https://github.com/FluxOpenHome/NightLight#alternative-firmware-wled" target="_blank" rel="noopener" class="resource-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            WLED Alternative Guide
+          </a>
+          <a href="https://esphome.io/guides/getting_started_hassio.html" target="_blank" rel="noopener" class="resource-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            ESPHome Dashboard Setup
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

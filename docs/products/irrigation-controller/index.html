@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flux Irrigation Controller - Open Source Smart Irrigation | Flux Open Home</title>
+  <meta name="description" content="ESP32-S3 smart irrigation controller supporting 8-32 zones. Weather-based scheduling, rain sensor support, and expansion boards. Built on ESPHome for Home Assistant.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="pd-breadcrumb">
+      <div class="container">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/">Products</a>
+        <span>/</span>
+        Irrigation Controller
+      </div>
+    </div>
+
+    <!-- Product Hero -->
+    <section class="pd-hero">
+      <div class="container">
+        <div class="pd-hero-grid">
+          <div class="pd-hero-image">
+            <img src="/assets/placeholder-irrigation.svg" alt="Flux Irrigation Controller" width="600" height="450">
+          </div>
+          <div class="pd-hero-info">
+            <div class="pd-hero-badges">
+              <span class="flux-badge flux-badge-accent">Open Source</span>
+              <span class="flux-badge flux-badge-secondary">Home Assistant</span>
+              <span class="flux-badge flux-badge-dark">ESPHome</span>
+            </div>
+            <h1>Flux Irrigation Controller</h1>
+            <div class="pd-hero-price">From $89.99</div>
+            <p class="pd-hero-desc">ESP32-S3 smart irrigation controller supporting 8-32 zones. Weather-based scheduling, rain sensor support, and expansion boards. Available in Home Assistant (ESPHome) and Direct Connect (cloud) versions.</p>
+            <div class="pd-version-cards">
+              <div class="pd-version-card">
+                <h4>Home Assistant Version</h4>
+                <p>Works with HA Add-on, local control, ESPHome firmware. Full integration with your Home Assistant dashboard.</p>
+              </div>
+              <div class="pd-version-card">
+                <h4>Direct Connect Version</h4>
+                <p>Cloud-based, no Home Assistant required. WebSocket connection to management server for remote monitoring.</p>
+              </div>
+            </div>
+            <a href="/store" class="btn btn-primary btn-lg">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="pd-specs">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Specifications</h2>
+          <p>Built on the ESP32-S3 with full ESPHome integration and expansion capability.</p>
+        </div>
+        <table class="pd-specs-table">
+          <tbody>
+            <tr>
+              <td>MCU</td>
+              <td>ESP32-S3 DevKitC-1</td>
+            </tr>
+            <tr>
+              <td>Zones</td>
+              <td>8 built-in (GPIO45, 35-41), expandable to 32</td>
+            </tr>
+            <tr>
+              <td>Expansion</td>
+              <td>MCP23017 I2C boards (addresses 0x20-0x22)</td>
+            </tr>
+            <tr>
+              <td>Zone 8</td>
+              <td>Configurable as normal zone, master valve, or pump start relay</td>
+            </tr>
+            <tr>
+              <td>Rain Sensor</td>
+              <td>GPIO4, configurable NO/NC, 1-72 hour delay</td>
+            </tr>
+            <tr>
+              <td>Status LED</td>
+              <td>WS2812 on GPIO42</td>
+            </tr>
+            <tr>
+              <td>Scheduling</td>
+              <td>4 start times, auto-advance, repeat cycles</td>
+            </tr>
+            <tr>
+              <td>Valve Overlap</td>
+              <td>3-second seamless transition between zones</td>
+            </tr>
+            <tr>
+              <td>WiFi Provisioning</td>
+              <td>Bluetooth, captive portal, serial</td>
+            </tr>
+            <tr>
+              <td>OTA Updates</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Firmware</td>
+              <td>v1.2.7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="pd-features">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Features</h2>
+          <p>Everything you need for intelligent, reliable irrigation management.</p>
+        </div>
+        <div class="pd-feature-grid">
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6l3-3"/><path d="M12 8l-3-3"/><circle cx="12" cy="17" r="5"/><path d="M12 14v3h3"/></svg>
+            </div>
+            <h4>Weather-Based Irrigation</h4>
+            <p>9 configurable weather rules via the Home Assistant Add-on. Automatically adjust watering schedules based on forecasts, temperature, and rainfall data.</p>
+          </div>
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+            </div>
+            <h4>Rain Sensor Support</h4>
+            <p>Normally Open or Normally Closed sensor types with configurable rain delay from 1 to 72 hours. Automatic irrigation shutoff on rain detection.</p>
+          </div>
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+            </div>
+            <h4>Expansion Boards</h4>
+            <p>Scale up to 32 zones with MCP23017 I2C expansion boards. Auto-detection of connected boards at addresses 0x20 through 0x22.</p>
+          </div>
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+            </div>
+            <h4>Smart Scheduling</h4>
+            <p>4 programmable start times with 7-day scheduling. Auto-advance cycles through enabled zones automatically with repeat cycle support.</p>
+          </div>
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h4>Pump / Master Valve</h4>
+            <p>Zone 8 is configurable as a pump start relay with automatic 2-second startup delay. Stays on throughout the entire irrigation cycle.</p>
+          </div>
+          <div class="pd-feature-card">
+            <div class="pd-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <h4>OTA Firmware Updates</h4>
+            <p>Update wirelessly from the ESPHome dashboard or Home Assistant. Firmware releases hosted on GitHub with automatic update notifications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home Assistant Add-on -->
+    <section class="pd-addon">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Home Assistant Add-on</h2>
+          <p>Unlock advanced irrigation management with the Flux Irrigation Add-on for Home Assistant.</p>
+        </div>
+        <div class="pd-addon-grid">
+          <div class="pd-addon-content">
+            <p>The Flux Irrigation Home Assistant Add-on (v1.2.2) extends your controller with a full management dashboard and intelligent automation features. Install directly from the Home Assistant Add-on Store or from GitHub.</p>
+            <ul class="pd-addon-list">
+              <li>Homeowner dashboard with zone status and scheduling overview</li>
+              <li>Weather-based irrigation with 9 configurable rules</li>
+              <li>Gophr soil moisture probe integration for data-driven watering</li>
+              <li>Rain sensor management and delay configuration</li>
+              <li>PDF system reports for irrigation history and diagnostics</li>
+              <li>Connection keys for lawn care and management companies</li>
+            </ul>
+            <a href="https://github.com/FluxOpenHome/ha-irrigation-addon" target="_blank" rel="noopener" class="btn btn-primary">Install Add-on</a>
+          </div>
+          <div class="pd-addon-content">
+            <p>The Add-on runs locally on your Home Assistant server. All data stays on your network. No cloud account required for the Home Assistant version.</p>
+            <p>Management companies can connect remotely using connection keys generated from the homeowner dashboard, enabling professional monitoring without requiring direct access to your Home Assistant instance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- iOS App -->
+    <section class="pd-ios">
+      <div class="container">
+        <div class="pd-ios-inner">
+          <div>
+            <h3>Flux Controller for iOS</h3>
+            <p>The Flux Controller iOS app works with both the Home Assistant and Direct Connect versions. Zone control, scheduling, and monitoring from your iPhone.</p>
+          </div>
+          <a href="/ios-app.html" class="btn btn-outline-white">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Companion Products -->
+    <section class="pd-companions">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Companion Products</h2>
+          <p>Expand your irrigation system with these compatible accessories.</p>
+        </div>
+        <div class="pd-companion-grid">
+          <a href="/products/irrigation-controller" class="pd-companion-card">
+            <img src="/assets/placeholder-irrigation.svg" alt="Expansion Board">
+            <h4>Expansion Board</h4>
+            <span class="pd-companion-price">$29.99</span>
+          </a>
+          <a href="/products/irrigation-remote" class="pd-companion-card">
+            <img src="/assets/placeholder-remote.svg" alt="Controller Remote M5Stack Dial">
+            <h4>Controller Remote M5Stack Dial</h4>
+            <span class="pd-companion-price">$49.99</span>
+          </a>
+          <a href="/products/irrigation-remote" class="pd-companion-card">
+            <img src="/assets/placeholder-remote.svg" alt="Controller Remote CrowPanel">
+            <h4>Controller Remote CrowPanel</h4>
+            <span class="pd-companion-price">$59.99</span>
+          </a>
+          <a href="/products/gophr-probe" class="pd-companion-card">
+            <img src="/assets/placeholder-gophr.svg" alt="Gophr Moisture Probe">
+            <h4>Gophr Moisture Probe</h4>
+            <span class="pd-companion-price">$44.99</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="pd-resources">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Resources</h2>
+          <p>Documentation, source code, and community support.</p>
+        </div>
+        <div class="pd-resource-grid">
+          <a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener" class="pd-resource-card">
+            <div class="pd-resource-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--secondary)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div>
+              <h4>GitHub Repository</h4>
+              <p>Source code, ESPHome configuration, and firmware releases.</p>
+            </div>
+          </a>
+          <a href="https://github.com/FluxOpenHome/ha-irrigation-addon" target="_blank" rel="noopener" class="pd-resource-card">
+            <div class="pd-resource-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <h4>Home Assistant Add-on</h4>
+              <p>Install the irrigation management add-on for Home Assistant.</p>
+            </div>
+          </a>
+          <a href="https://github.com/FluxOpenHome/IrrigationController/releases" target="_blank" rel="noopener" class="pd-resource-card">
+            <div class="pd-resource-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div>
+              <h4>User Guide</h4>
+              <p>Installation instructions, configuration, and troubleshooting.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
