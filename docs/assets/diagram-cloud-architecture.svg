@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 560" fill="none">
   <defs>
     <marker id="arrowDC" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <path d="M0,0 L8,3 L0,6" fill="#4a90d9"/>
+    </marker>
+    <marker id="arrowMQTT" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#f0ad4e"/>
     </marker>
     <filter id="shadowDC" x="-4%" y="-4%" width="108%" height="108%">
       <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
@@ -9,104 +12,107 @@
   </defs>
 
   <!-- Background -->
-  <rect width="700" height="520" fill="#ffffff" rx="16"/>
+  <rect width="700" height="560" fill="#ffffff" rx="16"/>
 
   <!-- Title -->
   <text x="350" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a1a2e">Direct Connect Cloud Architecture</text>
-  <text x="350" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#666">MQTT-Powered — Fast &amp; Reliable Cloud Connectivity</text>
+  <text x="350" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#666">Devices on homeowner WiFi — Flux Cloud connects via MQTT</text>
 
-  <!-- ============ CENTER: Cloud / User Portal ============ -->
-  <!-- Cloud shape -->
-  <ellipse cx="350" cy="215" rx="135" ry="55" fill="#4a90d9" opacity="0.06"/>
-  <rect x="220" y="185" width="260" height="80" rx="16" fill="#4a90d9" filter="url(#shadowDC)"/>
-  <rect x="220" y="185" width="260" height="80" rx="16" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
-  <!-- Cloud icon -->
-  <path d="M275 218h-2a8 8 0 010-16 6 6 0 0110-4.5 6 6 0 016 5h1a5 5 0 010 10h-2" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <text x="310" y="215" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Flux Cloud</text>
-  <text x="310" y="233" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">User Portal + MQTT Broker</text>
-  <!-- MQTT badge -->
-  <rect x="400" y="240" width="50" height="16" rx="8" fill="rgba(255,255,255,0.2)"/>
-  <text x="425" y="251" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#ffffff">MQTT</text>
-  <!-- Cloud badge -->
-  <rect x="335" y="240" width="55" height="16" rx="8" fill="rgba(255,255,255,0.2)"/>
-  <text x="362" y="251" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#ffffff">CLOUD</text>
+  <!-- ============ HOMEOWNER WiFi NETWORK (local bubble) ============ -->
+  <rect x="30" y="75" width="640" height="195" rx="16" fill="#f8f9fa" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="350" y="96" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#999">Homeowner's WiFi Network</text>
 
-  <!-- ============ DEVICES (Top Row) ============ -->
+  <!-- WiFi Router -->
+  <rect x="275" y="170" width="150" height="50" rx="10" fill="#ffffff" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1.5"/>
+  <svg x="290" y="180" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+  <text x="320" y="190" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">WiFi Router</text>
+  <text x="320" y="205" font-family="Inter, sans-serif" font-size="9" fill="#999">Local Network</text>
+
+  <!-- DEVICES -->
   <!-- Irrigation Controller -->
-  <rect x="40" y="80" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="52" y="92" width="16" height="16" rx="3" fill="#1a1a2e"/>
-  <text x="56" y="103" font-family="monospace" font-size="5" fill="#4a90d9">IC</text>
-  <text x="74" y="100" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Irrigation</text>
-  <text x="74" y="114" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Controller</text>
-  <text x="105" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">8-32 Zones</text>
+  <rect x="40" y="110" width="120" height="60" rx="8" fill="#ffffff" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="52" y="120" width="14" height="14" rx="3" fill="#1a1a2e"/>
+  <text x="55" y="130" font-family="monospace" font-size="5" fill="#4a90d9">IC</text>
+  <text x="72" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Irrigation</text>
+  <text x="72" y="143" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Controller</text>
+  <text x="100" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#999">8-32 Zones</text>
 
-  <!-- Remote Control -->
-  <rect x="530" y="80" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
-  <circle cx="560" cy="105" r="12" fill="#1a1a2e"/>
-  <circle cx="560" cy="105" r="8" fill="#16213e"/>
-  <text x="578" y="100" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Controller</text>
-  <text x="578" y="114" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Remote</text>
-  <text x="595" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">Touchscreen</text>
+  <!-- Remote -->
+  <rect x="540" y="110" width="120" height="60" rx="8" fill="#ffffff" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="564" cy="133" r="10" fill="#1a1a2e"/>
+  <circle cx="564" cy="133" r="6" fill="#16213e"/>
+  <text x="580" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Controller</text>
+  <text x="580" y="143" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Remote</text>
+  <text x="600" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#999">Touchscreen</text>
 
-  <!-- ============ DEVICES (Bottom Row) ============ -->
-  <!-- Gophr Probe -->
-  <rect x="40" y="320" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="58" y="335" width="8" height="30" rx="2" fill="#1a1a2e"/>
-  <line x1="52" y1="345" x2="70" y2="345" stroke="#0f9b58" stroke-width="2"/>
-  <line x1="52" y1="352" x2="70" y2="352" stroke="#4a90d9" stroke-width="2"/>
-  <line x1="52" y1="359" x2="70" y2="359" stroke="#f0ad4e" stroke-width="2"/>
-  <text x="78" y="345" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Gophr</text>
-  <text x="78" y="359" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Probe</text>
-  <text x="105" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">3-Depth Moisture</text>
+  <!-- Gophr -->
+  <rect x="180" y="110" width="90" height="60" rx="8" fill="#ffffff" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="192" y="120" width="6" height="24" rx="2" fill="#1a1a2e"/>
+  <line x1="188" y1="128" x2="202" y2="128" stroke="#0f9b58" stroke-width="1.5"/>
+  <line x1="188" y1="134" x2="202" y2="134" stroke="#4a90d9" stroke-width="1.5"/>
+  <line x1="188" y1="140" x2="202" y2="140" stroke="#f0ad4e" stroke-width="1.5"/>
+  <text x="208" y="133" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Gophr</text>
+  <text x="225" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#999">Moisture</text>
 
-  <!-- TPH Sensor -->
-  <rect x="530" y="320" width="130" height="70" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="548" y="334" width="20" height="14" rx="2" fill="#1a1a2e"/>
-  <text x="558" y="344" text-anchor="middle" font-family="monospace" font-size="5" fill="#4a90d9">BME</text>
-  <text x="574" y="345" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">TPH</text>
-  <text x="574" y="359" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a2e">Sensor</text>
-  <text x="595" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">Temp / Pressure / Humidity</text>
+  <!-- TPH -->
+  <rect x="430" y="110" width="90" height="60" rx="8" fill="#ffffff" filter="url(#shadowDC)" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="442" y="122" width="16" height="10" rx="2" fill="#1a1a2e"/>
+  <text x="450" y="130" text-anchor="middle" font-family="monospace" font-size="4" fill="#4a90d9">BME</text>
+  <text x="464" y="133" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">TPH</text>
+  <text x="475" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#999">Temp/Hum/Press</text>
 
-  <!-- ============ WiFi → Cloud CONNECTIONS ============ -->
-  <!-- Irrigation Controller → Cloud -->
-  <path d="M170 120 Q200 120 215 155 Q225 185 225 200" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-  <text x="178" y="155" font-family="Inter, sans-serif" font-size="8" fill="#4a90d9" transform="rotate(-40, 178, 155)">WiFi</text>
+  <!-- WiFi connections (devices → router) -->
+  <line x1="160" y1="155" x2="275" y2="190" stroke="#0f9b58" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+  <line x1="225" y1="170" x2="275" y2="190" stroke="#0f9b58" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+  <line x1="475" y1="170" x2="425" y2="190" stroke="#0f9b58" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+  <line x1="540" y1="155" x2="425" y2="190" stroke="#0f9b58" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+  <!-- WiFi labels -->
+  <text x="195" y="168" font-family="Inter, sans-serif" font-size="7" fill="#0f9b58">WiFi</text>
+  <text x="495" y="168" font-family="Inter, sans-serif" font-size="7" fill="#0f9b58">WiFi</text>
 
-  <!-- Remote → Cloud -->
-  <path d="M530 120 Q500 120 485 155 Q475 185 475 200" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-  <text x="505" y="155" font-family="Inter, sans-serif" font-size="8" fill="#4a90d9" transform="rotate(40, 505, 155)">WiFi</text>
+  <!-- ============ INTERNET BOUNDARY ============ -->
+  <line x1="50" y1="290" x2="650" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="305" y="280" width="90" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="350" y="294" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#999">Internet</text>
 
-  <!-- Gophr → Cloud -->
-  <path d="M170 350 Q200 340 215 315 Q225 290 228 270" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-  <text x="178" y="318" font-family="Inter, sans-serif" font-size="8" fill="#4a90d9" transform="rotate(40, 178, 318)">WiFi</text>
+  <!-- MQTT connection (router ↔ cloud) -->
+  <line x1="350" y1="220" x2="350" y2="280" stroke="#f0ad4e" stroke-width="2" marker-end="url(#arrowMQTT)"/>
+  <line x1="350" y1="300" x2="350" y2="340" stroke="#f0ad4e" stroke-width="2" marker-end="url(#arrowMQTT)"/>
+  <rect x="360" y="238" width="48" height="18" rx="4" fill="#f0ad4e" opacity="0.15"/>
+  <text x="384" y="250" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#f0ad4e">MQTT</text>
+  <rect x="360" y="306" width="48" height="18" rx="4" fill="#f0ad4e" opacity="0.15"/>
+  <text x="384" y="318" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#f0ad4e">MQTT</text>
 
-  <!-- TPH → Cloud -->
-  <path d="M530 350 Q500 340 485 315 Q475 290 472 270" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-  <text x="505" y="318" font-family="Inter, sans-serif" font-size="8" fill="#4a90d9" transform="rotate(-40, 505, 318)">WiFi</text>
+  <!-- ============ FLUX CLOUD ============ -->
+  <rect x="210" y="340" width="280" height="80" rx="16" fill="#4a90d9" filter="url(#shadowDC)"/>
+  <rect x="210" y="340" width="280" height="80" rx="16" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <!-- Cloud icon -->
+  <path d="M260 378h-2a8 8 0 010-16 6 6 0 0110-4.5 6 6 0 016 5h1a5 5 0 010 10h-2" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <text x="295" y="373" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Flux Cloud</text>
+  <text x="295" y="391" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">MQTT Broker + User Portal</text>
+  <!-- Badges -->
+  <rect x="395" y="395" width="50" height="16" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="420" y="406" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#ffffff">MQTT</text>
+  <rect x="335" y="395" width="50" height="16" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="360" y="406" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#ffffff">CLOUD</text>
 
   <!-- ============ USER ACCESS ============ -->
   <!-- Management Dashboard -->
-  <rect x="130" y="435" width="200" height="55" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#4a90d9" stroke-width="1.5"/>
-  <svg x="145" y="450" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-  <text x="172" y="457" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Management Dashboard</text>
-  <text x="172" y="472" font-family="Inter, sans-serif" font-size="9" fill="#999">Multi-property control</text>
+  <rect x="100" y="465" width="200" height="55" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#4a90d9" stroke-width="1.5"/>
+  <svg x="115" y="480" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+  <text x="142" y="487" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Management Dashboard</text>
+  <text x="142" y="502" font-family="Inter, sans-serif" font-size="9" fill="#999">Multi-property control</text>
 
-  <!-- Homeowner App -->
-  <rect x="370" y="435" width="200" height="55" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#0f9b58" stroke-width="1.5"/>
-  <svg x="385" y="450" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-  <text x="412" y="457" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Homeowner Portal</text>
-  <text x="412" y="472" font-family="Inter, sans-serif" font-size="9" fill="#999">Zone control &amp; scheduling</text>
+  <!-- Homeowner Portal -->
+  <rect x="400" y="465" width="200" height="55" rx="10" fill="#f8f9fa" filter="url(#shadowDC)" stroke="#0f9b58" stroke-width="1.5"/>
+  <svg x="415" y="480" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+  <text x="442" y="487" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Homeowner Portal</text>
+  <text x="442" y="502" font-family="Inter, sans-serif" font-size="9" fill="#999">Zone control &amp; scheduling</text>
 
   <!-- Cloud → Dashboards -->
-  <path d="M310 265 L230 430" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-  <path d="M390 265 L470 430" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
-
-  <!-- MQTT labels on connections -->
-  <rect x="240" y="340" width="42" height="16" rx="4" fill="#4a90d9" opacity="0.1"/>
-  <text x="261" y="351" text-anchor="middle" font-family="monospace" font-size="7" font-weight="600" fill="#4a90d9">MQTT</text>
-  <rect x="418" y="340" width="42" height="16" rx="4" fill="#4a90d9" opacity="0.1"/>
-  <text x="439" y="351" text-anchor="middle" font-family="monospace" font-size="7" font-weight="600" fill="#4a90d9">MQTT</text>
+  <path d="M300 420 L200 460" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
+  <path d="M400 420 L500 460" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowDC)"/>
 
   <!-- Bottom note -->
-  <text x="350" y="510" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#999">All devices connect via WiFi → MQTT to the cloud. No Home Assistant required.</text>
+  <text x="350" y="545" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#999">Devices connect to homeowner's WiFi. Flux Cloud reaches devices via MQTT over the internet.</text>
 </svg>

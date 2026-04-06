@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Assistant Add-on Setup Guide - Flux Open Home</title>
+  <meta name="description" content="Step-by-step setup guide for the Flux Open Home Irrigation Control add-on for Home Assistant. Install, configure weather rules, and manage irrigation zones.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+  <style>
+    .guide-step {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .guide-step:last-child {
+      border-bottom: none;
+    }
+    .guide-step-number {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: #0f9b58;
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .guide-step-content h3 {
+      margin: 0 0 8px;
+    }
+    .guide-step-content p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0 0 8px;
+    }
+    .guide-step-content p:last-child {
+      margin-bottom: 0;
+    }
+    .guide-tip {
+      border-left: 4px solid #0f9b58;
+      background: #f0fdf4;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .guide-warning {
+      border-left: 4px solid #f59e0b;
+      background: #fffbeb;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    @media (max-width: 768px) {
+      .guide-step {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="flux-hero flux-hero-dark">
+      <div class="flux-hero-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <div class="flux-hero-content">
+          <h1>Home Assistant Add-on Setup Guide</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Steps -->
+    <section class="flux-section">
+      <div class="container" style="max-width: 800px;">
+
+        <div class="guide-step">
+          <div class="guide-step-number">1</div>
+          <div class="guide-step-content">
+            <h3>Add the Repository</h3>
+            <p>In Home Assistant, go to Settings &rarr; Add-ons &rarr; Add-on Store. Click the three-dot menu (&vellip;) &rarr; Repositories. Paste: <code>https://github.com/FluxOpenHome/ha-flux-irrigation-addons</code>. Click Add, then Close. The Flux add-on appears in the store.</p>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">2</div>
+          <div class="guide-step-content">
+            <h3>Install the Add-on</h3>
+            <p>Find "Flux Open Home Irrigation Control" in the add-on store. Click Install. Optionally enable "Show in sidebar" for quick access. Click Start.</p>
+            <div class="guide-warning">
+              <strong>Warning:</strong> After the first install, you MUST restart Home Assistant once. Go to Settings &rarr; System &rarr; Restart. This is a one-time requirement &mdash; the add-on configures integration files that require a restart to load.
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">3</div>
+          <div class="guide-step-content">
+            <h3>Select Your Irrigation Controller</h3>
+            <p>Open the add-on web UI. On the Configuration page, find the Irrigation Controller Device section. Select your Flux Irrigation Controller from the dropdown. The add-on automatically discovers all zones and sensors for the selected device.</p>
+            <div class="guide-tip">
+              <strong>Tip:</strong> Only entities from the selected device are exposed &mdash; no other Home Assistant devices (lights, locks, cameras) are accessible through the add-on.
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">4</div>
+          <div class="guide-step-content">
+            <h3>Set Up Weather-Based Irrigation</h3>
+            <p>Enable weather-based control on the Configuration page. We recommend the National Weather Service (NWS) integration (free, US only). Install it in HA: Settings &rarr; Devices &amp; Services &rarr; Add Integration &rarr; search "National Weather Service." Then select your weather entity in the add-on.</p>
+            <p>Configure 9 weather rules: Rain Detection, Rain Forecast, Precipitation Threshold, Freeze Protection, Cool Temperature reduction, Hot Temperature increase, Wind Speed skip, High Humidity reduction, and Seasonal Adjustment.</p>
+            <div class="guide-tip">
+              <strong>Tip:</strong> Click "Test Weather Rules Now" to see which rules would trigger with current conditions.
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">5</div>
+          <div class="guide-step-content">
+            <h3>Generate a Connection Key (Optional)</h3>
+            <p>If a lawn care company manages your system, generate a connection key on the Configuration page. Enter your Nabu Casa URL (recommended) or a direct connection URL. Fill in your property details (address, city, state, ZIP). Click Generate Connection Key. Send the key to your management company or share via QR code.</p>
+            <div class="guide-tip">
+              <strong>Tip:</strong> The management company can only access your irrigation zones and sensors &mdash; never your other Home Assistant devices.
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">6</div>
+          <div class="guide-step-content">
+            <h3>Map Gophr Probes (Optional)</h3>
+            <p>If you have Gophr moisture probes, go to the Moisture Probes section. Select each probe device and map its sensors to irrigation zones. Configure moisture thresholds. The add-on automatically adjusts watering based on real-time soil moisture data. The probe wakes 10 minutes before scheduled zones to provide fresh readings.</p>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">7</div>
+          <div class="guide-step-content">
+            <h3>Configure Zone Details (Optional)</h3>
+            <p>Click the info icon on any zone to add head details: head type (pop-up spray, rotary, gear rotor, drip, etc.), sprinkler model (65+ models in the database with auto-filled GPM), mount type, spray arc, and throw radius. This enables accurate water usage estimation and PDF reports.</p>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-number">8</div>
+          <div class="guide-step-content">
+            <h3>Revoking Management Access</h3>
+            <p>If you need to disconnect a management company, go to Configuration &rarr; Management Access &rarr; Revoke Access. This immediately invalidates the connection key. To re-enable, generate a new key and share it.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding: 40px 0;">
+          <p style="font-size: 1rem; color: #666;">Need help?</p>
+          <a href="/support.html" class="btn btn-primary">Contact Support</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
