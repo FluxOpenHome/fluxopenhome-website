@@ -1,0 +1,808 @@
+/* ==============================================
+   FluxOpenHome - Squarespace 7.1 Custom CSS
+   Paste into: Design > Custom CSS
+   ============================================== */
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+:root {
+  --primary: #1a1a2e;
+  --primary-light: #16213e;
+  --accent: #0f9b58;
+  --accent-hover: #0d8a4e;
+  --secondary: #4a90d9;
+  --secondary-hover: #3a7bc8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-inverse: #ffffff;
+  --text-muted: #999999;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --border: #e2e8f0;
+  --surface-dark: #0d1117;
+  --success: #28a745;
+  --warning: #f0ad4e;
+  --danger: #dc3545;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
+  --max-width: 1200px;
+}
+
+/* --- Global Overrides --- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+h2 { font-size: 2.25rem; font-weight: 600; line-height: 1.3; }
+h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+h4 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Buttons --- */
+.sqs-block-button-element--small,
+.sqs-block-button-element--medium,
+.sqs-block-button-element--large,
+.sqs-add-to-cart-button,
+.header-actions .btn {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Primary buttons (green) */
+.sqs-block-button-element--small,
+.sqs-block-button-element--medium,
+.sqs-block-button-element--large {
+  background-color: var(--accent) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--accent) !important;
+}
+
+.sqs-block-button-element--small:hover,
+.sqs-block-button-element--medium:hover,
+.sqs-block-button-element--large:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* Secondary buttons (outline) */
+.sqs-block-button-element--small.sqs-button-element--secondary,
+.sqs-block-button-element--medium.sqs-button-element--secondary,
+.sqs-block-button-element--large.sqs-button-element--secondary {
+  background-color: transparent !important;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+}
+
+.sqs-block-button-element--small.sqs-button-element--secondary:hover,
+.sqs-block-button-element--medium.sqs-button-element--secondary:hover,
+.sqs-block-button-element--large.sqs-button-element--secondary:hover {
+  background-color: var(--accent) !important;
+  color: var(--text-inverse) !important;
+}
+
+/* Add to cart button */
+.sqs-add-to-cart-button {
+  background-color: var(--accent) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.sqs-add-to-cart-button:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* --- Header --- */
+.header-announcement-bar-wrapper {
+  background-color: var(--accent) !important;
+}
+
+header.header-theme-override {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-nav-item a {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  transition: color 0.15s ease !important;
+}
+
+.header-nav-item a:hover {
+  color: var(--text-primary) !important;
+}
+
+.header-nav-item--active a {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+/* --- Footer --- */
+footer.sections {
+  background-color: var(--surface-dark) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer.sections h4,
+footer.sections h3,
+footer.sections h2 {
+  color: var(--text-inverse) !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+footer.sections a {
+  color: rgba(255, 255, 255, 0.5) !important;
+  transition: color 0.15s ease !important;
+}
+
+footer.sections a:hover {
+  color: var(--text-inverse) !important;
+}
+
+footer.sections p {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* --- Section Backgrounds --- */
+.page-section.dark-section,
+.page-section[data-section-theme="dark"] {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important;
+}
+
+.page-section.light-section,
+.page-section[data-section-theme="light"] {
+  background-color: var(--bg-light) !important;
+}
+
+/* --- Product Cards --- */
+.products .grid-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.products .grid-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.products .grid-item .grid-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+.products .grid-item .grid-meta-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Product detail page */
+.ProductItem-details .ProductItem-details-title {
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+}
+
+.ProductItem-details .product-price {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+/* --- Cards / Generic --- */
+.sqs-block-content .card,
+.code-block .card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.sqs-block-content .card:hover,
+.code-block .card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* --- Badges --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-accent {
+  background-color: rgba(15, 155, 88, 0.12);
+  color: var(--accent);
+}
+
+.badge-secondary {
+  background-color: rgba(74, 144, 217, 0.12);
+  color: var(--secondary);
+}
+
+/* --- Custom Code Block Styles --- */
+
+/* Product Highlights Grid */
+.flux-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.flux-product-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.flux-product-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  color: inherit;
+}
+
+.flux-product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.flux-product-card:hover img {
+  transform: scale(1.05);
+}
+
+.flux-product-card .card-body {
+  padding: 24px;
+}
+
+.flux-product-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.flux-product-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Protocol Icon Grid */
+.flux-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.flux-protocol-item img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+}
+
+.flux-protocol-item h4 {
+  font-size: 0.875rem;
+  margin: 0 0 4px;
+}
+
+.flux-protocol-item p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* GitHub Repo Cards */
+.flux-repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.flux-repo-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.flux-repo-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+}
+
+.flux-repo-card .repo-name {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.flux-repo-card .repo-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.flux-repo-card .repo-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.repo-meta .lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.lang-dot.yaml { background-color: #cb171e; }
+.lang-dot.python { background-color: #3572A5; }
+
+/* Feature Grid */
+.flux-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.flux-feature-item {
+  padding: 24px;
+}
+
+.flux-feature-item .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(74, 144, 217, 0.08);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.flux-feature-item h4 {
+  margin: 0 0 8px;
+}
+
+.flux-feature-item p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Steps */
+.flux-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flux-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.flux-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.flux-step h3 {
+  margin: 16px 0 8px;
+  font-size: 1.125rem;
+}
+
+.flux-step p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.flux-step-connector {
+  width: 60px;
+  height: 2px;
+  background-color: var(--border);
+  margin-top: 24px;
+  flex-shrink: 0;
+}
+
+/* Pricing Cards */
+.flux-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.flux-pricing-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+}
+
+.flux-pricing-card.featured {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.03);
+}
+
+.flux-pricing-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.flux-pricing-amount {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.flux-pricing-period {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.flux-pricing-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 8px 0 24px;
+}
+
+.flux-pricing-features {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.flux-pricing-features li {
+  position: relative;
+  padding: 4px 0 4px 20px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.flux-pricing-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* Trust Items */
+.flux-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.flux-trust-item {
+  padding: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.flux-trust-item h4 {
+  margin: 0 0 8px;
+}
+
+.flux-trust-item p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Two-Path Comparison */
+.flux-paths-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flux-path-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+}
+
+.flux-path-card.featured {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.flux-path-features {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.flux-path-features li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--bg-light);
+}
+
+.flux-path-features li:last-child {
+  border-bottom: none;
+}
+
+.flux-path-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0.5;
+}
+
+/* Feature List (checkmark style) */
+.flux-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.flux-feature-list li {
+  position: relative;
+  padding: 4px 0 4px 24px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.flux-feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0.6;
+}
+
+/* FAQ Accordion */
+.flux-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flux-faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.flux-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.flux-faq-question:hover {
+  color: var(--accent);
+}
+
+.flux-faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.flux-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.flux-faq-answer p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.flux-faq-item.active .flux-faq-chevron {
+  transform: rotate(180deg);
+}
+
+.flux-faq-item.active .flux-faq-answer {
+  max-height: 300px;
+  padding-bottom: 24px;
+}
+
+/* Support Link Cards */
+.flux-support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.flux-support-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.flux-support-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.flux-support-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 12px;
+}
+
+.flux-support-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flux-support-card li {
+  margin-bottom: 4px;
+}
+
+.flux-support-card a {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  padding: 4px 0;
+  display: block;
+}
+
+.flux-support-card a:hover {
+  color: var(--accent);
+}
+
+.flux-support-card a::before {
+  content: '\2192 ';
+  font-size: 0.75rem;
+}
+
+/* App Feature Grid (green icons) */
+.flux-app-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.flux-app-feature-item {
+  padding: 24px;
+}
+
+.flux-app-feature-item .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(15, 155, 88, 0.08);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.flux-app-feature-item h4 {
+  margin: 0 0 8px;
+}
+
+.flux-app-feature-item p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Utility Classes --- */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-secondary) !important; }
+.text-sm { font-size: 0.875rem; }
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+
+  .flux-product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .flux-protocol-grid { grid-template-columns: repeat(2, 1fr); }
+  .flux-repo-grid { grid-template-columns: 1fr; }
+  .flux-feature-grid { grid-template-columns: 1fr; }
+  .flux-pricing-grid { grid-template-columns: 1fr; }
+  .flux-pricing-card.featured { transform: none; }
+  .flux-trust-grid { grid-template-columns: 1fr; }
+  .flux-paths-grid { grid-template-columns: 1fr; }
+  .flux-support-grid { grid-template-columns: 1fr; }
+  .flux-app-feature-grid { grid-template-columns: 1fr; }
+  .flux-steps { flex-direction: column; align-items: center; }
+  .flux-step-connector { width: 2px; height: 30px; margin: 0; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .flux-product-grid { grid-template-columns: repeat(2, 1fr); }
+  .flux-feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .flux-pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .flux-support-grid { grid-template-columns: repeat(2, 1fr); }
+  .flux-app-feature-grid { grid-template-columns: repeat(2, 1fr); }
+}

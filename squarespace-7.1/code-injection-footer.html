@@ -1,0 +1,36 @@
+<!-- Paste into: Settings > Advanced > Code Injection > Footer -->
+<script>
+(function () {
+  'use strict';
+
+  // FAQ Accordion
+  document.querySelectorAll('.flux-faq-question').forEach(function (question) {
+    question.addEventListener('click', function () {
+      var item = this.parentElement;
+      var isActive = item.classList.contains('active');
+      document.querySelectorAll('.flux-faq-item').forEach(function (faqItem) {
+        faqItem.classList.remove('active');
+        faqItem.querySelector('.flux-faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var offset = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>

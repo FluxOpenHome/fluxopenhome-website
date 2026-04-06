@@ -1,0 +1,59 @@
+<!-- Support: FAQ Accordion -->
+<!-- Add as a Code Block in a light section -->
+<!-- Requires the JavaScript from code-injection-footer.html -->
+<div class="flux-faq-list">
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>Do I need Home Assistant to use Flux products?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>No. While our products are designed to work beautifully with Home Assistant, the Irrigation Controller also comes in a Direct Connect version that connects directly to our cloud management platform without Home Assistant. The Night Light and Gophr probe can also be flashed with alternative firmware like WLED.</p>
+    </div>
+  </div>
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>Can I 3D print the Night Light housing?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>Yes! We provide STL files for the Night Light housing. You can buy just the circuit board from our store and print the housing yourself. The files are optimized for FDM printers and require no supports.</p>
+    </div>
+  </div>
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>How many zones does the Irrigation Controller support?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>The base unit supports 8 zones. With expansion boards (MCP23017 I2C), you can expand up to 32 zones total. Zone 8 can also be configured as a master valve or pump start relay.</p>
+    </div>
+  </div>
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>What protocols does the Gophr probe support?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>Gophr supports three protocol options: ESPHome (WiFi, our primary recommendation), Zigbee (for mesh networks and extended range), and Matter (for broad smart home platform compatibility). Choose the variant that fits your setup when purchasing.</p>
+    </div>
+  </div>
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>Is the Management Dashboard required?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>Absolutely not. The management dashboard is entirely optional. All Flux products work independently with Home Assistant. The dashboard is a convenience layer for professionals who manage multiple properties &mdash; it does not gate any hardware functionality.</p>
+    </div>
+  </div>
+  <div class="flux-faq-item">
+    <button class="flux-faq-question" aria-expanded="false">
+      <span>How do firmware updates work?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flux-faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="flux-faq-answer">
+      <p>All Flux devices support OTA (Over-the-Air) updates. When connected to Home Assistant, updates can be pushed from the ESPHome dashboard. The Night Light also has a built-in web server for direct browser-based updates, and GitHub-hosted firmware releases.</p>
+    </div>
+  </div>
+</div>
