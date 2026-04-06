@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <rect width="400" height="300" fill="#f8f9fa"/>
-  <!-- Round device body (M5Stack Dial style) -->
+  <!-- Round device body -->
   <circle cx="200" cy="140" r="90" fill="#1a1a2e" stroke="#e2e8f0" stroke-width="2"/>
   <!-- Screen bezel -->
   <circle cx="200" cy="140" r="72" fill="#16213e"/>
