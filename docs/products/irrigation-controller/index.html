@@ -130,53 +130,48 @@
       <div class="container">
         <div class="flux-section-header">
           <h2>Specifications</h2>
-          <p>Built on the ESP32-S3 with full ESPHome integration and expansion capability.</p>
         </div>
         <table class="pd-specs-table">
           <tbody>
             <tr>
-              <td>MCU</td>
-              <td>ESP32-S3 DevKitC-1</td>
-            </tr>
-            <tr>
               <td>Zones</td>
-              <td>8 built-in (GPIO45, 35-41), expandable to 32</td>
+              <td>8 built-in, expandable up to 32</td>
             </tr>
             <tr>
-              <td>Expansion</td>
-              <td>MCP23017 I2C boards (addresses 0x20-0x22)</td>
-            </tr>
-            <tr>
-              <td>Zone 8</td>
-              <td>Configurable as normal zone, master valve, or pump start relay</td>
-            </tr>
-            <tr>
-              <td>Rain Sensor</td>
-              <td>GPIO4, configurable NO/NC, 1-72 hour delay</td>
-            </tr>
-            <tr>
-              <td>Status LED</td>
-              <td>WS2812 on GPIO42</td>
+              <td>Processor</td>
+              <td>240 MHz dual-core, WiFi built-in</td>
             </tr>
             <tr>
               <td>Scheduling</td>
-              <td>4 start times, auto-advance, repeat cycles</td>
+              <td>4 start times per day, auto-advance, repeat cycles</td>
             </tr>
             <tr>
-              <td>Valve Overlap</td>
-              <td>3-second seamless transition between zones</td>
+              <td>Rain Sensor</td>
+              <td>Supported, with configurable 1-72 hour rain delay</td>
             </tr>
             <tr>
-              <td>WiFi Provisioning</td>
-              <td>Bluetooth, captive portal, serial</td>
+              <td>Master Valve / Pump</td>
+              <td>Dedicated output for master valve or pump start relay</td>
             </tr>
             <tr>
-              <td>OTA Updates</td>
-              <td>Yes</td>
+              <td>Valve Transition</td>
+              <td>3-second seamless overlap between zones</td>
+            </tr>
+            <tr>
+              <td>Connectivity</td>
+              <td>WiFi 802.11 b/g/n</td>
+            </tr>
+            <tr>
+              <td>Setup</td>
+              <td>Bluetooth, captive portal, or serial</td>
+            </tr>
+            <tr>
+              <td>Updates</td>
+              <td>Over-the-air (OTA) firmware updates</td>
             </tr>
             <tr>
               <td>Firmware</td>
-              <td>v1.2.7</td>
+              <td>ESPHome, v1.2.7</td>
             </tr>
           </tbody>
         </table>
