@@ -85,37 +85,30 @@
             <p class="flux-product-price">From $100.00</p>
             <p class="flux-product-description">Capacitive soil moisture probe with sensing at three depths (shallow, mid, deep). Solar-powered with deep sleep for extended battery life. Three versions to fit any setup: Home Assistant for local control, Direct Connect for cloud management, and Cellular for remote locations beyond WiFi range.</p>
 
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0">
-              <!-- Home Assistant Version -->
-              <div style="padding:20px;border:2px solid #0f9b58;border-radius:12px;background:rgba(15,155,88,0.04)">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                  <h4 style="margin:0;font-size:0.95rem">Home Assistant</h4>
+            <div class="variant-selector">
+              <h3>Choose Your Version</h3>
+              <div class="variant-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+                <div class="variant-option selected" data-variant-id="home-assistant" data-variant-name="Home Assistant" data-variant-price="$100.00">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2" style="margin-bottom:8px"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  <h4>Home Assistant</h4>
+                  <div class="variant-price">$100.00</div>
+                  <p class="variant-desc">ESPHome over WiFi. Local control via HA Add-on for automated watering decisions.</p>
                 </div>
-                <p style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 8px">$100.00</p>
-                <p style="font-size:0.8rem;color:#666;margin:0">Connects via ESPHome over WiFi directly to your Home Assistant. Full local control with the Flux Irrigation Add-on for automated watering decisions.</p>
-              </div>
-              <!-- Direct Connect Version -->
-              <div style="padding:20px;border:2px solid #4a90d9;border-radius:12px;background:rgba(74,144,217,0.04)">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-                  <h4 style="margin:0;font-size:0.95rem">Direct Connect</h4>
+                <div class="variant-option variant-blue" data-variant-id="direct-connect" data-variant-name="Direct Connect" data-variant-price="$100.00">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2" style="margin-bottom:8px"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+                  <h4>Direct Connect</h4>
+                  <div class="variant-price">$100.00</div>
+                  <p class="variant-desc">WiFi to Flux Cloud via MQTT. No Home Assistant required.</p>
                 </div>
-                <p style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 8px">$100.00</p>
-                <p style="font-size:0.8rem;color:#666;margin:0">Connects via WiFi directly to the Flux Cloud using MQTT. No Home Assistant required. Managed through the cloud dashboard and User Portal.</p>
-              </div>
-              <!-- Cellular Version -->
-              <div style="padding:20px;border:2px solid #f0ad4e;border-radius:12px;background:rgba(240,173,78,0.04)">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0ad4e" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="3"/><path d="M6 8h.01M10 8h.01M6 12h12M6 16h8"/></svg>
-                  <h4 style="margin:0;font-size:0.95rem">Cellular</h4>
+                <div class="variant-option variant-amber" data-variant-id="cellular" data-variant-name="Cellular" data-variant-price="$150.00">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0ad4e" stroke-width="2" style="margin-bottom:8px"><rect x="1" y="4" width="22" height="16" rx="3"/><path d="M6 8h.01M10 8h.01M6 12h12M6 16h8"/></svg>
+                  <h4>Cellular</h4>
+                  <div class="variant-price">$150.00</div>
+                  <p class="variant-desc">Built-in cellular modem for remote locations beyond WiFi range.</p>
                 </div>
-                <p style="font-size:1.25rem;font-weight:700;color:#1a1a2e;margin:0 0 8px">$150.00</p>
-                <p style="font-size:0.8rem;color:#666;margin:0">Built-in cellular modem for remote locations beyond WiFi range. Connects to Flux Cloud via MQTT over cellular. Perfect for large properties and fields.</p>
               </div>
+              <a href="/store?product=gophr-probe&variant=home-assistant" class="btn btn-primary btn-lg variant-buy-btn" data-product="gophr-probe" style="width:100%">Buy Now — Home Assistant $100.00</a>
             </div>
-
-            <a href="/store" class="btn btn-primary btn-lg">Buy Now</a>
           </div>
         </div>
       </div>

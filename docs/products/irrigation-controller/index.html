@@ -85,17 +85,22 @@
             <h1>Flux Irrigation Controller</h1>
             <div class="pd-hero-price">$250.00</div>
             <p class="pd-hero-desc">ESP32-S3 smart irrigation controller supporting 8-32 zones. Weather-based scheduling, rain sensor support, and expansion boards. Available in Home Assistant (ESPHome) and Direct Connect (cloud) versions.</p>
-            <div class="pd-version-cards">
-              <div class="pd-version-card">
-                <h4>Home Assistant Version</h4>
-                <p>Works with HA Add-on, local control, ESPHome firmware. Full integration with your Home Assistant dashboard.</p>
+            <div class="variant-selector">
+              <h3>Choose Your Version</h3>
+              <div class="variant-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+                <div class="variant-option selected" data-variant-id="home-assistant" data-variant-name="Home Assistant" data-variant-price="$250.00">
+                  <h4>Home Assistant Version</h4>
+                  <div class="variant-price">$250.00</div>
+                  <p class="variant-desc">Works with HA Add-on, local control, ESPHome firmware. Full integration with your Home Assistant dashboard.</p>
+                </div>
+                <div class="variant-option variant-blue" data-variant-id="direct-connect" data-variant-name="Direct Connect" data-variant-price="$250.00">
+                  <h4>Direct Connect Version</h4>
+                  <div class="variant-price">$250.00</div>
+                  <p class="variant-desc">Cloud-based, no Home Assistant required. MQTT connection to management server for remote monitoring.</p>
+                </div>
               </div>
-              <div class="pd-version-card">
-                <h4>Direct Connect Version</h4>
-                <p>Cloud-based, no Home Assistant required. WebSocket connection to management server for remote monitoring.</p>
-              </div>
+              <a href="/store?product=irrigation-controller&variant=home-assistant" class="btn btn-primary btn-lg variant-buy-btn" data-product="irrigation-controller" style="width:100%">Buy Now — Home Assistant $250.00</a>
             </div>
-            <a href="/store" class="btn btn-primary btn-lg">Buy Now</a>
           </div>
         </div>
       </div>

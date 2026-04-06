@@ -86,4 +86,32 @@
       });
     });
   });
+
+  // Product variant selection
+  document.querySelectorAll('.variant-selector').forEach(function(selector) {
+    var cards = selector.querySelectorAll('.variant-option');
+    var buyBtn = selector.querySelector('.variant-buy-btn');
+
+    // Select first card by default
+    if (cards.length > 0) {
+      cards[0].classList.add('selected');
+      updateBuyButton(buyBtn, cards[0]);
+    }
+
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        cards.forEach(function(c) { c.classList.remove('selected'); });
+        this.classList.add('selected');
+        updateBuyButton(buyBtn, this);
+      });
+    });
+  });
+
+  function updateBuyButton(btn, card) {
+    if (!btn || !card) return;
+    var name = card.getAttribute('data-variant-name') || '';
+    var price = card.getAttribute('data-variant-price') || '';
+    btn.textContent = 'Buy Now — ' + name + ' ' + price;
+    btn.href = '/store?product=' + btn.getAttribute('data-product') + '&variant=' + card.getAttribute('data-variant-id');
+  }
 })();

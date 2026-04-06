@@ -361,21 +361,21 @@
             <h1>Flux Night Light</h1>
             <div class="product-price">From $24.99</div>
             <p class="product-description">ESP32-C3 powered night light with 16 WS2812 addressable LEDs in a 4x4 grid. 13 built-in effects. Full Home Assistant integration via ESPHome. Buy the board and 3D print the housing, or get it fully assembled.</p>
-            <div class="purchase-options">
-              <h3>Purchase Options</h3>
-              <div class="option-cards">
-                <div class="option-card">
+            <div class="variant-selector">
+              <h3>Choose Your Option</h3>
+              <div class="variant-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+                <div class="variant-option selected" data-variant-id="board-only" data-variant-name="Board Only" data-variant-price="$24.99">
                   <h4>Board Only</h4>
-                  <div class="option-price">$24.99</div>
-                  <p>Buy just the PCB. 3D print files included.</p>
+                  <div class="variant-price">$24.99</div>
+                  <p class="variant-desc">Buy just the PCB. 3D print files included for the housing.</p>
                 </div>
-                <div class="option-card">
+                <div class="variant-option" data-variant-id="assembled" data-variant-name="Fully Assembled" data-variant-price="$39.99">
                   <h4>Fully Assembled</h4>
-                  <div class="option-price">$39.99</div>
-                  <p>Ready to plug in and use.</p>
+                  <div class="variant-price">$39.99</div>
+                  <p class="variant-desc">Ready to plug in and use. Housing included.</p>
                 </div>
               </div>
-              <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Buy Now</a>
+              <a href="/store?product=night-light&variant=board-only" class="btn btn-primary btn-lg variant-buy-btn" data-product="night-light" style="width:100%">Buy Now — Board Only $24.99</a>
             </div>
           </div>
         </div>
