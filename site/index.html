@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flux Open Home - Open Source Smart Home Products</title>
+  <meta name="description" content="Open source smart home hardware built on ESPHome, designed for Home Assistant. From smart lighting to intelligent irrigation, hardware you truly own.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="flux-hero">
+      <div class="flux-hero-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <div class="flux-hero-content">
+          <h1>Open Source Smart Home Products</h1>
+          <p class="flux-hero-subtitle">Built on ESPHome. Designed for Home Assistant. Open to everyone. From smart lighting to intelligent irrigation, Flux Open Home makes smart home hardware that you truly own.</p>
+          <div class="flux-hero-actions">
+            <a href="/store" class="btn btn-primary btn-lg">Explore Products</a>
+            <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Highlights -->
+    <section class="flux-section flux-product-highlights">
+      <div class="container">
+        <div class="flux-section-header">
+          <h2>Our Products</h2>
+          <p>Open source hardware for your smart home. Buy assembled or build it yourself.</p>
+        </div>
+        <div class="flux-product-grid">
+          <a href="/products/night-light" class="flux-product-card">
+            <div class="flux-product-card-image">
+              <img src="/assets/placeholder-nightlight.svg" alt="Flux Night Light">
+            </div>
+            <div class="flux-product-card-body">
+              <h3>Night Light</h3>
+              <p>16 addressable LEDs with 13 built-in effects. Board-only or fully assembled.</p>
+            </div>
+          </a>
+          <a href="/products/irrigation-controller" class="flux-product-card">
+            <div class="flux-product-card-image">
+              <img src="/assets/placeholder-irrigation.svg" alt="Flux Irrigation Controller">
+            </div>
+            <div class="flux-product-card-body">
+              <h3>Irrigation Controller</h3>
+              <p>8-32 zone smart irrigation with weather-based scheduling and rain sensor support.</p>
+            </div>
+          </a>
+          <a href="/products/irrigation-remote" class="flux-product-card">
+            <div class="flux-product-card-image">
+              <img src="/assets/placeholder-remote.svg" alt="Flux Controller Remote">
+            </div>
+            <div class="flux-product-card-body">
+              <h3>Controller Remote</h3>
+              <p>Wall-mounted touchscreen for quick zone control. M5Stack Dial and CrowPanel variants.</p>
+            </div>
+          </a>
+          <a href="/products/gophr-probe" class="flux-product-card">
+            <div class="flux-product-card-image">
+              <img src="/assets/placeholder-gophr.svg" alt="Gophr Soil Moisture Probe">
+            </div>
+            <div class="flux-product-card-body">
+              <h3>Gophr Probe</h3>
+              <p>3-depth soil moisture sensing with solar charging. ESPHome, Zigbee, and Matter.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source Mission -->
+    <section class="flux-section flux-mission">
+      <div class="container">
+        <div class="flux-mission-grid">
+          <div class="flux-mission-content">
+            <h2>Built in the Open</h2>
+            <p>Every Flux product ships with full source code. No locked-down firmware, no mandatory cloud subscriptions, no vendor lock-in. Your hardware runs on your network, under your control.</p>
+            <p>We provide the circuit boards, the firmware, and the 3D print files. You decide how to build it, how to run it, and how to extend it.</p>
+            <a href="/open-source.html" class="btn btn-outline btn-lg">Our Open Source Repos</a>
+          </div>
+          <div class="flux-protocol-grid">
+            <div class="flux-protocol-item">
+              <img src="/assets/icon-esphome.svg" alt="ESPHome">
+              <h4>ESPHome</h4>
+            </div>
+            <div class="flux-protocol-item">
+              <img src="/assets/icon-homeassistant.svg" alt="Home Assistant">
+              <h4>Home Assistant</h4>
+            </div>
+            <div class="flux-protocol-item">
+              <img src="/assets/icon-github.svg" alt="GitHub">
+              <h4>GitHub</h4>
+            </div>
+            <div class="flux-protocol-item">
+              <img src="/assets/icon-matter.svg" alt="Matter">
+              <h4>Matter</h4>
+            </div>
+            <div class="flux-protocol-item">
+              <img src="/assets/icon-zigbee.svg" alt="Zigbee">
+              <h4>Zigbee</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise Teaser -->
+    <section class="flux-section flux-enterprise-teaser">
+      <div class="container">
+        <div class="flux-enterprise-teaser-content">
+          <span class="flux-badge flux-badge-secondary">For Business</span>
+          <h2>Professional Irrigation Management</h2>
+          <p>The same open source hardware, scaled for lawn care companies and property managers. Multi-property dashboards, team accounts, and remote monitoring &mdash; built on the same platform homeowners trust.</p>
+          <a href="/enterprise.html" class="btn btn-outline-white btn-lg">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- iOS App Teaser -->
+    <section class="flux-section flux-app-teaser">
+      <div class="container">
+        <div class="flux-app-teaser-grid">
+          <div class="flux-app-teaser-content">
+            <span class="flux-badge flux-badge-accent">iOS App</span>
+            <h2>Flux Controller for iOS</h2>
+            <p>Control your irrigation system from your iPhone. Works with Home Assistant and Direct Connect controllers. Zone control, scheduling, weather monitoring, and Gophr probe readings.</p>
+            <a href="/ios-app.html" class="btn btn-primary btn-lg">Learn More</a>
+          </div>
+          <div class="flux-app-teaser-mockup">
+            <img src="/assets/placeholder-ios-app.svg" alt="Flux Controller iOS App">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

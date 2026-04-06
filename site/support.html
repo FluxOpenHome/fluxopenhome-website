@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support &amp; Documentation - Flux Open Home</title>
+  <meta name="description" content="Find setup guides, troubleshooting help, and answers to common questions for all Flux Open Home products.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/enterprise.html" class="nav-link">For Business</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link active">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/enterprise.html" class="nav-link">For Business</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="support-hero section-dark">
+      <div class="container">
+        <h1>Support &amp; Documentation</h1>
+        <p class="support-hero-subtitle">Find setup guides, troubleshooting help, and answers to common questions.</p>
+      </div>
+    </section>
+
+    <!-- Product Documentation -->
+    <section class="support-links section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Product Documentation</h2>
+          <p>Each product has its own setup guide and documentation on GitHub.</p>
+        </div>
+        <div class="flux-support-grid">
+          <!-- Night Light -->
+          <div class="flux-support-card">
+            <img src="/assets/placeholder-nightlight.svg" alt="Night Light">
+            <h3>Night Light</h3>
+            <ul>
+              <li><a href="https://github.com/FluxOpenHome/NightLight" target="_blank" rel="noopener">Setup Guide (GitHub)</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#effects" target="_blank" rel="noopener">Effects List</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#wled" target="_blank" rel="noopener">WLED Alternative Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/NightLight#3d-printing" target="_blank" rel="noopener">3D Print Files</a></li>
+            </ul>
+          </div>
+          <!-- Irrigation Controller -->
+          <div class="flux-support-card">
+            <img src="/assets/placeholder-irrigation.svg" alt="Irrigation Controller">
+            <h3>Irrigation Controller</h3>
+            <ul>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener">Setup &amp; Installation Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#troubleshooting" target="_blank" rel="noopener">Troubleshooting</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#rain-sensor" target="_blank" rel="noopener">Rain Sensor Configuration</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationController#expansion" target="_blank" rel="noopener">Expansion Board Setup</a></li>
+            </ul>
+          </div>
+          <!-- Home Assistant Add-on -->
+          <div class="flux-support-card">
+            <img src="/assets/icon-homeassistant.svg" alt="Home Assistant" style="padding:20px;background:#f8f9fa;border-radius:8px">
+            <h3>Home Assistant Add-on</h3>
+            <ul>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons" target="_blank" rel="noopener">Installation Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#weather" target="_blank" rel="noopener">Weather Rule Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#connection-keys" target="_blank" rel="noopener">Connection Keys</a></li>
+              <li><a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons#moisture" target="_blank" rel="noopener">Gophr Probe Setup</a></li>
+            </ul>
+          </div>
+          <!-- Controller Remote -->
+          <div class="flux-support-card">
+            <img src="/assets/placeholder-remote.svg" alt="Controller Remote">
+            <h3>Controller Remote</h3>
+            <ul>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote" target="_blank" rel="noopener">M5Stack Dial Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote#crowpanel" target="_blank" rel="noopener">CrowPanel Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/IrrigationControllerRemote#firmware" target="_blank" rel="noopener">Firmware Updates</a></li>
+            </ul>
+          </div>
+          <!-- Gophr Soil Probe -->
+          <div class="flux-support-card">
+            <img src="/assets/placeholder-gophr.svg" alt="Gophr Probe">
+            <h3>Gophr Soil Probe</h3>
+            <ul>
+              <li><a href="https://github.com/FluxOpenHome/Gophr" target="_blank" rel="noopener">ESPHome Setup</a></li>
+              <li><a href="https://github.com/FluxOpenHome/Gophr#zigbee" target="_blank" rel="noopener">Zigbee Protocol Guide</a></li>
+              <li><a href="https://github.com/FluxOpenHome/Gophr#matter" target="_blank" rel="noopener">Matter Protocol Guide</a></li>
+            </ul>
+          </div>
+          <!-- Management Dashboard -->
+          <div class="flux-support-card">
+            <img src="/assets/placeholder-enterprise.svg" alt="Management Dashboard">
+            <h3>Management Dashboard</h3>
+            <ul>
+              <li><a href="/enterprise.html">Getting Started</a></li>
+              <li><a href="/enterprise.html#how-it-works">Adding Properties</a></li>
+              <li><a href="/enterprise.html#pricing">Plans &amp; Pricing</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="support-faq section-light">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I need Home Assistant to use Flux products?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>No. While our products are designed to work beautifully with Home Assistant, the Irrigation Controller also comes in a Direct Connect version that connects directly to our cloud management platform without Home Assistant. The Night Light and Gophr probe can also be flashed with alternative firmware like WLED.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I 3D print the Night Light housing?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We provide STL files for the Night Light housing. You can buy just the circuit board from our store and print the housing yourself. The files are optimized for FDM printers and require no supports.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How many zones does the Irrigation Controller support?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>The base unit supports 8 zones. With expansion boards (MCP23017 I2C), you can expand up to 32 zones total. Zone 8 can also be configured as a master valve or pump start relay.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What protocols does the Gophr probe support?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Gophr supports three protocol options: ESPHome (WiFi, our primary recommendation), Zigbee (for mesh networks and extended range), and Matter (for broad smart home platform compatibility). Choose the variant that fits your setup when purchasing.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Is the Management Dashboard required?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely not. The management dashboard is entirely optional. All Flux products work independently with Home Assistant. The dashboard is a convenience layer for professionals who manage multiple properties &mdash; it does not gate any hardware functionality.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do firmware updates work?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>All Flux devices support OTA (Over-the-Air) updates. When connected to Home Assistant, updates can be pushed from the ESPHome dashboard. The Night Light also has a built-in web server for direct browser-based updates, and GitHub-hosted firmware releases.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="support-contact section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Still Need Help?</h2>
+          <p>Open a GitHub issue for technical support, or reach out directly.</p>
+        </div>
+        <div class="support-contact-grid">
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="support-contact-card card">
+            <div class="card-body">
+              <img src="/assets/icon-github.svg" alt="" width="40" height="40" style="margin-bottom:16px">
+              <h4>GitHub Issues</h4>
+              <p>Open an issue on the relevant product repository for bugs, feature requests, or technical questions.</p>
+            </div>
+          </a>
+          <div class="support-contact-card card">
+            <div class="card-body">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2" style="margin-bottom:16px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <h4>Email Support</h4>
+              <p>For account, billing, or management dashboard questions, email us directly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/enterprise.html">For Business</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2025 Flux Open Home. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

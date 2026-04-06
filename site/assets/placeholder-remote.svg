@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <!-- Round device body (M5Stack Dial style) -->
+  <circle cx="200" cy="140" r="90" fill="#1a1a2e" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Screen bezel -->
+  <circle cx="200" cy="140" r="72" fill="#16213e"/>
+  <!-- Screen content -->
+  <circle cx="200" cy="140" r="65" fill="#0d1117"/>
+  <!-- Zone indicators on screen -->
+  <g font-family="monospace" font-size="10" fill="#0f9b58">
+    <text x="165" y="115">Zone 1</text>
+    <rect x="210" y="107" width="30" height="8" rx="4" fill="#0f9b58" opacity="0.9"/>
+    <text x="165" y="133">Zone 2</text>
+    <rect x="210" y="125" width="20" height="8" rx="4" fill="#4a90d9" opacity="0.7"/>
+    <text x="165" y="151">Zone 3</text>
+    <rect x="210" y="143" width="25" height="8" rx="4" fill="#0f9b58" opacity="0.8"/>
+    <text x="165" y="169">Zone 4</text>
+    <rect x="210" y="161" width="15" height="8" rx="4" fill="#666" opacity="0.4"/>
+  </g>
+  <!-- Time display -->
+  <text x="200" y="100" text-anchor="middle" font-family="monospace" font-size="9" fill="#999">8:30 AM</text>
+  <!-- Rotary indicator -->
+  <circle cx="200" cy="140" r="86" fill="none" stroke="#0f9b58" stroke-width="1.5" stroke-dasharray="4 8" opacity="0.4"/>
+  <!-- Wall mount bracket hint -->
+  <rect x="185" y="240" width="30" height="6" rx="3" fill="#e2e8f0"/>
+  <!-- Label -->
+  <text x="200" y="272" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Flux Controller Remote</text>
+</svg>

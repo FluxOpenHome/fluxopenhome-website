@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <!-- Browser chrome -->
+  <rect x="40" y="30" width="320" height="230" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Title bar -->
+  <rect x="40" y="30" width="320" height="28" rx="8" fill="#f8f9fa"/>
+  <rect x="40" y="50" width="320" height="8" fill="#f8f9fa"/>
+  <!-- Window dots -->
+  <circle cx="56" cy="44" r="4" fill="#dc3545" opacity="0.6"/>
+  <circle cx="70" cy="44" r="4" fill="#f0ad4e" opacity="0.6"/>
+  <circle cx="84" cy="44" r="4" fill="#0f9b58" opacity="0.6"/>
+  <!-- URL bar -->
+  <rect x="100" y="37" width="200" height="14" rx="4" fill="#e2e8f0"/>
+  <text x="200" y="48" text-anchor="middle" font-family="monospace" font-size="7" fill="#999">manage.fluxopenhome.com</text>
+  <!-- Sidebar -->
+  <rect x="40" y="58" width="70" height="202" fill="#0d1117"/>
+  <rect x="48" y="68" width="54" height="8" rx="2" fill="#0f9b58" opacity="0.6"/>
+  <rect x="48" y="84" width="40" height="6" rx="2" fill="#ffffff" opacity="0.2"/>
+  <rect x="48" y="96" width="48" height="6" rx="2" fill="#ffffff" opacity="0.2"/>
+  <rect x="48" y="108" width="36" height="6" rx="2" fill="#ffffff" opacity="0.15"/>
+  <rect x="48" y="120" width="44" height="6" rx="2" fill="#ffffff" opacity="0.15"/>
+  <!-- Main content area -->
+  <!-- Dashboard header -->
+  <text x="125" y="76" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1a1a2e">Properties Dashboard</text>
+  <!-- Property cards -->
+  <rect x="120" y="85" width="108" height="65" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="126" y="92" width="60" height="6" rx="2" fill="#1a1a2e"/>
+  <rect x="126" y="102" width="40" height="4" rx="2" fill="#e2e8f0"/>
+  <circle cx="168" cy="134" r="8" fill="#0f9b58" opacity="0.2"/>
+  <text x="168" y="137" text-anchor="middle" font-family="monospace" font-size="7" fill="#0f9b58">OK</text>
+  <rect x="238" y="85" width="108" height="65" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="244" y="92" width="55" height="6" rx="2" fill="#1a1a2e"/>
+  <rect x="244" y="102" width="35" height="4" rx="2" fill="#e2e8f0"/>
+  <circle cx="286" cy="134" r="8" fill="#4a90d9" opacity="0.2"/>
+  <text x="286" y="137" text-anchor="middle" font-family="monospace" font-size="7" fill="#4a90d9">RUN</text>
+  <!-- Stats row -->
+  <rect x="120" y="160" width="70" height="40" rx="4" fill="#0f9b58" opacity="0.08"/>
+  <text x="155" y="177" text-anchor="middle" font-family="monospace" font-size="14" font-weight="600" fill="#0f9b58">24</text>
+  <text x="155" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#666">Properties</text>
+  <rect x="198" y="160" width="70" height="40" rx="4" fill="#4a90d9" opacity="0.08"/>
+  <text x="233" y="177" text-anchor="middle" font-family="monospace" font-size="14" font-weight="600" fill="#4a90d9">156</text>
+  <text x="233" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#666">Zones</text>
+  <rect x="276" y="160" width="70" height="40" rx="4" fill="#f0ad4e" opacity="0.08"/>
+  <text x="311" y="177" text-anchor="middle" font-family="monospace" font-size="14" font-weight="600" fill="#f0ad4e">3</text>
+  <text x="311" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#666">Alerts</text>
+  <!-- Chart placeholder -->
+  <rect x="120" y="210" width="226" height="42" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <polyline points="130,240 155,232 180,238 205,225 230,228 255,220 280,230 305,222 330,226" stroke="#0f9b58" stroke-width="1.5" fill="none"/>
+  <!-- Label -->
+  <text x="200" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#666">Management Dashboard</text>
+</svg>
