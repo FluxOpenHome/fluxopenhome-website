@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flux - Home Assistant Dashboard for iPhone, iPad &amp; Apple TV</title>
+  <meta name="description" content="Flux is the most beautiful way to control Home Assistant. Design stunning native dashboards, animate live SVG artwork, plot real history, and build powerful visual automations — on iPhone, iPad, and Apple TV.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/flux.html" class="nav-link active">Flux App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/flux.html" class="nav-link">Flux App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="app-hero section-dark">
+      <div class="container">
+        <div class="app-hero-grid">
+          <div class="app-hero-content">
+            <span class="badge badge-accent">iPhone · iPad · Apple TV</span>
+            <h1>Flux</h1>
+            <p class="app-hero-subtitle">The most beautiful way to control Home Assistant.</p>
+            <div class="app-hero-actions">
+              <a href="#" class="btn btn-primary btn-lg">Download on the App Store</a>
+            </div>
+            <p class="text-sm text-muted" style="margin-top:12px">One app for iPhone, iPad, and Apple TV. Connects directly to your Home Assistant.</p>
+          </div>
+          <div class="app-hero-image">
+            <img src="/assets/placeholder-ios-app.svg" alt="Flux dashboard on iPhone" style="max-width:260px;margin:0 auto;display:block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="app-features section">
+      <div class="container">
+        <div class="section-header">
+          <h2>A dashboard as good as your smart home</h2>
+          <p>Native, fast, and gorgeous — built from the ground up for Home Assistant.</p>
+        </div>
+        <div class="flux-app-feature-grid">
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h4>Design Anything</h4>
+            <p>A drag-and-drop builder with a free-form canvas. Craft a tailored layout for iPhone, iPad, and Apple TV — buttons, gauges, graphs, thermostats, and more.</p>
+          </div>
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg>
+            </div>
+            <h4>Living Artwork</h4>
+            <p>Map a library of premium SVG objects to your entities. Lights glow in their real color, fans and washers spin, thermometers fill, tanks show their level.</p>
+          </div>
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
+            </div>
+            <h4>Real History</h4>
+            <p>Beautiful multi-entity charts plotted from your actual Home Assistant history, with live readouts and flexible time ranges.</p>
+          </div>
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M15 3h4a2 2 0 0 1 2 2v4"/><path d="M9 21H5a2 2 0 0 1-2-2v-4"/><path d="M15 21h4a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4>Powerful Automations</h4>
+            <p>A visual “When → Only if → Do” builder that reads like plain English, with branching Cases. Test, run, and trace exactly where an automation succeeded or failed.</p>
+          </div>
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+            </div>
+            <h4>Full Light &amp; Climate Control</h4>
+            <p>Brightness, color, and effects for RGB/WRGB lights. Smart thermostats with multiple designs and instant, optimistic response.</p>
+          </div>
+          <div class="flux-app-feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+            </div>
+            <h4>Floor Plans &amp; Cameras</h4>
+            <p>Interactive floor plans and live camera feeds, plus weather, energy flow, calendars, and every Home Assistant domain — with full metric/imperial units.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private by design -->
+    <section class="app-compat section-light">
+      <div class="container">
+        <div class="section-header">
+          <h2>Private by design</h2>
+          <p>Flux talks straight to your Home Assistant — nothing in between.</p>
+        </div>
+        <div class="app-compat-grid" style="max-width:480px;margin:0 auto">
+          <div class="app-compat-card card">
+            <div class="card-body">
+              <img src="/assets/icon-homeassistant.svg" alt="" width="40" height="40" style="margin-bottom:16px">
+              <h4>Home Assistant</h4>
+              <p>Connect over your local network or Home Assistant Cloud (Nabu Casa). No account, no middle-man cloud, no analytics or tracking. Your data stays on your devices and your Home Assistant. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/flux.html">Flux App</a></li>
+            <li><a href="/ios-app.html">Flux Controller</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2026 Flux Open Home. All rights reserved. &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
