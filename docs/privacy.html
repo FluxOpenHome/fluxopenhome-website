@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Flux Open Home</title>
+  <meta name="description" content="Privacy Policy for Flux Open Home apps. Our apps connect directly to your Home Assistant — we don't collect, track, or sell your data.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+  <style>
+    .legal { max-width: 760px; margin: 0 auto; }
+    .legal h2 { margin-top: 2.25rem; }
+    .legal h3 { margin-top: 1.5rem; }
+    .legal p, .legal li { line-height: 1.7; }
+    .legal ul { padding-left: 1.25rem; }
+    .legal li { margin-bottom: .4rem; }
+    .legal .effective { color: var(--text-muted, #6b7280); font-size: .95rem; }
+    .legal .lead { font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/open-source.html" class="nav-link">Open Source</a>
+        <a href="/ios-app.html" class="nav-link">iOS App</a>
+        <a href="/support.html" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <nav class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/open-source.html" class="nav-link">Open Source</a>
+      <a href="/ios-app.html" class="nav-link">iOS App</a>
+      <a href="/support.html" class="nav-link">Support</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="legal">
+
+          <span class="badge badge-accent">Legal</span>
+          <h1>Privacy Policy</h1>
+          <p class="effective">Effective June 9, 2026 &nbsp;·&nbsp; Last updated June 9, 2026</p>
+
+          <p class="lead">Flux Open Home builds software that connects <strong>directly</strong> to the systems you already own. Our apps are designed to be private by default: we do not operate a cloud service that sits between you and your devices, we do not require an account, and we do not collect, track, or sell your personal data.</p>
+
+          <p>This Privacy Policy explains how the Flux Open Home applications — including <strong>Flux</strong> (our Home Assistant dashboard for iPhone, iPad, and Apple TV) and the <strong>Flux Controller</strong> app — handle information. By using our apps, you agree to this policy.</p>
+
+          <h2>1. The short version</h2>
+          <ul>
+            <li><strong>No account required.</strong> You connect the app straight to your own Home Assistant.</li>
+            <li><strong>No analytics, no tracking, no advertising.</strong> We do not embed third-party trackers or ad SDKs.</li>
+            <li><strong>No data sent to us.</strong> Your dashboards, entities, camera feeds, and settings stay on your device and your Home Assistant.</li>
+            <li><strong>Your credentials stay on your device,</strong> stored in the iOS Keychain.</li>
+          </ul>
+
+          <h2>2. Information we collect</h2>
+          <p>The app itself does <strong>not</strong> collect personal information and sends nothing to Flux Open Home servers. Specifically:</p>
+          <ul>
+            <li><strong>Connection details</strong> — the address (URL) of your Home Assistant and your access token are stored locally in the device's encrypted Keychain so the app can connect. They are never transmitted to us.</li>
+            <li><strong>Dashboards &amp; preferences</strong> — the layouts, widgets, and settings you create are stored on your device. If you enable Apple iCloud for the app, this configuration may sync across your own devices through your private iCloud account, which is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. We have no access to it.</li>
+            <li><strong>Device &amp; entity data</strong> — entity states, sensor history, camera streams, and similar information are fetched directly from your Home Assistant for display and are not routed through or stored by us.</li>
+          </ul>
+
+          <h2>3. How the app connects</h2>
+          <p>The app communicates with your Home Assistant over the connection you configure — your local network, or a remote connection such as Home Assistant Cloud (Nabu Casa) or your own reverse proxy. That traffic flows between your device and your Home Assistant only. Flux Open Home is not a party to it.</p>
+
+          <h2>4. Permissions the app may request</h2>
+          <ul>
+            <li><strong>Local Network</strong> — to discover and reach your Home Assistant on your Wi-Fi.</li>
+            <li><strong>Notifications</strong> (optional) — to deliver alerts you choose to enable. Push delivery, if used, is handled through Apple and/or your Home Assistant's notification service.</li>
+            <li><strong>Camera/Microphone</strong> are <em>not</em> used for capture; camera <em>feeds</em> shown in the app are streamed from your Home Assistant.</li>
+          </ul>
+          <p>You can change or revoke these permissions at any time in the iOS Settings app.</p>
+
+          <h2>5. Third-party services</h2>
+          <p>We do not share your information with third parties, because we do not have it. The app does not include advertising networks or analytics services. Any external content you add (for example, a camera feed URL or a map tile) is requested directly by your device from the source you specify.</p>
+
+          <h2>6. Data security</h2>
+          <p>Sensitive values such as access tokens are stored using Apple's Keychain. Because your data is not collected by us, there is no Flux Open Home database of your personal information to be breached. You remain in control of your Home Assistant and its own security.</p>
+
+          <h2>7. Children's privacy</h2>
+          <p>Our apps are not directed to children under 13 and do not knowingly collect personal information from them.</p>
+
+          <h2>8. Changes to this policy</h2>
+          <p>We may update this Privacy Policy from time to time. Material changes will be reflected here with an updated "Last updated" date. Continued use of the apps after a change constitutes acceptance of the revised policy.</p>
+
+          <h2>9. Contact us</h2>
+          <p>Questions about this policy or your privacy? Reach us through our <a href="/support.html">Support page</a> or by email at <a href="mailto:support@fluxopenhome.com">support@fluxopenhome.com</a>.</p>
+
+          <p style="margin-top:2.5rem"><a href="/" class="btn btn-secondary btn-sm">&larr; Back to home</a></p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="flux-footer">
+    <div class="container">
+      <div class="flux-footer-grid">
+        <div class="flux-footer-brand">
+          <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="140" height="35"></a>
+          <p class="flux-footer-tagline">Open source smart home hardware. Built on ESPHome, designed for Home Assistant.</p>
+          <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="flux-footer-github">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/products/night-light">Night Light</a></li>
+            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
+            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
+            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
+            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/open-source.html">Open Source</a></li>
+            <li><a href="/support.html">Support</a></li>
+            <li><a href="/ios-app.html">iOS App</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="flux-footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://discord.gg/fluxopenhome" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://community.home-assistant.io/" target="_blank" rel="noopener">HA Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flux-footer-bar">
+        <p>&copy; 2026 Flux Open Home. All rights reserved. &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
