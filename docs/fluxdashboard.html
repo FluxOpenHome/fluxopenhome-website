@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flux - The Most Beautiful Home Assistant Dashboard for iPhone, iPad &amp; Apple TV</title>
-  <meta name="description" content="Flux is the most beautiful way to control Home Assistant. Design stunning native dashboards, animate live SVG artwork, plot real history, and build powerful visual automations — on iPhone, iPad, and Apple TV. Private by design.">
+  <meta name="description" content="Flux is the most beautiful way to control Home Assistant and Apple Home. Design native dashboards, draw living floor plans, animate SVG artwork, play Apple Music across your speakers, and build powerful automations — on iPhone, iPad, and Apple TV. Everything syncs automatically over your private iCloud. Private by design.">
   <meta property="og:title" content="Flux — The most beautiful Home Assistant dashboard">
-  <meta property="og:description" content="Stunning native dashboards, living artwork, real history, and powerful automations for iPhone, iPad & Apple TV.">
-  <meta property="og:image" content="/assets/flux/flux-overview.png">
+  <meta property="og:description" content="Native dashboards, living floor plans, animated artwork, Apple Music, Apple Weather and powerful automations for iPhone, iPad & Apple TV — synced automatically.">
+  <meta property="og:image" content="/assets/flux/flux-ipad.png">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +17,11 @@
   <script src="/js/main.js" defer></script>
   <style>
     :root { --flux-accent: #0f9b58; --flux-accent-2: #34d399; }
-    .fx-hero { background: radial-gradient(1200px 600px at 80% -10%, rgba(52,211,153,.18), transparent 60%), linear-gradient(160deg, #0b1411 0%, #0a0c0f 60%, #0a0c0f 100%); color: #f4f6f5; padding: 84px 0 72px; overflow: hidden; }
-    .fx-hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-    .fx-hero h1 { color:#fff; font-size: clamp(48px, 8vw, 88px); font-weight: 800; letter-spacing: -.03em; margin: 14px 0 10px; line-height: 1; }
-    .fx-hero .lead { font-size: clamp(20px, 2.6vw, 26px); font-weight: 600; color: #e6efe9; margin: 0 0 14px; }
-    .fx-hero .sub { font-size: 17px; line-height: 1.6; color: #aab4ae; max-width: 30em; }
+    .fx-hero { background: radial-gradient(1200px 600px at 80% -10%, rgba(52,211,153,.18), transparent 60%), linear-gradient(160deg, #0b1411 0%, #0a0c0f 60%, #0a0c0f 100%); color: #f4f6f5; padding: 80px 0 72px; overflow: hidden; }
+    .fx-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .fx-hero-logo { height: clamp(40px, 6vw, 60px); width: auto; display: block; margin: 0 0 22px; }
+    .fx-hero h1 { color:#fff; font-size: clamp(30px, 4.4vw, 50px); font-weight: 800; letter-spacing: -.02em; margin: 0 0 14px; line-height: 1.07; }
+    .fx-hero .sub { font-size: 17px; line-height: 1.6; color: #aab4ae; max-width: 32em; }
     .fx-hero-cta { display: flex; gap: 14px; align-items: center; margin: 26px 0 12px; flex-wrap: wrap; }
     .fx-pill { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.02em; color:#bdf0d4; background:rgba(52,211,153,.12); border:1px solid rgba(52,211,153,.3); padding:6px 14px; border-radius:999px; }
     .fx-platforms { font-size:14px; color:#8b958f; }
@@ -29,14 +29,21 @@
     .phone { background:#0b0b0d; padding:7px; border-radius:32px; box-shadow:0 40px 80px -24px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06); }
     .phone img { display:block; width:100%; border-radius:26px; }
     .phone-w { width:300px; max-width:78vw; }
+    .tablet { background:#0b0b0d; padding:10px; border-radius:24px; box-shadow:0 44px 90px -28px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.07); }
+    .tablet img { display:block; width:100%; border-radius:14px; }
+    .tablet-w { width:560px; max-width:92vw; }
     .fx-hero-art { display:flex; justify-content:center; position:relative; }
-    .fx-hero-art .phone { transform: rotate(2deg); }
+    .fx-hero-art .tablet { transform: rotate(1.5deg); }
+    .fx-hero-art .phone { position:absolute; left:-26px; bottom:-34px; width:138px; padding:5px; border-radius:24px; transform:rotate(-5deg); z-index:3; }
+    .fx-hero-art .phone img { border-radius:20px; }
     .device-land { background:#0b0b0d; padding:8px; border-radius:18px; box-shadow:0 30px 60px -20px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06); }
     .device-land img { display:block; width:100%; border-radius:11px; }
     /* Showcase strip */
     .fx-strip { display:grid; grid-auto-flow:column; grid-auto-columns: 220px; gap:24px; overflow-x:auto; padding:8px 4px 24px; scroll-snap-type:x mandatory; }
     .fx-strip .phone { scroll-snap-align:center; }
     .fx-strip .phone-w { width:220px; }
+    /* iPad gallery */
+    .fx-ipad-gallery { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; max-width:1040px; margin:0 auto; }
     /* Feature rows */
     .fx-feature { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:56px 0; }
     .fx-feature.rev .fx-feature-media { order:2; }
@@ -47,6 +54,23 @@
     .fx-list { list-style:none; padding:0; margin:18px 0 0; }
     .fx-list li { padding-left:28px; position:relative; margin-bottom:10px; color:#39433d; font-weight:500; }
     .fx-list li::before { content:""; position:absolute; left:0; top:7px; width:16px; height:16px; border-radius:50%; background:rgba(15,155,88,.15); box-shadow:inset 0 0 0 2px var(--flux-accent); }
+    /* iCloud sync diagram */
+    .fx-sync { display:flex; align-items:stretch; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:10px; }
+    .fx-sync-node { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:22px 24px; text-align:center; min-width:158px; box-shadow:0 16px 34px -22px rgba(8,20,17,.4); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .fx-sync-node .dev { color:var(--flux-accent); }
+    .fx-sync-node h4 { margin:12px 0 2px; font-size:16px; }
+    .fx-sync-node p { margin:0; font-size:13px; color:var(--text-muted,#5b655f); }
+    .fx-sync-hub { background:linear-gradient(135deg,#0b1411,#0a0c0f); color:#fff; border-radius:18px; padding:22px 26px; min-width:188px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .fx-sync-hub .dev { color:var(--flux-accent-2); }
+    .fx-sync-hub h4 { margin:12px 0 2px; font-size:16px; color:#fff; }
+    .fx-sync-hub p { margin:0; font-size:13px; color:#9fb3a9; }
+    .fx-sync-arrow { display:flex; align-items:center; color:var(--flux-accent); font-size:30px; font-weight:800; }
+    .fx-sync-stack { display:flex; flex-direction:column; gap:12px; }
+    @media (max-width:760px){ .fx-sync-arrow{ transform:rotate(90deg); justify-content:center; } .fx-sync{ flex-direction:column; align-items:center; } }
+    /* Trio (every screen) */
+    .fx-trio { display:flex; gap:28px; align-items:center; justify-content:center; flex-wrap:wrap; max-width:1100px; margin:0 auto; }
+    .fx-trio .device-land { flex:1 1 380px; min-width:280px; }
+    .fx-trio .phone { width:188px; }
     /* Capabilities */
     .fx-caps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:8px; }
     .fx-cap { background:#fff; border:1px solid rgba(0,0,0,.07); border-radius:16px; padding:22px; }
@@ -58,9 +82,10 @@
     .fx-cta h2 { color:#fff; font-size:clamp(28px,4vw,42px); margin:0 0 10px; letter-spacing:-.02em; }
     .fx-cta p { color:#aab4ae; font-size:18px; margin:0 0 26px; }
     @media (max-width: 860px) {
-      .fx-hero-grid, .fx-feature { grid-template-columns:1fr; gap:32px; }
+      .fx-hero-grid, .fx-feature, .fx-ipad-gallery { grid-template-columns:1fr; gap:32px; }
       .fx-feature.rev .fx-feature-media { order:0; }
-      .fx-hero-art .phone { transform:none; }
+      .fx-hero-art .tablet { transform:none; }
+      .fx-hero-art .phone { position:static; width:150px; margin:18px auto 0; transform:none; }
     }
   </style>
 </head>
@@ -113,16 +138,17 @@
         <div class="fx-hero-grid">
           <div>
             <span class="fx-pill">iPhone · iPad · Apple TV</span>
-            <h1>Flux</h1>
-            <p class="lead">The most beautiful way to control Home Assistant.</p>
-            <p class="sub">Design stunning native dashboards, bring them to life with animated artwork, plot real history, and build powerful automations — all private, all yours.</p>
+            <img class="fx-hero-logo" src="/assets/flux-logo-white.svg" alt="Flux Open Home" style="margin-top:16px">
+            <h1>The most beautiful way to control Home Assistant.</h1>
+            <p class="sub">Design stunning native dashboards, draw a living floor plan of your home, bring it to life with animated artwork, and play music in every room — beautifully, on every screen, all private and all yours.</p>
             <div class="fx-hero-cta">
               <a href="#" class="btn btn-primary btn-lg">Download on the App Store</a>
             </div>
-            <p class="fx-platforms">One app for every screen. Connects directly to your Home Assistant — no account, no cloud middle-man.</p>
+            <p class="fx-platforms">One app for every screen. Connects directly to your Home Assistant and Apple Home — no account, no cloud middle-man.</p>
           </div>
           <div class="fx-hero-art">
-            <div class="phone phone-w"><img src="/assets/flux/flux-overview.png" alt="Flux dashboard on iPhone" loading="eager"></div>
+            <div class="tablet tablet-w"><img src="/assets/flux/flux-ipad.png" alt="Flux dashboard on iPad" loading="eager"></div>
+            <div class="phone"><img src="/assets/flux/flux-overview.png" alt="Flux dashboard on iPhone" loading="eager"></div>
           </div>
         </div>
       </div>
@@ -145,26 +171,27 @@
       </div>
     </section>
 
-    <!-- Feature: Design -->
+    <!-- Built for iPad -->
     <section class="section-light">
       <div class="container">
-        <div class="fx-feature">
-          <div class="fx-feature-media"><div class="phone phone-w"><img src="/assets/flux/flux-overview.png" alt="Drag-and-drop dashboard builder" loading="lazy"></div></div>
-          <div>
-            <span class="fx-kicker">Design</span>
-            <h3>A dashboard as beautiful as your home</h3>
-            <p>Drag, drop, and place anything on a free-form canvas. Buttons, gauges, graphs, thermostats, cameras, floor plans — sized and styled exactly how you want.</p>
-            <ul class="fx-list">
-              <li>Per-device layouts for iPhone, iPad, and Apple TV</li>
-              <li>Real snap-to-grid and smart alignment</li>
-              <li>Dozens of control styles, gauges, and tile shapes</li>
-            </ul>
-          </div>
+        <div class="section-header">
+          <span class="fx-kicker">Built for iPad</span>
+          <h2 style="margin-top:6px">The big canvas your home deserves</h2>
+          <p>The iPad turns Flux into a design studio — a wide, free-form canvas with a tailored layout that's all its own, perfect on the desk or mounted on the wall.</p>
         </div>
+        <div class="fx-ipad-gallery">
+          <div class="device-land"><img src="/assets/flux/flux-ipad.png" alt="Flux dashboard on iPad" loading="lazy"></div>
+          <div class="device-land"><img src="/assets/flux/flux-builder.png" alt="The Flux drag-and-drop builder on iPad" loading="lazy"></div>
+        </div>
+        <ul class="fx-list" style="max-width:760px;margin:28px auto 0">
+          <li>A dedicated iPad layout, designed independently from iPhone and Apple TV</li>
+          <li>Drag-and-drop builder with snap-to-grid, smart alignment and free zoom</li>
+          <li>Wall-panel kiosk mode with a clock screensaver and wake-on-motion</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Feature: Living artwork -->
+    <!-- Feature: Living artwork & floor plans -->
     <section class="section">
       <div class="container">
         <div class="fx-feature rev">
@@ -172,14 +199,67 @@
             <div class="phone phone-w"><img src="/assets/flux/flux-svg.png" alt="Living SVG artwork" loading="lazy"></div>
           </div>
           <div>
-            <span class="fx-kicker">Living Artwork</span>
-            <h3>Art that reacts to your home</h3>
-            <p>Map a library of premium vector objects to your entities and watch them come alive — lights glow in their real color, fans and washers spin, thermometers fill, tanks show their level, and you can dial in the exact animation speed.</p>
+            <span class="fx-kicker">Living Artwork &amp; Floor Plans</span>
+            <h3>Art — and a floor plan — that react to your home</h3>
+            <p>Draw your home's floor plan with walls, doors and furniture, then map a library of premium vector objects to your entities and watch everything come alive — lights glow in their real color, fans and washers spin, thermometers fill, tanks show their level.</p>
             <ul class="fx-list">
+              <li>To-scale floor plans you can set as a live dashboard backdrop</li>
               <li>Lamps, fans, appliances, vehicles, water, outdoor &amp; wellness gear</li>
-              <li>Grills, smokers, fire pits, EV chargers, hot tubs, saunas &amp; more</li>
               <li>Import your own SVGs and wire them up in seconds</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature: Apple ecosystem -->
+    <section class="section-light">
+      <div class="container">
+        <div class="fx-feature">
+          <div class="fx-feature-media"><div class="phone phone-w"><img src="/assets/flux/flux-thermostat.png" alt="Apple Home and media controls in Flux" loading="lazy"></div></div>
+          <div>
+            <span class="fx-kicker">Apple, Deeply Integrated</span>
+            <h3>Your whole Apple home, in one place</h3>
+            <p>Flux speaks fluent Apple. Control your Apple Home accessories right beside Home Assistant, play Apple Music across every speaker, and pull in Apple Weather and your calendars — natively, with no extra setup.</p>
+            <ul class="fx-list">
+              <li><strong>Apple Home</strong> — show and control HomeKit accessories alongside Home Assistant</li>
+              <li><strong>Apple Music</strong> — play to AirPlay 2 speakers, group rooms, scrub the track, see album art &amp; visualizers</li>
+              <li><strong>Apple Weather</strong> — full daily &amp; hourly forecasts in your units</li>
+              <li><strong>Helpers</strong> — build virtual devices that combine and calculate, in plain language</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- iCloud sync -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="fx-kicker">Always in Sync</span>
+          <h2 style="margin-top:6px">Design once. It's everywhere.</h2>
+          <p>Edit a dashboard on your iPhone and it appears on your iPad and Apple TV — automatically, through your own private iCloud. No exporting, no re-pairing, no servers in the middle.</p>
+        </div>
+        <div class="fx-sync">
+          <div class="fx-sync-node">
+            <svg class="dev" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+            <h4>Design</h4><p>on iPhone or iPad</p>
+          </div>
+          <div class="fx-sync-arrow">&rarr;</div>
+          <div class="fx-sync-hub">
+            <svg class="dev" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 19a4.5 4.5 0 0 1-.5-8.98A6 6 0 0 1 17.7 9.2 3.9 3.9 0 0 1 18 17H6.5z"/></svg>
+            <h4>Your private iCloud</h4><p>encrypted, only yours</p>
+          </div>
+          <div class="fx-sync-arrow">&rarr;</div>
+          <div class="fx-sync-stack">
+            <div class="fx-sync-node" style="min-width:158px">
+              <svg class="dev" width="32" height="26" viewBox="0 0 26 22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="22" height="15" rx="2"/><path d="M9 20h8M13 17v3"/></svg>
+              <h4>iPad updates</h4><p>instantly</p>
+            </div>
+            <div class="fx-sync-node" style="min-width:158px">
+              <svg class="dev" width="34" height="26" viewBox="0 0 28 22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="24" height="15" rx="2"/><path d="M9 20h10"/></svg>
+              <h4>Apple TV updates</h4><p>on the big screen</p>
+            </div>
           </div>
         </div>
       </div>
@@ -226,17 +306,20 @@
       </div>
     </section>
 
-    <!-- Feature: Every screen -->
-    <section class="section-dark" style="padding:64px 0;color:#fff">
+    <!-- Apple TV spotlight -->
+    <section class="section-dark" style="padding:72px 0;color:#fff">
       <div class="container">
         <div class="section-header">
-          <h2 style="color:#fff">Designed for every screen in your home</h2>
-          <p style="color:#aab4ae">Build once, then enjoy a tailored layout on iPhone, iPad, and the big screen.</p>
+          <span class="fx-kicker" style="color:var(--flux-accent-2)">Apple TV</span>
+          <h2 style="color:#fff;margin-top:6px">Your home, on the big screen</h2>
+          <p style="color:#aab4ae;max-width:42em;margin:0 auto">A dedicated, native Apple TV app shows the exact dashboards you designed — same widgets, floor plans, themes and positions — beautifully scaled for the living room and fully navigable with the Siri Remote.</p>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;max-width:1000px;margin:0 auto">
-          <div class="device-land"><img src="/assets/flux/flux-ipad.png" alt="Flux on iPad"></div>
-          <div class="device-land"><img src="/assets/flux/flux-appletv.png" alt="Flux on Apple TV"></div>
+        <div class="fx-trio" style="margin-top:12px">
+          <div class="phone"><img src="/assets/flux/flux-overview.png" alt="Flux on iPhone" loading="lazy"></div>
+          <div class="device-land"><img src="/assets/flux/flux-ipad.png" alt="Flux on iPad" loading="lazy"></div>
+          <div class="device-land"><img src="/assets/flux/flux-appletv.png" alt="Flux on Apple TV" loading="lazy"></div>
         </div>
+        <p style="text-align:center;color:#8b958f;font-size:14px;margin-top:24px">Design once on iPhone or iPad — your Apple TV picks it up automatically over iCloud.</p>
       </div>
     </section>
 
@@ -245,16 +328,16 @@
       <div class="container">
         <div class="section-header">
           <h2>Everything your smart home can do</h2>
-          <p>One app, the whole of Home Assistant.</p>
+          <p>One app, the whole of Home Assistant and Apple Home.</p>
         </div>
         <div class="fx-caps">
           <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M3 12H1m22 0h-2"/></svg></div><h4>Lights &amp; Color</h4><p>Brightness, full RGB/WRGB color, and effects with rich, instant controls.</p></div>
           <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/></svg></div><h4>Climate</h4><p>Beautiful thermostats in several designs, with optimistic, lag-free response.</p></div>
           <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><h4>Live Cameras</h4><p>Stream your cameras right on the dashboard, with motion pop-ups.</p></div>
-          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div><h4>Floor Plans</h4><p>Interactive vector floor plans that light up with your home's state.</p></div>
+          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div><h4>Floor Plans</h4><p>Draw your home and lay live, interactive controls right on the rooms.</p></div>
+          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><h4>Music in Every Room</h4><p>Apple Music across AirPlay 2 speakers, multi-room groups, art &amp; visualizers.</p></div>
           <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div><h4>Energy Flow</h4><p>See solar, grid, and battery move through your home in real time.</p></div>
-          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h4>Calendar &amp; Weather</h4><p>Home Assistant and Apple calendars, plus animated weather tiles.</p></div>
-          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3v4M8 3v4"/></svg></div><h4>Wall-Panel Mode</h4><p>Turn an iPad into an always-on kiosk for the kitchen or hallway.</p></div>
+          <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h4>Calendar &amp; Weather</h4><p>Home Assistant and Apple calendars, plus Apple Weather forecast tiles.</p></div>
           <div class="fx-cap"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f9b58" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Private by Design</h4><p>Direct to your Home Assistant. No account, no tracking, no data collection.</p></div>
         </div>
       </div>
@@ -297,7 +380,7 @@
           <ul>
             <li><a href="/open-source.html">Open Source</a></li>
             <li><a href="/support.html">Support</a></li>
-            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/fluxdashboard/privacy.html">Privacy</a></li>
           </ul>
         </div>
         <div class="flux-footer-col">
@@ -310,7 +393,7 @@
         </div>
       </div>
       <div class="flux-footer-bar">
-        <p>&copy; 2026 Flux Open Home. All rights reserved. &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a></p>
+        <p>&copy; 2026 Flux Open Home. All rights reserved. &nbsp;·&nbsp; <a href="/fluxdashboard/privacy.html">Privacy Policy</a></p>
       </div>
     </div>
   </footer>
