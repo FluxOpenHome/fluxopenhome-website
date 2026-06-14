@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Graph</h1>
+    <p class="lede">A configurable history chart. Plot one or many Home Assistant entities over time as a line, area, bar, or scatter chart — with a big live-value readout, a legend, themed axes, and a full-screen view with a 6h / 24h / 3d / 7d time-range picker.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The graph widget draws the recent <strong>state history</strong> of numeric entities. Add as many <strong>series</strong> as you like — each entity becomes its own line (or bar/area/point) with its own color. Flux fetches real history from Home Assistant over the last <strong>hours-to-show</strong> window, resamples it to a clean curve sized to the tile, and shows a large current-value <strong>readout</strong> for the first series so the card feels live, not just historical.</p>
+
+  <div class="note tip"><span class="h">Numeric history only</span> A series is plotted from states Flux can read as numbers (temperature, power, humidity, battery, CO₂, and so on). Entities with no numeric history don't draw a line — on the tile Flux falls back to a smooth sample preview, and the full-screen view shows "No history for this range".</div>
+
+  <p>Apple Home entities have no history API, so for those Flux graphs the data it has <strong>recorded during the current session</strong>. Home Assistant entities pull their full stored history.</p>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Graph</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing).</li>
+    <li>In the <strong>Entities</strong> section tap <strong>Add entity</strong> and pick a sensor. Repeat to overlay <strong>multiple series</strong> on one chart.</li>
+    <li>Tap the color swatch next to any entity to set that series' color. Swipe a row to delete a series.</li>
+    <li>Set the <strong>chart type</strong>, <strong>time range</strong>, and styling in the sections below.</li>
+  </ol>
+
+  <div class="note"><span class="h">Multiple series share one chart</span> Every entity you add is drawn on the same plot with a shared Y-axis. The legend (when shown, and there's more than one series) labels each color. The first series drives the big readout.</div>
+
+  <h2>Full screen</h2>
+  <p>Tap a graph widget at runtime to open the <strong>full-screen history view</strong> — a large themed chart of every series with a time-range picker in the corner:</p>
+  <ul>
+    <li><strong>6h</strong> — last 6 hours</li>
+    <li><strong>24h</strong> — last day (default)</li>
+    <li><strong>3d</strong> — last 3 days</li>
+    <li><strong>7d</strong> — last week</li>
+  </ul>
+  <p>Picking a range re-fetches the history and redraws with a smooth animation. The chart uses smooth (Catmull-Rom) lines and a date-based X-axis, with a legend listing each entity. On iPhone/iPad tap the <strong>✕</strong> to close; on Apple TV the time buttons are focusable with the remote and Menu closes.</p>
+
+  <div class="note tip"><span class="h">Tile vs. full screen</span> The tile honors all your styling options (type, fill, axes, readout, title). The full-screen view always draws every series as smooth lines for the chosen range — it's the "zoom in on the data" view.</div>
+
+  <h2>Settings</h2>
+  <p>From the inspector (defaults shown in parentheses):</p>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Type</td><td><strong>Line</strong> (default), <strong>Area</strong>, <strong>Bar</strong>, or <strong>Scatter</strong>. Bar charts anchor the Y-axis at zero.</td></tr>
+    <tr><td>Time range</td><td>How many hours of history to show on the tile (default <code>24</code>h; range 1–336h, i.e. up to 14 days).</td></tr>
+    <tr><td>Smooth curve</td><td>Rounds line/area curves (Catmull-Rom) instead of straight segments (on).</td></tr>
+    <tr><td>Gradient fill</td><td>Adds a soft gradient under a line chart (on). Area charts are always filled.</td></tr>
+    <tr><td>Point markers</td><td>Draws a dot at each sample on line charts (off).</td></tr>
+    <tr><td>Line width</td><td>Stroke thickness for line/area marks (default <code>2.5</code>; range 1–8).</td></tr>
+    <tr><td>Show axes</td><td>Master toggle for the axis labels and ticks (on). Off = a clean sparkline.</td></tr>
+    <tr><td>X axis / Y axis</td><td>Show each axis independently (both on).</td></tr>
+    <tr><td>Gridlines</td><td>Faint grid behind the chart (on).</td></tr>
+    <tr><td>Y-axis ticks</td><td>Roughly how many Y labels to show (default <code>4</code>; range 2–8).</td></tr>
+    <tr><td>Label size</td><td>Axis text size in points (default <code>10</code>; range 7–16).</td></tr>
+    <tr><td>Custom axis color</td><td>Override the axis/grid color (default follows the theme's secondary color).</td></tr>
+    <tr><td>Manual Y-range</td><td>Pin the Y-axis to a fixed <strong>Min</strong> and <strong>Max</strong> instead of auto-fitting the data (off — Flux pads the data range automatically).</td></tr>
+    <tr><td>Title position</td><td><strong>Top</strong> (default), <strong>Bottom</strong>, or <strong>Hidden</strong>. The title text comes from the widget's title (or the first series' name if blank).</td></tr>
+    <tr><td>Title alignment</td><td>Leading (default), Center, or Trailing.</td></tr>
+    <tr><td>Title size</td><td>Title text size in points (default <code>13</code>; range 9–28).</td></tr>
+    <tr><td>Title weight</td><td>Regular, Medium, Semibold (default), or Bold.</td></tr>
+    <tr><td>Custom title color</td><td>Override the title color (default follows the theme).</td></tr>
+    <tr><td>Value readout</td><td>The big live current-value number for the first series (on).</td></tr>
+    <tr><td>Readout position</td><td><strong>Leading</strong> (default), <strong>Trailing</strong>, or <strong>Hidden</strong>.</td></tr>
+    <tr><td>Legend</td><td>Color key for the series, shown when more than one entity is plotted (on).</td></tr>
+    <tr><td>Legend position</td><td><strong>Top</strong> or <strong>Bottom</strong> (default).</td></tr>
+    <tr><td>Entities</td><td>The list of series. Add an entity, set its per-series color, swipe to remove.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Short tiles adapt</span> When a graph tile is under ~160pt tall, Flux switches to a compact one-line header (title plus the live value) so the readout never collides with the chart. The big readout, legend, and bottom title are reserved for taller tiles.</div>
+
+  <div class="note warn"><span class="h">Per-series colors</span> If you don't set a color, the first series uses your page's accent color and the rest cycle through a built-in palette (blue, orange, green, purple, pink, teal, yellow). The full-screen view always uses that palette regardless of per-series colors.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

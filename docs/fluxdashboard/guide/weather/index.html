@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Weather</h1>
+    <p class="lede">A living weather card with a hand-drawn animated sky — rain streaks, drifting clouds, twinkling stars, a glowing sun, and lightning flashes — over your current temperature, condition, and as many metrics as you care to show. Driven by a Home Assistant weather entity or by Apple Weather.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The weather widget paints a full-card <strong>animated scene</strong> that matches the current condition: clear, clear-night, cloudy, rain, pouring, snow, sleet, fog, lightning, and wind each get their own gradient and particle effects. Over the top it shows the <strong>temperature</strong>, the <strong>condition</strong> name, an optional <strong>high/low</strong>, and a configurable grid of metric chips (humidity, wind, feels-like, precipitation chance, UV, visibility, dew point, pressure, sunrise/sunset). You can add a compact <strong>hourly strip</strong> and a multi-day <strong>forecast row</strong>.</p>
+  <p>Every glyph carries a soft drop shadow so the numbers stay readable as clouds drift underneath. The card adapts to its own size — small tiles drop the extras and shrink the temperature so nothing clips.</p>
+
+  <div class="note tip"><span class="h">Tap to expand</span> Turn on <strong>Tap to open full forecast</strong> and tapping the card opens a full-screen detailed forecast — the same live animated sky behind current conditions, all the metrics, an hourly strip, and a multi-day outlook.</div>
+
+  <h2>Sources</h2>
+  <p>Pick one of two sources in the inspector:</p>
+  <ul>
+    <li><strong>Home Assistant</strong> — the widget reads a <code>weather.*</code> entity you assign to it. Temperature, condition, humidity, wind, pressure, the daily forecast, and any extra attributes the entity exposes come straight from Home Assistant.</li>
+    <li><strong>Apple Weather</strong> — Flux fetches live conditions and forecast from Apple's WeatherKit on this device. No entity needed. Apple Weather also supplies the richer metrics (UV index, visibility, dew point, sunrise/sunset) and the hourly forecast even when your HA entity doesn't.</li>
+  </ul>
+
+  <div class="note"><span class="h">Apple Weather uses one shared location</span> When no fixed coordinates are set, Apple Weather prefers your <strong>Home Assistant home location</strong> over the device's own GPS. That way every device connected to the same Home Assistant — including a GPS-less Apple TV — shows the exact same place for a "current location" weather card. If Flux can't reach the home location it falls back to this device's location.</p></div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Weather</strong>.</li>
+    <li>For a Home Assistant card, assign a <code>weather.*</code> entity to the widget.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and set the <strong>Source</strong> — Home Assistant or Apple Weather.</li>
+    <li>Toggle the metrics you want, set the hourly/forecast counts, and dial in the animation and text style.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Source</td><td><strong>Home Assistant</strong> (reads the assigned <code>weather.*</code> entity) or <strong>Apple Weather</strong> (WeatherKit on this device — no entity needed).</td></tr>
+    <tr><td>Animated background</td><td>Render the live animated sky (rain, clouds, sun, stars, snow, fog, lightning). Off falls back to a plain gradient for the current condition.</td></tr>
+    <tr><td>Speed from precipitation chance</td><td>Scale the animation speed with the chance of precipitation — heavier rain forecasts animate faster (roughly 0.4×–2×).</td></tr>
+    <tr><td>Animation speed</td><td>Manual speed multiplier (0.25×–3×). Shown only when speed-from-precipitation is off.</td></tr>
+    <tr><td>Temperature</td><td>Show the big current temperature.</td></tr>
+    <tr><td>Condition</td><td>Show the condition name (e.g. "Partly Cloudy").</td></tr>
+    <tr><td>High / Low</td><td>Show today's high and low.</td></tr>
+    <tr><td>Humidity</td><td>Show the humidity chip.</td></tr>
+    <tr><td>Wind</td><td>Show the wind-speed chip.</td></tr>
+    <tr><td>Pressure</td><td>Show the barometric pressure chip.</td></tr>
+    <tr><td>Feels like</td><td>Show the apparent temperature chip.</td></tr>
+    <tr><td>Precipitation chance</td><td>Show the chance-of-precipitation chip.</td></tr>
+    <tr><td>UV index</td><td>Show the UV index chip.</td></tr>
+    <tr><td>Visibility</td><td>Show the visibility chip (km).</td></tr>
+    <tr><td>Dew point</td><td>Show the dew-point chip.</td></tr>
+    <tr><td>Sunrise / sunset</td><td>Show sunrise and sunset times.</td></tr>
+    <tr><td>Hourly columns</td><td>Number of hourly forecast columns on the card (0–12; 0 hides the strip).</td></tr>
+    <tr><td>Forecast days</td><td>Number of daily forecast columns on the card (0–10; 0 hides the row).</td></tr>
+    <tr><td>Tap to open full forecast</td><td>Tapping the card opens the full-screen detailed forecast.</td></tr>
+    <tr><td>Text size</td><td>Text size multiplier (0.6×–2×) for everything on the card.</td></tr>
+    <tr><td>Font weight</td><td>Light, Regular, Medium, Semibold, or Bold.</td></tr>
+    <tr><td>Font</td><td>Default, Rounded, Serif, or Mono typeface.</td></tr>
+    <tr><td>Text color</td><td>Color of the text and icons (defaults to white on the animated scene).</td></tr>
+  </table>
+
+  <div class="note tip"><span class="h">Metrics wrap automatically</span> Enabled metric chips flow into rows of three, so you can switch on as many as you like without anything clipping. Chips only appear when their data is actually present.</div>
+
+  <h2>Units follow Home Assistant</h2>
+  <p>Temperature, wind, and pressure are shown in your app's unit system, which mirrors Home Assistant. With <strong>Match HA</strong> the values pass through exactly as HA reports them; <strong>Metric</strong> and <strong>Imperial</strong> convert them — the same behavior as every other HA entity in Flux. Apple Weather is produced in those same units, so an Apple Weather card and an HA card read consistently side by side.</p>
+
+  <h2>Apple Weather requirements</h2>
+  <div class="note warn"><span class="h">What Apple Weather needs</span>
+    <ul>
+      <li><strong>WeatherKit capability</strong> must be enabled on the app's App ID — without it, Apple Weather won't load.</li>
+      <li><strong>It does not work in the iOS Simulator</strong> — test on a real device.</li>
+      <li><strong>Location access</strong> must be allowed for Flux when the widget uses the device's current location.</li>
+      <li>Results refresh about every 15 minutes (WeatherKit is quota-limited).</li>
+    </ul>
+    If Apple Weather can't load, the card shows a "Apple Weather unavailable" message with a Try again button.
+  </div>
+
+  <div class="note"><span class="h">Attribution is required</span> Apple Weather cards show a small <strong> Weather</strong> mark, and the full-screen forecast links to Apple's attribution / other-data-sources page. This is mandatory whenever WeatherKit data is displayed — it can't be hidden.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Text</h1>
+    <p class="lede">A free-text label for your dashboard — a heading, a caption, a note. Type any text, style the font, size, weight, color, and alignment, and optionally drop in a linked entity's live value with a token.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The Text widget shows a block of text you type. It renders as plain styled text — pick the <strong>font</strong>, <strong>size</strong>, <strong>weight</strong>, <strong>italic</strong>, <strong>color</strong>, and <strong>alignment</strong>. If you link an entity to the widget, you can insert <strong>tokens</strong> that are replaced with that entity's live data, so a label can read something like "Living Room: 72°".</p>
+
+  <div class="note tip"><span class="h">Live tokens</span> When the widget has a linked entity, type <code>{value}</code>, <code>{name}</code>, <code>{unit}</code>, or <code>{state}</code> anywhere in the text and Flux swaps in the entity's current reading. Without a linked entity the text is shown exactly as typed.</div>
+
+  <div class="note"><span class="h">Plain text, not Markdown</span> The Text widget renders your text as-is with the chosen font styling. There's no Markdown formatting — bold/italic come from the weight and italic settings, not from <code>**</code> or <code>*</code>.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Text</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and type your text.</li>
+    <li>Style it — font, size, weight, color, alignment. To show live data, link an entity at the top of the inspector, then tap a token chip (<code>{value}</code>, <code>{name}</code>, <code>{unit}</code>, <code>{state}</code>) to insert it.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Text</td><td>The text to display (multi-line). When the widget has a linked entity, insert <code>{value}</code>, <code>{name}</code>, <code>{unit}</code>, or <code>{state}</code> to show its live data. If left empty, the widget falls back to its title, or the word "Text".</td></tr>
+    <tr><td>Font size</td><td>Point size, 10–80.</td></tr>
+    <tr><td>Weight</td><td>Light, Regular, Medium, Semibold, or Bold.</td></tr>
+    <tr><td>Font</td><td>An installed font family, or <strong>System</strong> (the default).</td></tr>
+    <tr><td>Style</td><td>When using the System font: Default, Rounded, Serif, or Mono. (Hidden once a custom font family is chosen.)</td></tr>
+    <tr><td>Italic</td><td>Slants the text.</td></tr>
+    <tr><td>Align</td><td>Left, Center, or Right.</td></tr>
+    <tr><td>Text color</td><td>Color of the text. Default follows the theme/system primary color.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Tokens</span> <code>{value}</code> is the formatted reading, <code>{state}</code> is the raw state string, <code>{name}</code> is the entity's friendly name, and <code>{unit}</code> is its unit of measurement. Tokens only resolve when an entity is linked to the widget — otherwise they're shown literally.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Image</h1>
+    <p class="lede">A plain picture tile. Attach a photo from your device and Flux fills the widget with it — a floor-plan, a family photo, a logo, a labeled diagram. Tap it on the dashboard to open the picture full-screen.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The image widget shows a single picture. You attach a photo from your device's library; Flux stores it with the widget and draws it to fill (or fit) the tile. Tapping the tile opens the image full-screen on a black backdrop, scaled to fit; tap anywhere or the close button to dismiss.</p>
+
+  <div class="note tip"><span class="h">The image travels with your dashboard</span> Attached photos are stored on the widget itself and sync with your layout, so the picture shows up everywhere your dashboard does — no external hosting needed.</div>
+
+  <h2>Sources</h2>
+  <p>Today there is one source you set up in the app:</p>
+  <ul>
+    <li><strong>Attached photo</strong> — pick an image from your device's photo library. It's saved with the widget. This is the source the inspector exposes, and the one that opens full-screen on tap.</li>
+    <li><strong>URL</strong> — the widget can also render an image fetched from a web address (drawn to fill the tile, with a spinner while it loads). There's no in-app field to type a URL yet, so this path is only reached by data set outside the inspector.</li>
+    <li><strong>Camera snapshot</strong> — the model carries a camera-entity slot for a future snapshot source, but it isn't wired into rendering or the inspector. For a live camera feed, use the dedicated <strong>Camera</strong> widget instead.</li>
+  </ul>
+
+  <div class="note"><span class="h">Which one wins</span> If a photo is attached, Flux always shows it. The URL is only used when no photo is attached. With neither, the tile shows a small photo placeholder.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Image</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing).</li>
+    <li>Tap <strong>Choose from device</strong> and pick a photo from your library.</li>
+    <li>Set <strong>Fit</strong> to Fill or Fit, then leave edit mode.</li>
+  </ol>
+
+  <div class="note tip"><span class="h">Photos are downscaled</span> When you attach a photo, Flux resizes it down before saving so dashboards stay light to sync and store. Use a clean, reasonably sized source image.</div>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Choose from device</td><td>Pick a photo from your library to attach. Once one is set, this becomes <strong>Change image</strong>.</td></tr>
+    <tr><td>Fit</td><td><strong>Fill</strong> scales the picture to cover the whole tile (cropping the overflow). <strong>Fit</strong> scales it to show the entire picture inside the tile (letterboxed). Applies to the attached photo.</td></tr>
+    <tr><td>Remove image</td><td>Clears the attached photo. Shown only when one is attached.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">A note on Fill vs Fit</span> The <strong>Fit</strong> setting controls the attached photo on the tile. A URL-sourced image always fills the tile, and the full-screen view always fits the whole picture regardless of this setting.</div>
+
+  <h2>Tap to full-screen</h2>
+  <p>On the dashboard, tapping an image widget that has a photo attached opens it full-screen — centered on black, scaled to fit, with a close button in the top corner. Tap anywhere on the image, or the close button, to dismiss.</p>
+
+  <div class="note warn"><span class="h">Just a picture</span> The image widget doesn't control anything or read an entity — it's a static photo tile. For live video use the <strong>Camera</strong> widget; for entity-driven artwork use the <strong>SVG</strong> widget.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

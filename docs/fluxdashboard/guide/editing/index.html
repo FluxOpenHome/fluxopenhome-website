@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editing & Layout — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Guide</div>
+    <h1>Editing & Layout</h1>
+    <p class="lede">Flux dashboards are a free-form canvas. Widgets are placed wherever you want, drag freely, snap to each other's edges and centers, and may overlap. This page covers everything in edit mode — moving, resizing, selecting, grouping, layering, designing a separate layout for each device, and zooming.</p>
+  </div>
+
+  <h2>Edit mode</h2>
+  <p>Tap <strong>Edit</strong> in the top bar to start editing; tap <strong>Done</strong> to finish. When you enter edit mode Flux picks the layout for the device you're on — iPhone or iPad — and an edit bar appears at the bottom of the screen.</p>
+  <p>The edit bar holds <strong>Add Widget</strong>, <strong>Layers</strong>, <strong>Select</strong>, <strong>Undo</strong> / <strong>Redo</strong>, the device <strong>layout switcher</strong> (iPhone / iPad / Apple TV), and a <strong>⋯ overflow menu</strong>. On a narrow iPhone the bar shrinks so everything fits at once: the layout switcher collapses to a single device icon and <strong>Select</strong> moves into the overflow menu as "Group Widgets".</p>
+  <p>The overflow menu also holds <strong>Auto-Arrange</strong>, <strong>Add Tab</strong>, <strong>Page Layout</strong>, and the alignment toggles: <strong>Smart Align</strong>, <strong>Snap to Grid</strong>, and a <strong>Grid Size</strong> picker (12 / 16 / 24 / 32 / 48 pt).</p>
+
+  <div class="note tip"><span class="h">Per-widget controls</span> While editing, every widget shows its own chrome: a red <strong>minus</strong> badge (top-left) to delete it, a blue <strong>ⓘ</strong> badge (top-right) that opens that widget's online how-to, and an accent <strong>resize handle</strong> (bottom-right). Tap the widget body to select it. These controls stay the same on-screen size at any zoom.</p></div>
+
+  <h3>The per-widget badges</h3>
+  <table class="opts">
+    <tr><th>Control</th><th>What it does</th></tr>
+    <tr><td>Move</td><td>Drag the widget body to reposition it. The widget follows your finger 1:1 at any zoom.</td></tr>
+    <tr><td>Resize</td><td>Drag the accent handle that hangs just off the bottom-right corner.</td></tr>
+    <tr><td>Delete</td><td>Tap the red minus badge at the top-left corner.</td></tr>
+    <tr><td>ⓘ Help</td><td>Tap the blue info badge at the top-right corner to open that widget kind's how-to page (the same guides linked from "All widgets").</td></tr>
+  </table>
+
+  <h2>Move, resize & snap</h2>
+  <p>Drag any widget to move it; drag the bottom-right handle to resize it. Both honor a minimum size so a widget can't be made too small to use.</p>
+  <p>With <strong>Smart Align</strong> on (the default), Flux compares the widget you're moving against every other widget and snaps when an edge or center comes within range — left/center/right on the horizontal axis, top/center/bottom on the vertical. A pink <strong>guide line</strong> appears at the matched edge while the snap holds, just like Keynote or PowerPoint. Resizing snaps the same way: the right or bottom edge lines up with a sibling's edge, <em>or</em> the width/height matches a sibling's size so widgets share dimensions and gaps stay even.</p>
+  <p>With <strong>Snap to Grid</strong> on, the canvas shows a faint grid and the widget hard-snaps to the nearest grid line when you drop it (and resizes in grid steps). Smart Align takes priority on any axis that finds an alignment match; the grid handles the rest.</p>
+
+  <div class="note"><span class="h">Coordinates are zoom-independent</span> The whole canvas is built in logical dashboard units and scaled once at the root. Every position and size you set is stored in those units, so a widget stays exactly where you put it regardless of the editor zoom — and renders identically on the real device.</p></div>
+
+  <h2>Selecting & overlapping widgets</h2>
+  <p>Tap a widget to select it (its inspector opens for editing options, colors, and entities). Widgets are <strong>allowed to overlap</strong> by design — that's how layering works.</p>
+  <p>To reach a widget hidden under another, <strong>tap the same spot again</strong>: each repeat tap steps down through every widget under that point, top layer first, then the next, wrapping around. A covered or sent-to-back widget is therefore always reachable — layer order never makes a widget unselectable. Tapping empty canvas deselects.</p>
+
+  <div class="note tip"><span class="h">Tip</span> If taps seem to do nothing on a widget, it may be set to <strong>pass-through</strong> in the Layers panel (so taps fall through to the widget behind it at runtime). In edit mode every widget is still selectable regardless.</p></div>
+
+  <h2>Grouping</h2>
+  <p>Open <strong>Select</strong> mode (the edit bar, or "Group Widgets" in the overflow menu). In Select mode you pick widgets two ways:</p>
+  <ul>
+    <li><strong>Tap</strong> each widget to add or remove it from the selection.</li>
+    <li><strong>Drag a box</strong> on empty canvas to rubber-band — every widget the box touches joins the selection.</li>
+  </ul>
+  <p>With two or more picked, drag any one of them and the <strong>whole selection moves together</strong>. Tap <strong>Group</strong> to make it permanent: from then on the widgets move as one unit. <strong>Ungroup</strong> dissolves the group.</p>
+  <p>Once a group exists, dragging any member moves the entire group. To reposition just one member <em>within</em> the group, select that member first (tap it to open its inspector) and then drag — the selected member moves alone.</p>
+
+  <div class="note"><span class="h">Groups are per-layout</span> Grouping is recorded separately for iPhone, iPad, and Apple TV. Grouping widgets while editing the iPad layout never entangles your iPhone or TV arrangement — each layout can group differently.</p></div>
+
+  <h2>Layering</h2>
+  <p>Open <strong>Layers</strong> from the edit bar for a list of every widget on the page, <strong>front-most first</strong>. Each row shows the widget's icon, name, kind, and its current stacking level as a <code>z</code> badge.</p>
+  <ul>
+    <li><strong>Reorder</strong> — drag rows to change the stacking order; the top row is the front-most (highest z) layer.</li>
+    <li><strong>Select</strong> — tap a row to select that widget and open its inspector.</li>
+    <li><strong>Pass-through</strong> — the hand button toggles whether the widget receives taps. When off, runtime taps fall straight through to the widget behind it (useful for a decorative widget sitting over controls). This only affects runtime — the widget is still fully editable.</li>
+    <li><strong>Delete</strong> — swipe a row left to delete it.</li>
+  </ul>
+
+  <h2>Per-device layouts</h2>
+  <p>One dashboard, three layouts. The <strong>layout switcher</strong> in the edit bar (iPhone / iPad / Apple TV) lets you design each device's arrangement independently. Switching the target shows a hint naming the layout you're now editing.</p>
+  <p>Widget frames fall back to the iPhone (compact) values until you customize them per device, so a page designed only for iPhone still renders on iPad and TV — you then refine each layout as needed.</p>
+
+  <h3>iPhone & iPad</h3>
+  <p>When you design the iPhone layout on a much larger screen (an iPad), Flux frames the canvas inside a <strong>phone bezel</strong> — Dynamic Island and a true 393-pt viewport — so it's clear what fits. A bar above it lets you pick which iPhone model to target (mini → Pro Max) and its <strong>orientation</strong>. The iPad bar offers iPad models (with a physical-width readout), a "Fill this screen" option, and orientation.</p>
+
+  <h3>Apple TV</h3>
+  <p>The Apple TV layout is a fixed <strong>1920 × 1080</strong> 16:9 stage, letterboxed and centered. A dashed <strong>safe-area guide</strong> marks the overscan-safe region — content placed outside it may be clipped on a real TV, so widgets clamp to that area. A stepper sets the target TV's diagonal (32″–110″) with a real-world centimetre width readout, so you can gauge how big a widget will actually appear on the wall.</p>
+
+  <h3>Orientation</h3>
+  <p>Each layout has a portrait/landscape picker. Flipping orientation swaps the canvas to the complementary edge of the device — and on a real device it also <strong>locks rotation</strong> to the orientation you chose for that page.</p>
+
+  <div class="note tip"><span class="h">Device boundaries</span> When you edit a layout whose shape doesn't match the screen you're holding — an iPad layout, or a <em>landscape</em> phone layout, on a portrait handheld — Flux draws the target device's real edge as a dashed accent outline and <strong>dims everything past it</strong> as off-screen. So you always know what's actually visible on the device you're designing for. (The iPhone-on-iPad case gets the phone bezel instead; the TV has its own framed stage.)</p></div>
+
+  <h3>Page device-scope</h3>
+  <p>Each tab (page) can be shown only on the devices you choose. In <strong>Page Layout</strong>, the "Show this page on" section has iPhone / iPad / Apple TV toggles. Leave them all on (or all off) and the tab shows everywhere; pick a subset and the tab only appears on those devices. While editing, all tabs are shown regardless so you can change their scope; at runtime each device only sees the tabs scoped to it.</p>
+  <p>A whole <strong>dashboard</strong> can be scoped the same way from the dashboard menu ("Show on Devices"), and set to sync across all your devices or stay on this device only ("Available on").</p>
+
+  <h2>Zoom</h2>
+  <p>While editing, a draggable <strong>zoom pill</strong> sits at the bottom-right with −, a percentage, +, and (when zoomed) a <strong>Fit</strong> button. Zoom runs from 50% to 400%. Drag the pill by its grip handle to park it off a widget it's covering.</p>
+  <p>You can also <strong>pinch anywhere</strong> on the canvas to zoom; the point under your fingers stays put. When zoomed in past the screen, the canvas pans — scroll to reach the rest. Zoom is purely an editing aid: it only applies in edit mode and changes nothing about the saved layout. The TV stage starts pre-zoomed on a small phone so the 16:9 wall is workable.</p>
+
+  <div class="note"><span class="h">Notes</span> Smart Align and Snap to Grid are per-page settings in the overflow menu. <strong>Auto-Arrange</strong> tidies the current layout, treating each group as a single unit. New widgets land where you're looking (the editor tracks the visible viewport), and the canvas scrolls normally in edit mode so you can always reach a widget — scrolling is only suspended during an active drag.</p></div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

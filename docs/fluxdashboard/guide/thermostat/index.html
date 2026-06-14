@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermostat Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Thermostat</h1>
+    <p class="lede">A fully-interactive climate controller, rendered inline on the dashboard. Set the temperature with a draggable dial, slider, or − / ＋ buttons, switch HVAC modes, and read the ambient temperature and humidity — all without leaving your layout. Edits feel instant: they apply optimistically and commit to Home Assistant a moment later.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The thermostat drives any Home Assistant <code>climate</code> entity. It reads the entity's target setpoint, current temperature, step, min/max limits, available HVAC modes, and the current action (heating, cooling, drying, idle). Tap − / ＋ to nudge the setpoint, drag the dial or slider to set it directly, and tap a mode icon to switch between off, heat, cool, auto, heat/cool, dry, and fan-only.</p>
+
+  <div class="note tip"><span class="h">Edits respond instantly</span> When you change the temperature, the number updates immediately and the new value is held as a pending edit. Flux waits about half a second after your last tap, then sends one service call, and clears the pending value once Home Assistant echoes the change back (or after a short timeout). A slow integration never makes the buttons feel dead.</div>
+
+  <h2>Designs</h2>
+  <p>Choose a <strong>style</strong> in the inspector. Each one targets a different size and feel:</p>
+  <table class="opts">
+    <tr><th>Style</th><th>What it looks like</th></tr>
+    <tr><td>Round</td><td>A 270° arc dial with the setpoint in the center and a draggable grab-dot on the ring. The default.</td></tr>
+    <tr><td>Dial + ticks</td><td>The same round dial, with tick marks around the arc for a more instrument-like look.</td></tr>
+    <tr><td>Digital panel</td><td>A compact panel with a large monospaced readout, − / ＋ buttons, and the mode row along the bottom. Also used automatically as the fallback when a tile is too short or narrow for the dial or slider.</td></tr>
+    <tr><td>Minimal</td><td>A single compact row: − , the setpoint, ＋ , with an optional "Now" line above.</td></tr>
+    <tr><td>Slider</td><td>A vertical fill column you can drag to set the temperature, with the readout, − / ＋ , and mode row beside it.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">The widget adapts to its size</span> The dial and slider need real vertical room. On short or narrow tiles Flux automatically steps down — the dial falls back to the digital panel, then to a minimal row, and on a postage-stamp tile it shows just the setpoint scaled to fit. Nothing ever clips. The mode row is the first thing dropped when space is tight, before the dial itself shrinks.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Thermostat</strong>.</li>
+    <li>Pick the Home Assistant <code>climate</code> entity it should control.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and pick a style and what to show.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Thermostat style</td><td>The design: <strong>Round</strong>, <strong>Dial + ticks</strong>, <strong>Digital panel</strong>, <strong>Minimal</strong>, or <strong>Slider</strong> (see above).</td></tr>
+    <tr><td>Current temperature</td><td>Shows the ambient reading (e.g. "Now 21°"), plus humidity where the entity reports it.</td></tr>
+    <tr><td>Mode selector</td><td>Shows the row of mode icons (off / heat / cool / auto / heat-cool / dry / fan). Tap one to switch modes.</td></tr>
+    <tr><td>Heating / cooling status</td><td>Shows the current action indicator — Heating, Cooling, Drying, Fan, or Idle — with a matching icon and color.</td></tr>
+    <tr><td>Color by mode (heat / cool)</td><td>Tints the dial and controls by HVAC mode: heat → orange, cool → blue, auto / heat-cool → green, dry → teal, otherwise the theme accent. Turn it off to set one fixed color.</td></tr>
+    <tr><td>Color</td><td>Appears only when "Color by mode" is off — a fixed accent for the dial, fill, and buttons.</td></tr>
+  </table>
+
+  <h2>Dual setpoints (heat/cool range)</h2>
+  <p>When the entity is in <code>heat_cool</code> or <code>auto</code> mode and reports a <strong>low</strong> and <strong>high</strong> target (rather than a single temperature), the widget switches to a range view automatically.</p>
+  <ul>
+    <li>The dial draws an <strong>orange</strong> segment up to the low (heat-to) point and a <strong>blue</strong> segment from the high (cool-to) point, each with its own draggable handle.</li>
+    <li>The two setpoints move <strong>independently</strong> — "heat to X" and "cool to Y" are separate decisions — and the band can never invert: the heat point stays at least one step below the cool point.</li>
+    <li>On the dial, tap either number to choose which one the − / ＋ buttons act on. In the digital, minimal, and slider designs, range mode shows labeled <strong>Heat</strong> (orange) and <strong>Cool</strong> (blue) rows, each with its own − / ＋.</li>
+  </ul>
+
+  <div class="note"><span class="h">HVAC semantics</span> The low setpoint is the heat trigger — the furnace starts when the room drops to it. The high setpoint is the cool trigger — the AC starts when the room climbs to it. That's why heat is orange and cool is blue, beside their numbers. In plain cool or heat mode the dial shows that one setpoint even if the integration still reports stale low/high attributes.</div>
+
+  <h2>How the dial and slider work</h2>
+  <p>The dial sweeps 270°. Dragging anywhere on the ring moves the nearer handle (and selects it in range mode); touches near the center — where the numbers live — are ignored so you don't change the value by tapping a number. The slider is a vertical fill column: drag up for warmer, down for cooler. Both map your touch onto the entity's min/max range and snap to its step.</p>
+  <div class="note warn"><span class="h">On Apple TV</span> Drag-to-set isn't available on tvOS. The − / ＋ buttons drive the dial and slider instead, and tiles are focusable with the remote.</div>
+
+  <h2>Units &amp; step</h2>
+  <p>Home Assistant reports temperatures in its own configured unit; Flux displays and steps in your preferred unit, then converts back when sending. In Fahrenheit the − / ＋ buttons move in whole degrees; in Celsius they follow the entity's <code>target_temp_step</code> (defaulting to 0.5°). Min and max come from the entity's <code>min_temp</code> / <code>max_temp</code> (defaulting to 7°–35°C).</p>
+
+  <div class="note"><span class="h">Unavailable entities</span> If the climate entity is offline or unactionable, the widget shows a thermometer-slash icon and "Unavailable" instead of controls.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

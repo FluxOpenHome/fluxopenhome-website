@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automations & Helpers — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Configuration</div>
+    <h1>Automations &amp; Helpers</h1>
+    <p class="lede">Flux runs its own automations on-device — so you can mix Home Assistant and Apple Home in a single rule, retheme a dashboard, or fire on a geofence the moment you arrive. It also builds <strong>helpers</strong>: virtual computed entities (groups and math) that behave like any real device everywhere in the app.</p>
+  </div>
+
+  <h2>Flux automations</h2>
+  <p>A Flux automation is a <strong>trigger → conditions → actions</strong> rule that the Flux app evaluates itself, on one of your signed-in devices. Because it runs in Flux (not inside Home Assistant), an action can reach an Apple Home device, recolor a page, or animate an SVG widget — things HA can't do. Each automation also serializes to Home Assistant's exact <code>trigger</code>/<code>condition</code>/<code>action</code> JSON, so HA-only rules export cleanly and existing automations parse back in for editing.</p>
+
+  <h3>Triggers</h3>
+  <table class="opts">
+    <tr><th>Trigger</th><th>Fires when</th></tr>
+    <tr><td>Entity changes</td><td>An entity's state changes. Optionally pin a <strong>from</strong> and/or <strong>to</strong> state, and require it to hold <strong>for</strong> a number of seconds.</td></tr>
+    <tr><td>Value crosses</td><td>A numeric value crosses a line — <strong>above</strong> (was at or below, now above) or <strong>below</strong> (was at or above, now below). It's the crossing that fires it, not merely being over the line.</td></tr>
+    <tr><td>At a time</td><td>A clock time (HH:MM). Checked on the scheduler tick.</td></tr>
+    <tr><td>Sun</td><td>Sunrise or sunset, with a + / − minute offset. Reads Home Assistant's <code>sun.sun</code> <code>next_rising</code> / <code>next_setting</code>.</td></tr>
+    <tr><td>Location (geofence)</td><td>This iPhone/iPad <strong>enters</strong> or <strong>exits</strong> a zone, via CoreLocation region monitoring on the device itself.</td></tr>
+  </table>
+
+  <h3>Conditions</h3>
+  <p>Conditions are optional gates checked after a trigger fires; the action only runs if they pass. Combine several with <strong>and</strong> (all must pass) or <strong>or</strong> (any passes).</p>
+  <table class="opts">
+    <tr><th>Condition</th><th>Passes when</th></tr>
+    <tr><td>Entity is</td><td>An entity is in a specific state.</td></tr>
+    <tr><td>Value is</td><td>A numeric value is above and/or below the bounds you set.</td></tr>
+    <tr><td>Time is between</td><td>The current time is inside an after → before window.</td></tr>
+  </table>
+
+  <h3>Actions</h3>
+  <p>Actions run in order. Most call a Home Assistant service on a target entity; a few are Flux-side (they fire a custom HA event that the Flux app — iPhone, iPad, or Apple TV — picks up and acts on).</p>
+  <table class="opts">
+    <tr><th>Action</th><th>What it does</th></tr>
+    <tr><td>Turn on / Turn off / Toggle</td><td>The matching service on the target entity's domain.</td></tr>
+    <tr><td>Set brightness</td><td><code>light.turn_on</code> with a brightness percentage.</td></tr>
+    <tr><td>Set color</td><td><code>light.turn_on</code> with an RGB color.</td></tr>
+    <tr><td>Set temperature</td><td><code>climate.set_temperature</code>.</td></tr>
+    <tr><td>Activate scene</td><td><code>scene.turn_on</code>.</td></tr>
+    <tr><td>Control media player</td><td>Play/pause and other transport, <strong>volume set</strong>, <strong>select source</strong>, or <strong>play media</strong> (content id + type).</td></tr>
+    <tr><td>Record camera</td><td><code>camera.record</code> with a duration and a (templatable) filename.</td></tr>
+    <tr><td>Send notification</td><td>A local notification on iPhone/iPad (asks permission the first time). Apple TV doesn't post these.</td></tr>
+    <tr><td>Wait</td><td>A delay in seconds before the next action.</td></tr>
+    <tr><td>Set dashboard theme</td><td>Flux-side: fires <code>flux_set_theme</code> so the app applies a theme to one page or all pages. See <a href="#themes">Themes</a>.</td></tr>
+    <tr><td>Animate SVG widget</td><td>Flux-side: fires <code>flux_svg_animation</code> to play a one-shot pulse, spin, flash, bounce, or shake on a target SVG widget.</td></tr>
+    <tr><td>Cases (branch by condition)</td><td>HA's <code>choose</code> — the first case whose conditions pass runs, otherwise an "otherwise" branch.</td></tr>
+  </table>
+
+  <div class="note tip"><span class="h">Mixing HA and Apple Home</span> Because the rule runs inside Flux, the same automation can act on a Home Assistant light <em>and</em> an Apple Home accessory — including helpers — in one sequence. That's the whole reason Flux automations exist alongside HA's own.</div>
+
+  <h3>Where they run — the "runs here" rule</h3>
+  <p>To stop two signed-in devices from firing every automation twice, exactly <strong>one</strong> device is the designated runner. <strong>Apple TV defaults to on</strong> (it's always awake); other devices default to off. You flip it in <strong>Settings → Flux Automations → "Run automations on this device."</strong> If a paired Apple TV is already the runner, enabling it on a second device is refused — but you can always turn it off.</p>
+  <div class="note warn"><span class="h">The runner must be awake</span> Time and Sun triggers are checked by a scheduler that ticks every <strong>20 seconds</strong>, and state triggers only fire on the runner. If the designated device is asleep, those triggers don't fire. An Apple TV makes the most reliable runner.</div>
+  <div class="note"><span class="h">Geofence is the exception</span> Location triggers run <em>regardless</em> of the "runs here" setting, because they're inherently device-local — this is the iPhone/iPad that physically crossed the zone boundary. Deferring them to the Apple TV runner would mean they'd never fire.</div>
+
+  <h3>De-duplication</h3>
+  <p>Scheduled triggers (Time / Sun) are guarded so they fire <strong>once per occurrence</strong>: the engine remembers when each schedule last fired and skips a re-fire within ~70 seconds, so a single 08:00 trigger can't double-fire across consecutive 20-second ticks.</p>
+
+  <h2 id="helpers">Helpers</h2>
+  <p>A <strong>helper</strong> is a virtual entity Flux computes on-device from other entities — Home Assistant <em>and</em> Apple Home — so it can mix sources HA can't. Each helper is materialized into the live entity store as a synthetic entity, so it shows up and works <strong>everywhere a real entity does</strong>: on dashboards, in automations, and in search. Helpers are stored and CloudKit-synced alongside your automations, and recompute whenever any underlying entity changes.</p>
+  <table class="opts">
+    <tr><th>Helper</th><th>What it produces</th></tr>
+    <tr><td>Group of devices</td><td>Control several lights or switches together as one device. It reads as on when <em>any</em> member is on (or only when <em>all</em> are, if you choose), carries the first lit member's color/brightness so the tile looks live, and fans your taps out to every member.</td></tr>
+    <tr><td>Combine values</td><td>Reduce several sensor readings into one: average, sum, minimum, maximum, median, range (max − min), or most recent.</td></tr>
+    <tr><td>Custom formula</td><td>Math across entities using single-letter variables A…F (the first six members) — e.g. <code>A + B</code>, <code>A − B</code>, <code>A × 2</code>, with parentheses. Evaluated by a hand-written, crash-safe parser that returns nothing on bad input (no NSExpression).</td></tr>
+    <tr><td>Rate of change</td><td>How fast a value changes over time — per second, minute, or hour (e.g. power from an energy meter).</td></tr>
+    <tr><td>Threshold (on / off)</td><td>A binary sensor that turns on when a value goes above/below a line (or inside a range), with an optional hysteresis buffer so it doesn't chatter at the edge.</td></tr>
+    <tr><td>Count what's on</td><td>How many of the chosen devices are currently on.</td></tr>
+  </table>
+  <p>Numeric helpers (combine, formula, rate of change, count) take an optional display unit, device class (for the right icon), and decimal precision; threshold helpers behave like a <code>binary_sensor</code>; group helpers take on their members' domain.</p>
+  <div class="note tip"><span class="h">Helpers stack</span> A helper can use another helper as a member — Flux recomputes in a few passes so a helper-of-a-helper settles — and because helpers re-enter the entity store, automations can trigger off them too.</div>
+
+  <h2 id="zones">Zones</h2>
+  <p><strong>Geofence zones</strong> are circles you draw on a map in <strong>Settings → Geofence Zones</strong> — each is a name, a center (latitude/longitude), and a radius (default 100 m). An automation's <strong>Location</strong> trigger picks a zone and fires on <strong>enter</strong> or <strong>exit</strong>. The zone's coordinates are copied into the trigger, so the engine and the device's region monitor work entirely from the trigger itself.</p>
+  <div class="note"><span class="h">On-device</span> Zones are watched by this iPhone/iPad's CoreLocation. An exported HA config keeps the trigger as a custom <code>flux_geofence</code> event so the config stays valid even though HA isn't the one firing it.</div>
+
+  <h2 id="themes">Themes</h2>
+  <p>A <strong>theme</strong> sets a dashboard's background, tile style, accent, and text colors so a layout looks consistent across iPhone, iPad, and Apple TV. Themes are <strong>per page</strong> — each page can carry its own — and there's a large built-in library (Clean Light/Dark, Midnight, Ocean, Forest, Sunset, Neon, Aurora, the four seasons, and more).</p>
+  <p>The <strong>Seasonal</strong> option auto-rotates: it resolves to Winter, Spring, Summer, or Fall based on the current calendar month, so a page follows the seasons on its own.</p>
+  <p>Automations can change themes too. The <strong>Set dashboard theme</strong> action fires the Flux-side <code>flux_set_theme</code> event with a theme and a target page ("" = all pages); every signed-in Flux app listens for it and applies the theme live. Pair it with a Sun or Time trigger for, say, a dark theme at sunset.</p>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>Flux automations are evaluated in the app — keep the designated runner awake (an Apple TV is ideal). They are <strong>not</strong> a replacement for HA's own automations; they exist to do what HA can't, like crossing into Apple Home, theming, and SVG animation.</li>
+    <li>Numeric triggers fire on the <strong>crossing</strong>, not on staying over the line.</li>
+    <li>Geofence triggers run on the device that moved, independent of the "runs here" setting.</li>
+    <li>Helpers and automations both sync via iCloud, so they appear on every signed-in device — but only the designated runner executes automation actions.</li>
+  </ul>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Editing</div>
+    <h1>Group</h1>
+    <p class="lede">Bind two or more widgets together so they move as one. Pick the widgets you want, tap <strong>Group</strong>, and from then on dragging any one of them slides the whole set across the canvas together — keeping a panel of related controls aligned while you rearrange the page.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>Grouping is a <strong>layout convenience</strong>, not a new tile. It doesn't draw a card, a border, or a title of its own — it simply links existing widgets so they travel together. Drag an unselected member and every member rides along by the same offset; the relative spacing between them never changes. Everything else about each widget — its background, its controls, its taps — stays exactly as it was.</p>
+
+  <div class="note tip"><span class="h">Group is not the same as Stack</span> A <strong>Stack</strong> is a real container widget you add to the page; it owns its members, hides them from the canvas, and auto-arranges them in a row or column inside its own frame. A <strong>Group</strong> adds nothing to the page — the widgets stay independent and keep their own positions; they're just tied together for moving. Use a Stack to lay tiles out automatically; use a Group to keep a hand-placed arrangement locked together.</div>
+
+  <h2>Make a group</h2>
+  <ol class="steps">
+    <li>Enter edit mode and tap <strong>Select</strong> in the edit bar (on a narrow iPhone it lives in the <strong>⋯</strong> menu as <strong>Group Widgets…</strong>).</li>
+    <li>Tap widgets to pick them, or drag a box on empty canvas to select everything inside it. Picked widgets get a solid cyan outline and a checkmark.</li>
+    <li>With <strong>two or more</strong> picked, tap <strong>Group</strong>. (The button stays disabled until at least two are selected.)</li>
+  </ol>
+  <p>You can also start from a single widget: open its inspector, go to <strong>Arrange</strong>, and tap <strong>Group with other widgets…</strong> — that drops you into Select mode with that widget ready to pick partners.</p>
+
+  <h2>How grouping works</h2>
+  <p>When you tap Group, Flux stamps one fresh group id onto every picked widget. Membership is shared by id: any widgets carrying the same id are groupmates. Picking a widget that already belongs to another group re-homes it into the new one.</p>
+  <ul>
+    <li><strong>Per layout, always.</strong> A group exists only on the layout you're editing — iPhone (compact), iPad (regular), or Apple&nbsp;TV. Grouping on iPad never entangles your iPhone or TV arrangement; each device has its own grouping. (The membership is stored separately per variant: <code>groupCompact</code>, <code>groupRegular</code>, <code>groupTV</code>.)</li>
+    <li><strong>Drag a member, move them all.</strong> Dragging any <em>unselected</em> member moves the whole group together. Dragging the one widget that's currently <em>selected</em> moves just that widget — so you can nudge a single member within the group without breaking it apart.</li>
+    <li><strong>Marks while you work.</strong> When a grouped widget is selected, its groupmates show a dashed cyan outline so you can see the whole set at a glance. In Select mode, picked widgets show a solid cyan outline with a checkmark.</li>
+    <li><strong>Duplicates start free.</strong> Duplicating a widget never copies its group membership — the copy starts ungrouped.</li>
+  </ul>
+
+  <div class="note"><span class="h">It's a moving aid, not a frame</span> A group has no background, color, or title. If you want a visible titled panel behind a set of controls, place a plain widget (or an image/SVG) behind them as a backdrop and group everything together so the backdrop and its controls move as one.</div>
+
+  <h2>Ungroup</h2>
+  <p>To break a group apart on the current layout:</p>
+  <ul>
+    <li>From a member's inspector → <strong>Arrange</strong> → <strong>Ungroup</strong> (it shows the member count, e.g. "Ungroup (3 widgets)") dissolves that widget's whole group.</li>
+    <li>In Select mode, if your pick includes any grouped widget, an <strong>Ungroup</strong> button appears; it dissolves every group represented in the pick — all of their members, whether picked or not.</li>
+  </ul>
+  <p>Ungrouping only affects the layout you're editing; the other devices' groupings are untouched.</p>
+
+  <h2>At a glance</h2>
+  <table class="opts">
+    <tr><th>Action</th><th>What it does</th></tr>
+    <tr><td>Select</td><td>Enter pick mode. Tap widgets or drag a box to choose them.</td></tr>
+    <tr><td>Group</td><td>Tie the picked widgets (2+) together on the current layout. They move as one from then on.</td></tr>
+    <tr><td>Ungroup</td><td>Dissolve the group on the current layout, leaving each widget independent and in place.</td></tr>
+    <tr><td>Drag (unselected member)</td><td>Move the entire group together.</td></tr>
+    <tr><td>Drag (selected member)</td><td>Move just that one widget, repositioning it within the group.</td></tr>
+  </table>
+
+  <div class="note warn"><span class="h">There is no "Group" tile to add</span> Group isn't in the Add Widget list — it's an arrange action on widgets you've already placed. (Flux carries an internal <code>group</code> widget kind, but it isn't an addable widget and renders nothing on its own.)</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

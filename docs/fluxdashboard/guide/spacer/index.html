@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spacer Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Spacer</h1>
+    <p class="lede">An invisible block you place to shape a layout. The spacer draws nothing and does nothing — it just occupies a rectangle on the page so you can push other widgets apart, line up rows, or hold an empty gap.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The spacer renders as <strong>completely transparent</strong> — internally it's a clear rectangle with no content, the same as an empty group. It is <strong>non-interactive</strong>: taps pass straight through it and it never reacts to a Home Assistant state. Its only job is to take up space at the size and position you give it.</p>
+
+  <div class="note tip"><span class="h">Nothing to configure</span> A spacer has no entity, no value, and no display settings of its own. Everything about it is layout: where it sits and how big it is.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode and add a <strong>Spacer</strong> to the page.</li>
+    <li>Drag it to where you want the gap.</li>
+    <li><strong>Resize</strong> it by its handles until the surrounding widgets sit the way you want.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Size</td><td>The whole point of the widget. Use the normal resize handles to set the width and height of the gap. A new spacer starts at <strong>80 × 80</strong>.</td></tr>
+    <tr><td>Position</td><td>Drag it anywhere on the page, like any other widget.</td></tr>
+    <tr><td>Background</td><td>A spacer is transparent by default and is meant to stay that way. (Like every widget it carries page-level styling such as opacity and corner radius, but with no content there's nothing to show unless you deliberately give it a fill.)</td></tr>
+  </table>
+
+  <h2>Using it well</h2>
+  <ul>
+    <li><strong>Push widgets apart</strong> — drop a spacer between two cards to open a clean gap without nudging everything by hand.</li>
+    <li><strong>Align rows</strong> — pad out a short row so its widgets line up with the row above or below.</li>
+    <li><strong>Hold an empty slot</strong> — reserve a spot you plan to fill later, or keep a deliberate blank area in the layout.</li>
+  </ul>
+
+  <div class="note"><span class="h">It's just geometry</span> Because the spacer is invisible and non-interactive at runtime, it never gets in the way of the widgets around it — on the dashboard there's simply empty space where it sits.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

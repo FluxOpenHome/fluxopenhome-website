@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Data</h1>
+    <p class="lede">One entity, one big number. The Data widget reads a single Home Assistant entity and shows its current value as a large, styled readout — temperature, power, humidity, battery, a price, a count, anything with a state. Units are formatted and converted automatically.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The Data widget displays the live state of one entity as a single oversized value. Above it sits an optional <strong>label</strong> (the widget's name); below it, the <strong>value</strong> in a font size, weight, design, color, and alignment you choose. The text shrinks to fit if it gets long, so the number always stays on one line.</p>
+
+  <div class="note tip"><span class="h">It reads, it doesn't control</span> The Data widget is a pure readout — there's no tap action. For a tap-to-toggle tile use the <strong>Control</strong> widget; for a needle/arc use the <strong>Gauge</strong>; for history over time use the <strong>Graph</strong>.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Data</strong>.</li>
+    <li>Pick the entity whose value you want to show.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) to style the readout.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Value size</td><td>Point size of the big number. Ranges from 14&nbsp;pt to 90&nbsp;pt (default 30&nbsp;pt).</td></tr>
+    <tr><td>Weight</td><td>Light, Regular, Medium, Semibold, or Bold. Default Semibold.</td></tr>
+    <tr><td>Font</td><td>Type design: Default, Rounded, Serif, or Mono. Default Rounded.</td></tr>
+    <tr><td>Align</td><td>Left, Center, or Right — positions both the label and the value within the tile. Default Left.</td></tr>
+    <tr><td>Value color</td><td>Color of the readout. Leave it default to follow the theme's primary text color.</td></tr>
+    <tr><td>Label</td><td>The name shown above the value comes from the universal <strong>Label → Position</strong> setting. Set Label to <strong>Off</strong> to hide the name entirely and show only the number.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Where the label text comes from</span> If you've typed a custom <strong>title</strong> for the widget, that's the label. Otherwise Flux uses the entity's friendly name. With no resolved entity it falls back to the raw entity id.</div>
+
+  <h2>Formatting &amp; units</h2>
+  <p>Flux formats the value for you based on the entity's state:</p>
+  <ul>
+    <li><strong>Numeric value with a unit</strong> — the number is rounded (whole numbers show no decimal; otherwise one decimal place) and the unit is appended, e.g. <code>21°C</code>, <code>1450 W</code>, <code>63 %</code>.</li>
+    <li><strong>Unit conversion</strong> — if your unit preference is Imperial or Metric, recognized units are converted on the fly: °C↔°F, m↔ft, km↔mi, kg↔lb, L↔gal, hPa↔psi, m/s↔mph, and many more. Set the preference to <strong>Match&nbsp;HA</strong> to show values exactly as Home Assistant reports them.</li>
+    <li><strong>No unit</strong> — the raw state is shown with friendly formatting (underscores become spaces, words are capitalized for things like sensor states).</li>
+    <li><strong>Unavailable / Unknown</strong> — shows "Unavailable" or "Unknown".</li>
+    <li><strong>No entity</strong> — shows a dash (<code>—</code>) rather than a misleading zero.</li>
+  </ul>
+
+  <div class="note warn"><span class="h">Conversion only applies to known units</span> Units Flux doesn't recognize pass through unchanged. A non-numeric state with a unit is shown as-is (e.g. <code>idle W</code> would never happen, but a custom string state keeps its text). Temperature conversion for climate/weather follows the unit Home Assistant reports.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

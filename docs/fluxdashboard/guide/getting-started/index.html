@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Guide</div>
+    <h1>Getting Started</h1>
+    <p class="lede">Connect Flux to Home Assistant, see your Apple Home accessories appear alongside it, then build your first dashboard. You can also explore the whole app with realistic sample data before you connect anything.</p>
+  </div>
+
+  <h2>Connect to Home Assistant</h2>
+  <p>On first launch Flux asks for two things: your Home Assistant <strong>server address</strong> and a <strong>long-lived access token</strong>. Flux validates them by actually connecting before it lets you in.</p>
+  <ol class="steps">
+    <li><strong>Enter your server address.</strong> Type it however you reach Home Assistant — for example <code>homeassistant.local:8123</code>, an IP like <code>192.168.1.50:8123</code>, or a Nabu Casa / remote domain. You don't have to type <code>http://</code> or <code>https://</code>: Flux defaults local addresses (<code>.local</code>, an IP, or <code>:8123</code>) to <code>http</code> and everything else to <code>https</code>. You can also type the scheme explicitly if you prefer.</li>
+    <li><strong>Create a long-lived access token in Home Assistant.</strong> Open Home Assistant in a web browser and sign in, click your name / profile at the bottom of the sidebar, open the <strong>Security</strong> tab, scroll to <strong>Long-lived access tokens</strong>, and tap <strong>Create Token</strong>. Name it (e.g. "Flux") and copy it — Home Assistant shows it only once.</li>
+    <li><strong>Paste the token into Flux</strong> and tap <strong>Connect</strong>. Tap <em>How do I get this?</em> in the app for the same step-by-step inside the token field.</li>
+  </ol>
+
+  <div class="note tip"><span class="h">Self-signed HTTPS certificate</span> If your Home Assistant uses HTTPS with a certificate it issued itself — common for local installs — turn on <strong>Allow self-signed certificate (HTTPS)</strong> on the connect screen. Trust applies only to your HA server's address. If a connection fails with a certificate or TLS error, Flux points you straight at this toggle.</div>
+
+  <div class="note"><span class="h">Your token is stored safely</span> Flux saves the token in your device <strong>Keychain</strong>, never in plain text. To remove a saved connection, use <strong>Forget</strong> next to the token field (or the equivalent in <a href="/fluxdashboard/guide/">Settings</a>).</div>
+
+  <h2>Apple Home</h2>
+  <p>If you grant Flux access to Apple Home (HomeKit), your accessories show up <strong>automatically</strong> right next to your Home Assistant entities — no extra setup. Flux lists each accessory with its room and home so it groups cleanly in search and the entity browser, and you can drop it onto a dashboard like any other entity. Apple Home accessories work for control too, with your iPhone / iPad / Apple TV acting as the hub.</p>
+  <div class="note"><span class="h">Where it works</span> Apple Home integration needs the HomeKit permission on a signed build. Where it isn't available, Flux simply shows no homes and your Home Assistant entities are unaffected.</div>
+
+  <h2>Try the demo</h2>
+  <p>Not ready to connect, or just want to look around first? On the connect screen tap <strong>Try the Demo</strong>. Flux loads a fully-functional showcase dashboard with realistic sample data — no Home Assistant required — so you can explore widgets, editing, and navigation before pointing it at your real home.</p>
+
+  <h2>Create a dashboard &amp; add a widget</h2>
+  <p>When you first connect, Flux auto-generates a <strong>Home</strong> dashboard from your entities so you're never staring at a blank screen. From there you can build your own:</p>
+  <ol class="steps">
+    <li>Tap <strong>New Dashboard</strong> and choose what to design it for — <strong>iPhone</strong>, <strong>iPad</strong>, or <strong>Universal</strong> (starts on iPhone). You can fine-tune the other device's layout anytime with the iPhone / iPad switch while editing.</li>
+    <li>Tap <strong>Edit</strong> to enter edit mode.</li>
+    <li>Tap <strong>Add Widget</strong> and pick a type from the grid — Control, Sensor, Gauge, Thermostat, Media, Cover, Irrigation, Map, Stack, Graph, Label, Image, SVG, Camera, Weather, Calendar, Energy, or Clock.</li>
+    <li>For entity-bound widgets, pick the entity from the search browser (Apple Home accessories appear here too). Media and Weather also let you choose a non-HA source — local <strong>Apple Music</strong> playback or <strong>Apple Weather</strong> on this device.</li>
+    <li>Position and size the widget on the canvas. Tap a widget while editing to open its <strong>inspector</strong> and adjust its options.</li>
+    <li>Tap <strong>Done</strong> when you're finished. Adding a tab, grouping widgets, layers, and auto-arrange all live in the edit bar.</li>
+  </ol>
+
+  <div class="note tip"><span class="h">Pick a widget to learn more</span> Every widget type has its own page with its full options — start from <a href="/fluxdashboard/guide/">All widgets</a>.</div>
+
+  <div class="note"><span class="h">Your connection follows you</span> The server address and token live in the <strong>iCloud Keychain</strong>, so once you connect on one device, Flux can adopt the same connection on your other devices automatically — onboarding just disappears on the next device. Your dashboards sync across your devices the same way.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

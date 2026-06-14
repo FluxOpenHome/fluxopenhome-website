@@ -16,6 +16,20 @@
         <p>Each product has its own setup guide and documentation on GitHub.</p>
       </div>
       <div class="support-link-grid">
+        <!-- Flux Dashboard (iOS & Apple TV) -->
+        <div class="support-link-card card">
+          <div class="card-body">
+            <img src="/assets/flux/flux-overview.png" alt="" class="support-link-thumb">
+            <h3>Flux Dashboard (iOS &amp; Apple TV)</h3>
+            <ul class="support-link-list">
+              <li><a href="/fluxdashboard.html">App Overview</a></li>
+              <li><a href="/fluxdashboard/guide/">Setup &amp; User Guide</a></li>
+              <li><a href="#flux-connect">Connect to Home Assistant</a></li>
+              <li><a href="#flux-troubleshoot">Troubleshooting</a></li>
+              <li><a href="#flux-demo">Try it without Home Assistant</a></li>
+            </ul>
+          </div>
+        </div>
         <!-- Night Light -->
         <div class="support-link-card card">
           <div class="card-body">
@@ -35,6 +49,7 @@
             <img src="/assets/placeholder-irrigation.svg" alt="" class="support-link-thumb">
             <h3>Irrigation Controller</h3>
             <ul class="support-link-list">
+              <li><a href="/ios-app.html">Flux Controller iOS App</a></li>
               <li><a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener">Setup &amp; Installation Guide</a></li>
               <li><a href="https://github.com/FluxOpenHome/IrrigationController#troubleshooting" target="_blank" rel="noopener">Troubleshooting</a></li>
               <li><a href="https://github.com/FluxOpenHome/IrrigationController#rain-sensor" target="_blank" rel="noopener">Rain Sensor Configuration</a></li>
@@ -102,13 +117,49 @@
         <h2>Frequently Asked Questions</h2>
       </div>
       <div class="faq-list">
+        <div class="faq-item" id="flux-demo">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I try the Flux app without Home Assistant?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. On the Flux connection screen, tap <strong>Try the Demo</strong> to explore the entire app with realistic sample data &mdash; dashboards, controls, automations, and animated artwork &mdash; with no Home Assistant server or account required.</p>
+          </div>
+        </div>
+        <div class="faq-item" id="flux-connect">
+          <button class="faq-question" aria-expanded="false">
+            <span>How do I connect Flux to Home Assistant?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Open Flux and enter your Home Assistant address (for example <code>homeassistant.local:8123</code> or your Home Assistant Cloud / Nabu Casa URL) plus a Long-Lived Access Token. Create a token in Home Assistant under your profile &rarr; Security &rarr; Long-Lived Access Tokens, then tap Connect. Flux works over your local network or remotely.</p>
+          </div>
+        </div>
+        <div class="faq-item" id="flux-troubleshoot">
+          <button class="faq-question" aria-expanded="false">
+            <span>Flux won't connect &mdash; what should I check?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Make sure your device and Home Assistant are on the same network (for local connections), the address includes the correct port (usually 8123), and your access token is valid and hasn't been revoked. For remote access, confirm Home Assistant Cloud (Nabu Casa) or your reverse proxy is reachable. Your URL and token are stored securely in the iOS Keychain and survive app updates.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Are my Flux dashboards synced, and is my data private?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>If you enable iCloud for Flux, your dashboards sync privately across your iPhone, iPad, and Apple TV through your own iCloud account. Flux connects directly to your Home Assistant &mdash; there is no Flux cloud, no account, and no analytics or tracking. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+          </div>
+        </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             <span>Do I need Home Assistant to use Flux products?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="faq-answer">
-            <p>No. While our products are designed to work beautifully with Home Assistant, the Irrigation Controller also comes in a Direct Connect version that connects directly to our cloud management platform without Home Assistant. The Night Light and Gophr probe can also be flashed with alternative firmware like WLED.</p>
+            <p>Our products are designed to work with Home Assistant. The Irrigation Controller, Gophr Probe, and TPH Sensor all use ESPHome firmware and integrate seamlessly with your Home Assistant setup. The Night Light can also be flashed with WLED as an alternative firmware.</p>
           </div>
         </div>
         <div class="faq-item">

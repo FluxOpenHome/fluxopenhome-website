@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Irrigation Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Irrigation</h1>
+    <p class="lede">A smart sprinkler panel. Each zone maps to any Home Assistant entity — a switch, a valve, or a custom service — with timed or toggle runs, a live countdown, per-zone photos or head-type icons, schedules, and an automatic rain-skip.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The irrigation widget shows a grid of <strong>zone tiles</strong>. Tap a tile to start or stop that zone. In <strong>timed</strong> mode the tile counts down and shuts the zone off automatically; in <strong>toggle</strong> mode it simply turns the zone on or off. A running zone shows a water-flow animation and a colored ring. An optional <strong>master</strong> control and a <strong>rain</strong> badge appear in the header.</p>
+
+  <div class="note tip"><span class="h">Each zone is independent</span> Zones don't have to be the same kind of entity. One can be a <code>switch</code>, another a <code>valve</code>, another a service call into an irrigation integration — they all live in one widget.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Irrigation</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and add your zones.</li>
+    <li>For each zone, pick the entity, the run mode, and (optionally) a photo, icon, color, and schedule.</li>
+  </ol>
+
+  <h2>Per-zone settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Name</td><td>Label shown on the tile (e.g. "Front Lawn").</td></tr>
+    <tr><td>Entity</td><td>The Home Assistant entity that drives the valve — any <code>switch</code>, <code>valve</code>, or service-controlled entity.</td></tr>
+    <tr><td>Run mode</td><td><strong>Timed</strong> — runs for the set duration with a live countdown, then auto-stops. <strong>Toggle</strong> — stays on until you tap again.</td></tr>
+    <tr><td>Duration (min)</td><td>How long a timed run lasts before Flux turns the zone off.</td></tr>
+    <tr><td>Control method</td><td><strong>Auto</strong> infers the right service from the entity's domain. Or force <strong>Switch</strong> (<code>turn_on</code>/<code>turn_off</code>), <strong>Valve</strong> (<code>open_valve</code>/<code>close_valve</code>), or <strong>Service</strong> (a custom domain + service with JSON parameters — for integrations that need a zone index, etc.).</td></tr>
+    <tr><td>Photo / Icon</td><td>Attach a photo of the area for instant recognition, or choose a sprinkler <strong>head-type icon</strong> (pop-up spray, rotor, rotary, impact, bubbler, mist, drip, drip line, shrub spray, soaker).</td></tr>
+    <tr><td>Color</td><td>Accent for the running ring and water animation.</td></tr>
+    <tr><td>Rain skip</td><td>When on, this zone is skipped by scheduled runs while the rain rule is active.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">How "Auto" decides</span> A <code>valve.*</code> entity is opened/closed with the valve service; anything else is turned on/off. If you ever see a plain control toggle the valve but a zone tile do nothing, set the control method explicitly to match the entity.</div>
+
+  <h2>How a tap works</h2>
+  <p>Tapping an idle zone calls the on-service for its control method. For a timed run, Flux records an end time, shows the countdown, and schedules the off-service. Tapping a running zone stops it immediately. A zone reads as "running" when its entity state is <code>on</code>, <code>open</code>, <code>running</code>, or <code>watering</code>, or while its local timer is active.</p>
+
+  <h2>Schedules</h2>
+  <p>Build <strong>programs</strong> that run zones automatically:</p>
+  <ul>
+    <li><strong>Days of week</strong> — pick which days the program runs.</li>
+    <li><strong>Start times</strong> — one or more times per day.</li>
+    <li><strong>Per-zone duration</strong> — each zone in the program runs for its own length, <strong>sequentially</strong> (one finishes before the next starts), so you never over-draw water pressure.</li>
+    <li><strong>Rain skip</strong> — the whole program is skipped when the rain rule says so.</li>
+  </ul>
+  <div class="note"><span class="h">Where schedules run</span> One device runs the schedule (the same "runs here" rule the Flux automation engine uses), checks the clock every 30 seconds, and won't double-fire a start time. The device running the schedule must be awake for a run to fire.</div>
+
+  <h2>Weather skip</h2>
+  <p>Set a weather source — a Home Assistant weather/binary_sensor entity (or Apple Weather) — and Flux shows a <strong>Rain</strong> badge and skips rain-enabled zones/programs when it's raining. (Threshold rules like "skip if rain chance over X%" or "rained in the last N hours" are planned; today the skip follows the chosen rain entity/condition.)</p>
+
+  <h2>Widget options</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Title</td><td>Header text; can be hidden entirely.</td></tr>
+    <tr><td>Master entity</td><td>Optional master valve/switch shown as a power button in the header.</td></tr>
+    <tr><td>Animations</td><td>Toggle the running-water shimmer.</td></tr>
+    <tr><td>Weather source</td><td>The entity (or Apple Weather) used for the rain badge and skip.</td></tr>
+  </table>
+
+  <div class="note warn"><span class="h">On Apple TV</span> Zone tiles are focusable with the remote. Photos are stored at a reduced size to keep dashboards light, since they sync with your layout.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

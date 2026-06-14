@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>SVG</h1>
+    <p class="lede">A custom vector graphic whose individual parts come alive with your home. Drop in a built-in object — a lamp, a fan, a water tank — or import your own SVG, then map each part to a Home Assistant entity so it changes color, fills, fades, rotates, or spins with live state.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The SVG widget draws a piece of <strong>vector art</strong> made of individually-named <strong>parts</strong> (a bulb, a shade, a level, a needle). Each part can be <strong>mapped to an entity</strong>, and a <strong>behavior</strong> decides how it reacts: a bulb tinting to its light's live LED color, a tank filling to a sensor's value, a needle rotating to a gauge reading, a fan blade spinning while it's on. Parts with no mapping just draw as-is.</p>
+
+  <div class="note tip"><span class="h">Two ways to start</span> Choose from the built-in <strong>object library</strong> (lamps, fans, appliances, water, media, vehicles, sensors, holiday decor, and more — each already split into mappable parts), or <strong>import your own SVG</strong>. Either way you get the same per-part mapping tools.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>SVG</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and tap <strong>Import SVG…</strong>.</li>
+    <li>Pick from the <strong>built-in library</strong> or <strong>import a file</strong>. The art renders in a live preview.</li>
+    <li>Tap any part in the <strong>Parts</strong> list to assign an entity and choose how it reacts.</li>
+  </ol>
+
+  <div class="note"><span class="h">What a valid SVG needs</span> Flux's renderer draws the basic shape elements — <code>path</code>, <code>rect</code>, <code>circle</code>, <code>ellipse</code>, <code>line</code>, <code>polyline</code>, <code>polygon</code> — with their <code>fill</code> and <code>stroke</code>. Parts you want to map should carry an <code>id</code> so they have a stable name; unnamed elements still draw and are listed by shape (e.g. "Path 3").</p></div>
+
+  <h2>Mapping parts to entities</h2>
+  <p>Each part is one row in the <strong>Parts</strong> list. Tap a row to open its mapping editor:</p>
+  <ul>
+    <li><strong>Pick the entity</strong> — choose any Home Assistant entity. If you've scoped the widget to a device (below), that device's entities appear first as a one-tap menu.</li>
+    <li><strong>Pick the behavior</strong> — how the part reacts. The choices are filtered to what makes sense for the entity's domain (a light offers LED color and brightness fade; a sensor offers gauges and thresholds; a fan offers spin), but you can always override.</li>
+    <li><strong>Tune it</strong> — set on/off colors, a value range, fill direction, threshold stops, angles, or opacity floors depending on the behavior.</li>
+  </ul>
+
+  <div class="note tip"><span class="h">Map many parts at once</span> <strong>Long-press</strong> a part to <strong>Copy Assignment</strong> and paste it onto others, or to <strong>Select Multiple Parts</strong> and assign one entity + behavior to all of them in a single step — e.g. every light on a Christmas tree, or every raindrop from a shower head, controlled together.</div>
+
+  <h3>How a part reacts (behaviors)</h3>
+  <table class="opts">
+    <tr><th>Behavior</th><th>What it does</th></tr>
+    <tr><td>On / Off Color</td><td>Part takes the <strong>On color</strong> when the entity is on, the <strong>Off color</strong> when off.</td></tr>
+    <tr><td>Match LED Color</td><td>While on, the part tints to the light's live <code>rgb_color</code>. Off uses the off color; a white / color-temperature-only bulb falls back to a chosen fallback color.</td></tr>
+    <tr><td>Fade to Dim Level</td><td>Opacity follows the light's brightness — dimming the light fades the part toward a minimum floor you set.</td></tr>
+    <tr><td>Gradient Color</td><td>A numeric value blends the part between a <strong>Low</strong> and <strong>High</strong> color across the value range.</td></tr>
+    <tr><td>Fill Level (Gauge)</td><td>A numeric value fills the part like a gauge or battery, growing from a chosen side (Bottom, Top, Left, or Right), with separate fill and empty colors.</td></tr>
+    <tr><td>Threshold Colors</td><td>The part takes a stop's color at or above its value (e.g. 5% red, 50% orange, 100% green). Optionally blend smoothly between stops.</td></tr>
+    <tr><td>Opacity by Value</td><td>A numeric value sets the part's opacity across the range, down to a minimum.</td></tr>
+    <tr><td>Rotate to Value (Needle)</td><td>A numeric value rotates the part to an angle — a gauge needle or a valve — between a min and max angle.</td></tr>
+    <tr><td>Spin When On</td><td>The part spins continuously while the entity is on; with a value range set, higher values spin it faster (e.g. fan speed). A speed multiplier (0.1×–5×) sets the overall pace.</td></tr>
+    <tr><td>Pulse When On</td><td>The part pulses its opacity while on, in a chosen color — for alerts or activity.</td></tr>
+    <tr><td>Hide When Off</td><td>The part disappears whenever the entity is off or zero.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Value range &amp; attributes</span> Value-driven behaviors (gradient, fill, opacity, rotate, spin) map the entity's number from a <strong>Min→Max</strong> you set. By default that's the entity's state; enter an <strong>attribute</strong> name (e.g. <code>battery_level</code>) to read that instead.</div>
+
+  <h2>Scope to a device (optional)</h2>
+  <p>In the SVG editor you can <strong>scope the widget to a device</strong>. That puts the device's entities at the top of every part's entity picker as a one-tap menu, so mapping the parts of, say, a fan to that fan's entities is fast. It never limits you — any entity can still be chosen per part.</p>
+
+  <h2>Cleaning up the art</h2>
+  <ul>
+    <li><strong>Hide parts</strong> — tap the eye on any part to remove it from the rendering (e.g. a background you don't want).</li>
+    <li><strong>Force fill outline-only shapes</strong> — a repair toggle that fills parts that were drawn as outlines but should appear solid.</li>
+  </ul>
+
+  <h2>How a tap works</h2>
+  <p>Tapping the widget controls the <strong>first mapped part's entity</strong> — preferring a toggleable one — so a mapped object is interactive automatically. If that entity can toggle (a light, switch, fan…) the tap toggles it; otherwise the tap opens its detail view. A universal <strong>When tapped</strong> override (set on the widget) takes precedence over this default.</p>
+
+  <div class="note tip"><span class="h">The art is the indicator</span> Even when nothing is mapped to a tap target, the part mappings keep the graphic in sync with live state — color, fill, and motion all follow your entities whether or not you ever tap.</div>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Import / Edit SVG</td><td>Opens the SVG editor to choose a library object or import a file, then map, hide, and repair its parts.</td></tr>
+    <tr><td>Tint to theme</td><td>Flattens the whole graphic to a single accent-colored <strong>silhouette</strong> that follows the page theme.</td></tr>
+    <tr><td>Rotate</td><td>Rotates the whole artwork 0–360° (with a quick <strong>Rotate 90°</strong> button) to orient an imported file.</td></tr>
+    <tr><td>Force fill outline-only shapes</td><td>Repair toggle — fills parts that are outlines but should appear solid. (In the SVG editor.)</td></tr>
+    <tr><td>Device</td><td>Optional device whose entities are offered first in each part's entity picker. (In the SVG editor.)</td></tr>
+  </table>
+
+  <div class="note warn"><span class="h">Drawing limits</span> Flux renders SVG <strong>shapes, fills, and strokes</strong> with transforms — it isn't a full browser SVG engine. Gradient defs, filters, embedded images, text, and clip paths from imported files may not render. The built-in library is authored to render reliably.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

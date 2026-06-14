@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Control</h1>
+    <p class="lede">A tappable button for any Home Assistant entity. By default a tap toggles the entity on or off; the icon and an optional name and live state sit inside the tile. Choose from five layouts, tint it to a light's real color, dim it with the light's brightness, and bind long-press and double-tap to extra actions — or point one button at several devices and switch them all at once.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The control widget draws a single button. It picks an icon from the entity's state (or your override), shows a rounded chip behind it, and fills brighter when the entity is <strong>on</strong>. Tapping a toggleable, actionable entity calls <code>toggle</code> on it; tapping something that can't be toggled opens its detail view instead. You can also override what a tap does — open details, turn a group all on or all off, toggle a whole group, or do nothing.</p>
+
+  <div class="note tip"><span class="h">One button, many devices</span> Add more than one entity in the <strong>Devices</strong> section and the tap action automatically switches to <strong>Toggle all</strong>, so a single press acts on every device in the list. You can still set it explicitly to <strong>Turn all on</strong> or <strong>Turn all off</strong>.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Control</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and pick the entity (or entities) in the <strong>Devices</strong> section.</li>
+    <li>Choose a <strong>Style</strong>, set the <strong>Tap action</strong>, and tune the icon, label, and background to taste.</li>
+  </ol>
+
+  <h2>Button settings</h2>
+  <p>These live in the inspector's <strong>Button</strong> section.</p>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Style</td><td>The button layout: <strong>Standard</strong> (icon chip with the name beneath), <strong>Centered</strong> (chip and label centered, label above or below depending on label position), <strong>Row</strong> (icon chip on the left, name and state to the right), <strong>Large icon</strong> (a big icon filling the tile with a small label under it, no chip), or <strong>Switch</strong> (a list row with an iOS-style toggle on the trailing edge that reflects on/off).</td></tr>
+    <tr><td>Tap action</td><td><strong>Toggle this entity</strong> (default), <strong>Open details</strong> (more-info), <strong>Turn all on</strong>, <strong>Turn all off</strong>, <strong>Toggle all</strong> (these three act on every device in the list), or <strong>None</strong>.</td></tr>
+    <tr><td>When long-pressed</td><td>A second action fired on a long press. Pick from the actions that make sense for the entity, or <strong>Nothing</strong>.</td></tr>
+    <tr><td>When double-tapped</td><td>An action fired on a double tap. Same list of sensible actions, or <strong>Nothing</strong>.</td></tr>
+    <tr><td>Show state</td><td>Shows the entity's live state text (e.g. "On", "72°") beneath the name.</td></tr>
+    <tr><td>Match light color</td><td><em>Lights only.</em> Tints the button to the light's current RGB color.</td></tr>
+    <tr><td>Match dim level</td><td><em>Lights only.</em> Fades the button's fill to reflect the light's brightness — dimmer light, fainter chip.</td></tr>
+    <tr><td>Icon</td><td>Choose a custom SF Symbol, or leave it on <strong>Auto</strong> to let Flux pick an icon from the entity's state.</td></tr>
+    <tr><td>Icon size</td><td>Scales the icon from 30% to 800% of its default size.</td></tr>
+    <tr><td>Custom icon color</td><td>Turn on to set a fixed <strong>Icon color</strong>; off uses the entity's theme tint. (Match light color overrides this when active.)</td></tr>
+  </table>
+
+  <div class="note"><span class="h">No separate "Tap action" for controls</span> The universal "When tapped" picker that other widgets get is hidden for controls — the Button section's own <strong>Tap action</strong> is the one in charge, so there's no confusing duplicate.</div>
+
+  <h2>Label settings</h2>
+  <p>The button's name is driven by the universal <strong>Label</strong> section (shared by all widgets), not the Button section.</p>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Position</td><td><strong>Off</strong> hides the name entirely (the icon centers, and tiny tiles show just the icon full-bleed). Any other position — Top Left, Top, Top Right, Left, Center, Right, Bottom Left, Bottom, Bottom Right — shows the name and decides whether it sits above or below the icon.</td></tr>
+    <tr><td>Text size</td><td>Name size, 10–44 pt.</td></tr>
+    <tr><td>Font</td><td>Pick a font family, or leave it on System.</td></tr>
+    <tr><td>Weight</td><td>Light, Regular, Medium, Semibold, or Bold.</td></tr>
+    <tr><td>Custom text color</td><td>Turn on to set a fixed <strong>Text color</strong> for the name; off follows the theme.</td></tr>
+    <tr><td>Nudge</td><td>Arrow buttons to fine-tune the name's horizontal and vertical offset, with a reset.</td></tr>
+  </table>
+
+  <h2>Background</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Background image</td><td>Pick a photo to sit behind the button. On a photo background the icon, name, and state switch to white for legibility, and the off-state chip uses a translucent white. Use <strong>Remove background</strong> to clear it.</td></tr>
+  </table>
+
+  <h2>How a tap works</h2>
+  <p>With the default <strong>Toggle this entity</strong>, a tap on a toggleable, actionable entity calls <code>toggle</code> (with a light haptic). If the entity can't be toggled, the tap opens its detail view instead. <strong>Open details</strong> always opens the detail view. <strong>Turn all on</strong>, <strong>Turn all off</strong>, and <strong>Toggle all</strong> act on the full list of devices. <strong>None</strong> does nothing on tap (long-press and double-tap still fire if set).</p>
+
+  <div class="note"><span class="h">Long-press and double-tap are extra</span> They're independent of the primary tap action and only fire outside edit mode. Set them to <strong>Nothing</strong> to disable.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

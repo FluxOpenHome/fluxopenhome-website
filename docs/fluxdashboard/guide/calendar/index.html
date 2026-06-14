@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendar Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Calendar</h1>
+    <p class="lede">A unified agenda that merges your Home Assistant calendars and the device's Apple Calendars into one view. Show it as a scrolling agenda grouped by day or as a traditional month grid with event dots. Tap any event for its time, calendar, and a live map of its location.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The calendar widget pulls events from one or more <strong>Home Assistant calendar entities</strong> and, optionally, from this device's <strong>Apple Calendars</strong>, merges them, and sorts them by start time. Each event shows a colored dot (the calendar's color when available), its title, its time (or "All day"), and a location line when one is set.</p>
+  <p>The layout <strong>resizes smartly</strong>. At full size it shows the complete agenda (or month grid); shrink the widget and it sheds detail — first down to today's date plus the next few events, and at its smallest just today's weekday and day number.</p>
+
+  <div class="note tip"><span class="h">Tap an event for details</span> Tapping an event opens a detail sheet with the title, when it happens, which calendar it's on, and — if it has a location — the address geocoded to a pin on a live map. On iPhone/iPad a <strong>Directions in Maps</strong> button hands off to Apple Maps.</div>
+
+  <h2>Sources</h2>
+  <p>Events come from two places, blended together:</p>
+  <ul>
+    <li><strong>Home Assistant calendars</strong> — any <code>calendar.*</code> entity. Flux reads them over the HA REST API (<code>GET /api/calendars/{entity}</code>). Pick which ones to include in the widget's settings.</li>
+    <li><strong>Apple Calendars</strong> — the calendars on this iPhone/iPad, via EventKit. Turn on <strong>Apple Calendar</strong> and grant calendar access when asked.</li>
+  </ul>
+
+  <div class="note"><span class="h">On Apple TV</span> tvOS has no EventKit, so the Apple Tab can't be read on the TV directly. Instead, a paired iPhone/iPad fetches your Apple events and bridges them to the Apple TV over the sync channel, where they're cached and shown. Home Assistant calendars work on the TV on their own. A momentary fetch failure on the phone won't blank the TV — an empty push is ignored.</div>
+
+  <h2>Styles</h2>
+  <p>Two view styles, set with the <strong>View</strong> picker:</p>
+  <ul>
+    <li><strong>Agenda</strong> (<code>agenda</code>) — events grouped under day headers ("Today", "Tomorrow", then "Wednesday, Jun 17"), scrolling vertically. Covers the next <em>days ahead</em> from today.</li>
+    <li><strong>Month grid</strong> (<code>month</code>) — a classic month calendar with weekday columns and up to three event dots per day. The month view always loads the whole visible month, including earlier days this month, so past-but-this-month events still appear.</li>
+  </ul>
+
+  <div class="note"><span class="h">Today is marked, not hidden</span> In the month grid, today's date gets an accent ring and a faint tint while the number stays in the normal readable color — so it's legible on any theme or background.</div>
+
+  <h2>Add an event (iOS)</h2>
+  <p>In the agenda view on iPhone/iPad, a <strong>＋</strong> button in the header opens a quick "New Event" sheet that writes to your default Apple Calendar:</p>
+  <ul>
+    <li><strong>Title</strong> — type it, or tap the mic and <strong>speak</strong> it (live dictation).</li>
+    <li><strong>All-day</strong> toggle and a <strong>start</strong> date/time picker.</li>
+    <li><strong>Location</strong> with live address &amp; place suggestions from Apple Maps as you type.</li>
+  </ul>
+
+  <div class="note warn"><span class="h">Adding events is iOS-only</span> The ＋ "New Event" sheet uses EventKit and writes to an Apple Calendar, so it appears on iPhone/iPad only. The Apple TV shows events but can't create them.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Calendar</strong> ("Agenda from HA + Apple calendars").</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing).</li>
+    <li>Pick the <strong>view</strong> (Agenda or Month grid), then choose which <strong>Home Assistant calendars</strong> to show.</li>
+    <li>Turn on <strong>Apple Calendar</strong> if you want this device's events too (you'll be asked for access).</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>View</td><td><strong>Agenda</strong> (events grouped by day) or <strong>Month grid</strong> (month calendar with event dots).</td></tr>
+    <tr><td>Days ahead</td><td>How many days of upcoming events the agenda covers, from 1 to 30. (The month grid loads the whole visible month regardless.)</td></tr>
+    <tr><td>Tap to open full screen</td><td>When on, tapping the widget opens the full-screen calendar tool. On by default.</td></tr>
+    <tr><td>Apple Calendar</td><td>Include this device's Apple Calendar events alongside the HA calendars. Prompts for calendar access.</td></tr>
+    <tr><td>Accent color</td><td>Color for day headers, the today ring, and event dots that have no calendar color.</td></tr>
+    <tr><td>Font</td><td>Type design for the event text: <strong>System</strong>, <strong>Rounded</strong>, <strong>Serif</strong>, or <strong>Monospaced</strong>.</td></tr>
+    <tr><td>Title size</td><td>Point size of the event title (main text), 11–26.</td></tr>
+    <tr><td>Subtitle size</td><td>Point size of the time / date line (sub text), 8–18.</td></tr>
+    <tr><td>Text color</td><td>Color of the main event text. Leave unset to follow the theme/system color.</td></tr>
+    <tr><td>Home Assistant Calendars</td><td>A toggle per discovered <code>calendar.*</code> entity — pick which ones the widget shows.</td></tr>
+  </table>
+
+  <div class="note tip"><span class="h">Trigger automations from events</span> Add a calendar entity as a <strong>State trigger</strong> in Automations to run actions when an event begins — lights, scenes, announcements, anything.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

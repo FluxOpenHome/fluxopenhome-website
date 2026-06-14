@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple TV — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Configuration</div>
+    <h1>Apple TV</h1>
+    <p class="lede">Flux runs on the Apple TV as a full-screen, 10-foot dashboard you drive with the Siri Remote. Pair it once and the dashboards you build on your iPhone or iPad show up here — no token to type, nothing to keep in sync by hand.</p>
+  </div>
+
+  <h2>Set up</h2>
+  <p>Nobody should type a long Home Assistant token with the Siri Remote, so the TV's setup screen leads with a QR code your phone scans. There are three ways to connect, in order of how little effort they take.</p>
+
+  <ol class="steps">
+    <li><strong>Send from your iPhone or iPad (QR).</strong> The TV shows a QR code with the steps "Open Flux on your iPhone or iPad → tap ⋯ → Send to Apple TV → point the camera at this QR code." On the phone, the <strong>Send to Apple TV</strong> sheet opens the camera; scan the code once. Your Home Assistant connection <em>and</em> your dashboards transfer over the local network instantly — nothing to type.</li>
+    <li><strong>Same Apple ID — automatic.</strong> If both devices use the same Apple ID, the TV can connect by itself through iCloud. On launch the TV looks for the connection your iPhone/iPad published to your private CloudKit database and configures itself with no QR scan. Give it a minute — the first iCloud import can lag.</li>
+    <li><strong>Manual entry.</strong> As a last resort, choose <strong>Enter address manually…</strong> and type your Home Assistant address and a Long-Lived Access Token (in HA: Profile → Security → Long-Lived Access Tokens). There's a toggle to allow a self-signed certificate for HTTPS.</li>
+  </ol>
+
+  <div class="note tip"><span class="h">Just exploring?</span> The setup screen also has an <strong>Explore a Demo</strong> button. It runs a self-contained demo dashboard — no Home Assistant, no account — and even lets you enter edit mode, so you can try the TV experience before connecting anything.</div>
+
+  <div class="note"><span class="h">Pairing is two-way</span> Whichever device is configured first hands off to the other. A configured iPhone/iPad publishes its connection to iCloud for the TV to adopt; if the TV is set up first, it publishes <em>its</em> connection so your phones pick it up. The QR is the instant local fallback that needs no iCloud or Apple ID.</div>
+
+  <h2>Navigating</h2>
+  <p>The dashboard owns the entire screen, edge to edge — a layout authored at 1920×1080 renders 1:1. To keep the 10-foot view clean, the navigation bar stays hidden until you ask for it.</p>
+  <ul>
+    <li><strong>Press Menu (the Back button above play/pause) to reveal the bar.</strong> It slides down over the canvas, and focus lands straight on the current page so you're already in the menu. Press Menu again to hide it; it also slips away on its own after a few idle seconds. (In edit mode the bar stays pinned.)</li>
+    <li><strong>Pages.</strong> The bar shows your dashboard name (a selector menu when you have several) and a row of page tabs. Move to a tab and press to switch pages; the bar hides itself once you do. Every page of the dashboard appears here, honoring each page's device scope — a page set to iPhone/iPad only won't show a tab on the TV.</li>
+    <li><strong>Focus.</strong> Arrows move focus to the nearest widget in the pressed direction, and into a widget's own controls — no perfect alignment needed. Focused buttons get a tight, contained highlight ring instead of the system's big white blob, so the dashboard stays legible from the couch.</li>
+    <li><strong>Rich controls.</strong> Press a light, cover, fan, or media tile to open a full-screen control panel — brightness and color for lights, open/stop/close and a position stepper for covers, speed for fans. Press Menu to close it.</li>
+    <li><strong>No dashboard yet?</strong> Until one arrives, the TV shows a focus-navigable grid of every entity grouped by area, controllable with the remote.</li>
+  </ul>
+
+  <div class="note warn"><span class="h">The TV starts empty</span> Flux never auto-generates dashboards on the Apple TV. Dashboards arrive from your iPhone/iPad — over Wi-Fi or iCloud. If the TV is blank, pair a device (or send a dashboard) and it appears.</div>
+
+  <h2>Editing on the TV</h2>
+  <p>You can build and adjust the layout right on the Apple TV — no iPad required.</p>
+  <ul>
+    <li><strong>A dedicated TV layout is seeded on first edit.</strong> The first time you edit a page on the TV, Flux copies the iPhone/iPad layout into a separate Apple TV layout. From then on your edits here don't disturb the handheld layouts, and vice versa.</li>
+    <li><strong>Edit, Add Widget, Layers, Done.</strong> Reveal the bar and press the pencil to edit. The bar gains <strong>Add Widget</strong>, <strong>Layers</strong>, and <strong>Done</strong>. Add Widget is a focusable card grid of the widget kinds that work on tvOS (control, sensor value, gauge, thermostat, media, cover, graph, weather, energy, clock, label), then an entity picker with search and Siri-Remote voice entry; the new widget lands on the canvas to move and resize.</li>
+    <li><strong>Move &amp; resize with the arrows.</strong> Press a widget to open its action menu — Move, Resize, Bring to Front, Send to Back, Widget Settings, Delete. Move and Resize turn the remote's arrows into direct manipulation: arrows nudge the widget in steps, press to place, Menu to cancel.</li>
+    <li><strong>Layers.</strong> Open the Layers list to reach <em>any</em> widget — even ones fully hidden behind another — to select, re-order, or edit it. (tvOS can't always focus a widget whose frame sits inside another's; a button placed on top of a camera takes focus, and the covered widget stands down automatically.)</li>
+    <li><strong>On-TV widget settings.</strong> Widget Settings (from the action menu or Layers) opens a settings screen on the TV: name, size presets, arrange/layering, when-pressed action, appearance (transparent background, show name, interactive on/off), and kind-specific options for covers, media, and thermostats. Stacks let you drill into each member.</li>
+    <li><strong>Demo Edit.</strong> Edit mode also works in the demo, so you can try building without a connection — the bar shows an <strong>Edit</strong> button alongside the demo badge.</li>
+  </ul>
+
+  <h2>Syncing layouts</h2>
+  <p>Once paired, your dashboards stay current on the TV with no manual step. There are two delivery paths, and they converge on the same records (same UUIDs), so there are never duplicates.</p>
+  <ul>
+    <li><strong>iPad → TV, instant over Wi-Fi.</strong> When you finish an edit (press Done) on a paired iPhone/iPad, Flux pushes the dashboards straight to every Apple TV on the local network. The TV runs an always-on receiver advertised over Bonjour; a persistent browser on the phone keeps the TV's address warm, so the push lands within a moment, not seconds. Each blob is encrypted with that TV's key — a TV only accepts what it's actually paired with.</li>
+    <li><strong>iCloud backstop.</strong> When your devices share an Apple ID, dashboards also sync through iCloud (CloudKit) — the cross-network path for when the TV isn't on the same Wi-Fi. The TV registers for silent pushes so iPad changes arrive without waiting for the next launch or foreground.</li>
+  </ul>
+
+  <div class="note"><span class="h">Pairing is automatic with one Apple ID</span> Every Apple TV publishes its Wi-Fi sync key through iCloud on launch, so a same-Apple-ID iPhone/iPad pairs itself — no QR scan. The QR remains for setups without iCloud, and to heal a re-paired TV (a reinstalled TV mints a new key).</div>
+
+  <div class="note warn"><span class="h">If a Wi-Fi push is rejected</span> A push that arrives but can't be decrypted means the sending device holds an old key for this TV (usually after the TV was reinstalled). The fix is to re-pair: on the TV go to Flux → Settings → "Pair an iPhone or iPad" and scan its QR from the phone's <strong>Send to Apple TV</strong> screen. The TV's Settings shows the last Wi-Fi and iCloud receipts so you can tell which path is working.</div>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>tvOS suspends the app and kills its sockets when you leave Flux. On returning to the foreground the TV revives the sync listener and refreshes the Home Assistant connection, so widgets aren't showing stale states.</li>
+    <li>The TV has no calendar EventKit access of its own; a paired iPhone/iPad bridges already-authorized Apple Calendar events alongside the dashboards so calendar widgets stay populated.</li>
+    <li>Camera, image, and SVG widgets need iPhone-side capture or uploads, so they aren't offered in the TV's Add Widget grid (existing ones still render).</li>
+    <li>Settings (the gear in the bar) covers the connection, sync status and pairing, your dashboards, and reconnect / use-a-different-server.</li>
+  </ul>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

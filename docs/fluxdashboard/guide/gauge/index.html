@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauge Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Gauge</h1>
+    <p class="lede">A single numeric reading shown as a graphic — a ring, an arc, a needle dial, a bar, a thermometer, a tank, a battery, and more. Point it at any sensor with a number and pick the look. Color zones let the gauge change color as the value crosses thresholds.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The gauge reads the <strong>numeric state</strong> of one entity and draws it against a <strong>min</strong> and <strong>max</strong> you set. The fill, ring, or needle moves to show where the value sits in that range, and the number is printed in the center with its unit. If the entity has no value or is unavailable, the gauge shows <code>—</code> rather than a misleading <code>0</code>.</p>
+
+  <div class="note tip"><span class="h">The bar position never lies under unit conversion</span> The fill fraction is computed from the raw value against min/max; only the printed number and unit are converted for display, so min and max stay in the unit you authored them in.</div>
+
+  <h2>Styles</h2>
+  <p>Ten looks, all driven by the same value. Pick one in the inspector:</p>
+  <table class="opts">
+    <tr><th>Style</th><th>What it looks like</th></tr>
+    <tr><td>Arc</td><td>The default. A 270° open arc with the value and unit in the center.</td></tr>
+    <tr><td>Ring</td><td>A full closed circle that fills clockwise; value in the center.</td></tr>
+    <tr><td>Needle dial</td><td>A classic dial with a pointer that swings across a 270° track.</td></tr>
+    <tr><td>Linear bar</td><td>A horizontal capsule that fills left to right, value above it.</td></tr>
+    <tr><td>Bullet</td><td>A Stephen-Few bullet bar — a thin value bar over grayscale qualitative bands with a comparative target marker.</td></tr>
+    <tr><td>Segmented</td><td>A row of twelve cells that light up in proportion to the value.</td></tr>
+    <tr><td>Thermometer</td><td>A skeuomorphic tube and bulb that fills from the bottom, value beside it.</td></tr>
+    <tr><td>Tank / fill</td><td>A rounded tank that fills from the bottom; value in the center.</td></tr>
+    <tr><td>Battery</td><td>A battery outline that fills left to right; turns red at or below 20%.</td></tr>
+    <tr><td>Digital</td><td>Just the number, large, in the value color, with the title above.</td></tr>
+  </table>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Gauge</strong>.</li>
+    <li>Bind the widget to the entity whose number you want to show (a temperature, humidity, power, percentage, etc.).</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing), pick a style, and set the min, max, and unit.</li>
+    <li>Optionally add color stops so the gauge changes color as the value rises.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Gauge style</td><td>One of the ten looks above — Arc, Ring, Needle dial, Linear bar, Bullet, Segmented, Thermometer, Tank / fill, Battery, Digital.</td></tr>
+    <tr><td>Color</td><td>The base color for the needle, fill, and value. Leave it to follow the page theme accent. Per-value color stops override it where they apply.</td></tr>
+    <tr><td>Min</td><td>The value at the empty end of the gauge. Default <code>0</code>.</td></tr>
+    <tr><td>Max</td><td>The value at the full end of the gauge. Default <code>100</code>.</td></tr>
+    <tr><td>Unit</td><td>Shown after the number (e.g. <code>°C</code>, <code>%</code>, <code>W</code>). Optional.</td></tr>
+    <tr><td>Color by value</td><td>Add <strong>stops</strong> — a value and a color (e.g. ≥5 red, ≥50 orange, ≥100 green). The gauge takes a stop's color at or above its value.</td></tr>
+    <tr><td>Blend colors (gradient)</td><td>Appears once you have more than one stop. On, the gauge blends smoothly between adjacent stop colors instead of switching in hard bands.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">How color stops resolve</span> The gauge picks the color of the highest stop at or below the current value. With <strong>gradient</strong> off you get discrete bands; with it on, the color blends between the two surrounding stops. With no stops at all, the gauge uses the base Color (or the theme accent).</div>
+
+  <div class="note tip"><span class="h">The title comes from the widget</span> The text under the value is the widget's display name. Set the label position to <strong>none</strong> on the widget and the gauge renders no title at all.</div>
+
+  <div class="note warn"><span class="h">If you see "—"</span> That means the bound entity has no numeric state right now — it's unavailable, has no value, or isn't a number. Check the entity binding rather than the gauge settings.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

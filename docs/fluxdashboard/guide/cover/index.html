@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Cover</h1>
+    <p class="lede">A tile for anything that opens and closes — blinds, roller shades, curtains, garage doors, sliding gates, awnings, and boat lifts. The icon <strong>draws the live position</strong> and glides through the motion over your configured travel times, so the graphic matches the real hardware instead of snapping.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The cover widget drives a single Home Assistant <code>cover.*</code> entity. It shows a picture of the cover that reflects exactly how far open it is — slats filling a window, a garage door descending, a gate rolling across the driveway — alongside <strong>up</strong>, <strong>stop</strong>, and <strong>down</strong> controls. When the device is moving, the icon animates through the travel; if the device reports its real position, that takes over automatically.</p>
+
+  <div class="note tip"><span class="h">The icon is the position</span> The drawing isn't decorative — it renders the actual open percentage. A cover that reports <code>current_position</code> shows that exact amount; one that only reports open/closed shows fully open, fully closed, or mid-way while it travels.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Cover</strong>.</li>
+    <li>Pick the <code>cover.*</code> entity it controls.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and choose the icon style, colors, and travel times.</li>
+  </ol>
+
+  <h2>Controls</h2>
+  <p>Every cover tile has three commands, mapped to the standard Home Assistant cover services:</p>
+  <table class="opts">
+    <tr><th>Control</th><th>What it does</th></tr>
+    <tr><td>Up (chevron ▲)</td><td>Calls <code>open_cover</code> — opens the cover (raises a boat lift). Highlights while the device reports <code>opening</code>.</td></tr>
+    <tr><td>Stop (■)</td><td>Calls <code>stop_cover</code> — parks the cover wherever it is, mid-travel. Never affected by Invert.</td></tr>
+    <tr><td>Down (chevron ▼)</td><td>Calls <code>close_cover</code> — closes the cover (lowers a boat lift). Highlights while the device reports <code>closing</code>.</td></tr>
+  </table>
+  <p>Each tap fires a light haptic. With <strong>Invert direction</strong> on, the up and down buttons are swapped (so a backwards-wired motor reads correctly), but Stop is never flipped.</p>
+
+  <div class="note"><span class="h">Position read-out</span> When the entity reports <code>current_position</code> and isn't actively moving, the tile shows "<code>NN% open</code>". Otherwise it shows the state as a word — Open, Closed, Opening…, Closing… — with Invert flipping the meaning of those words too.</div>
+
+  <h2>How it adapts to the tile</h2>
+  <p>The layout changes with the tile size:</p>
+  <ul>
+    <li><strong>Large (hero)</strong> — a big centered graphic with the name, position line, and a full row of up / stop / down buttons.</li>
+    <li><strong>Standard</strong> — graphic on the left, name and state in the middle, a vertical up / stop / down stack on the right.</li>
+    <li><strong>Compact</strong> — graphic plus a single smart button that opens the cover when it's more than half closed, or closes it when it's more than half open.</li>
+  </ul>
+  <p>Turning the label off (the widget's label position) hides the name <em>and</em> the text position line — the icon already shows the position graphically.</p>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Icon</td><td>The graphic style: <strong>Blinds (slats)</strong>, <strong>Roller shade</strong>, <strong>Curtains</strong>, <strong>Garage door</strong>, <strong>Sliding gate</strong>, <strong>Awning</strong>, or <strong>Boat lift</strong>. Each draws and animates its own way.</td></tr>
+    <tr><td>Open color</td><td>Color of the moving part when fully open. Off → theme accent.</td></tr>
+    <tr><td>Closed color</td><td>Color of the moving part when fully closed. Off → falls back to the open color. The moving part <strong>blends</strong> from closed → open color as it travels.</td></tr>
+    <tr><td>Structure color</td><td>Color of the fixed parts — window frame, garage roof, gate posts, lift posts. Off → secondary theme color.</td></tr>
+    <tr><td>Invert direction</td><td>For hardware wired backwards: flips both the up/down buttons and the displayed position. Stop is unaffected.</td></tr>
+    <tr><td>Time to open / raise</td><td>How long the icon takes to animate fully open (or, for a boat lift, to raise). 2–300 s, default 15 s.</td></tr>
+    <tr><td>Time to close / lower</td><td>How long the icon takes to animate fully closed (or to lower a boat lift). 2–300 s, default 15 s.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Travel times are about the animation</span> Most covers don't stream their position, so Flux glides the icon through the motion over these times to match the real hardware. They don't change how long your cover actually moves — set them to roughly match. If the device <em>does</em> report live positions, those override the animation and the icon re-anchors to the truth.</div>
+
+  <h2>Notes</h2>
+  <p>The widget controls one <code>cover.*</code> entity. A cover that reports <code>current_position</code> gets a precise graphic and percentage; one that only reports open/closed states still animates open→closed over the travel times. The boat-lift style reuses the same open/close services and travel times as "raise" and "lower". On Apple TV the tile is focusable and the inner buttons are remote-friendly.</p>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

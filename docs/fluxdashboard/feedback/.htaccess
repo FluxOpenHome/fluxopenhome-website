@@ -1,0 +1,8 @@
+# Screenshots + the SQLite database live in ./data/ and must NEVER be served
+# directly — the admin script streams screenshots itself after login.
+RewriteEngine On
+RewriteRule ^data/ - [F,L]
+
+<FilesMatch "\.(sqlite|sqlite3|db)$">
+  Require all denied
+</FilesMatch>

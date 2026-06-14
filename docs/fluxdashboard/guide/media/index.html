@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Media</h1>
+    <p class="lede">A now-playing card for one — or many — Home Assistant <code>media_player</code> entities. Artwork, transport, a live progress bar, volume, a multi-speaker picker that can join speakers into one synced group, quick-source favorites, and a unified browser spanning Home Assistant, Plex, NAS, and Apple Music. The card adapts to its tile size and draws identically on iPhone, iPad, and Apple TV.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The widget shows the now-playing state of the speakers you point it at: <strong>title</strong>, <strong>artist / show / app</strong>, <strong>album art</strong>, and transport controls. Any HA media player works — Sonos, Alexa, HomePod, a receiver, an Apple TV, a Music Assistant player — they're all just media players to Home Assistant. You add several to one widget and pick which ones to control at runtime; <strong>every command fans out to your current selection</strong>, so a mixed Sonos + Alexa + HomePod group all obey play, pause, skip, and volume together.</p>
+  <p>The card has four layouts that switch on tile size: a <strong>micro</strong> tile (play button, maybe a title), a compact <strong>row</strong>, the <strong>standard card</strong> (art beside text with transport and volume), and a <strong>tall hero</strong> (big artwork on top). Bigger tiles reveal more — the progress bar, then the volume slider, appear as height allows.</p>
+
+  <div class="note tip"><span class="h">One widget, many speakers</span> The widget's entities are its <strong>speaker pool</strong>. You choose 1…all of them from the speaker button, and that choice is saved and synced across your devices. There's always at least one speaker selected (the first source is the fallback).</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Media</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and add your <code>media_player</code> entities as the speaker pool.</li>
+    <li>Optionally add <strong>favorites / quick sources</strong>, turn on <strong>Apple Music</strong>, and pick the playing animation.</li>
+  </ol>
+  <p>You don't have to add every speaker up front — the speaker picker can add any other HA media player on the spot (see below).</p>
+
+  <h2>Speakers &amp; multi-room</h2>
+  <p>The speaker button (a hi-fi-speaker chip showing the selected count) opens the <strong>Play on</strong> picker:</p>
+  <ul>
+    <li><strong>Tap speakers</strong> to toggle them in or out of the selection. Each selected speaker gets its own <strong>per-speaker volume slider</strong> right in the list (committed on release, so a drag doesn't flood Home Assistant).</li>
+    <li><strong>All speakers</strong> selects the whole pool at once.</li>
+    <li><strong>Add a speaker</strong> lists every other HA media player not yet on the widget (Music Assistant, Alexa, Sonos, receivers…). Picking one adds it to the widget and to the selection — no need to leave the card.</li>
+  </ul>
+  <p><strong>Grouping (multi-room):</strong> when two or more speakers are selected, <strong>Group these speakers</strong> joins them into one synced group via Home Assistant's <code>media_player.join</code> — the first selected speaker becomes the master, the rest become its group members, so they all play one stream perfectly in sync (Sonos, AirPlay 2, Music Assistant…). <strong>Ungroup</strong> calls <code>media_player.unjoin</code> on each selected speaker. Speakers Flux recognizes as AirPlay-2 capable (Sonos, Apple TV, HomePod) are tagged with a badge — informational only.</p>
+  <p>The card shows the metadata of whichever selected speaker is actually <strong>playing</strong> (falling back to the first selected). When more than one speaker is selected, the subtitle notes "· N speakers".</p>
+
+  <div class="note"><span class="h">Selecting vs. grouping</span> Selecting multiple speakers just means "send my taps to all of these." Grouping additionally tells the speakers themselves to play one synced stream. You can do either or both.</div>
+
+  <h2>Sources</h2>
+  <p>There are two ways to start something playing.</p>
+
+  <h3>Quick sources (favorites)</h3>
+  <p>The music-note-list chip opens your <strong>Sources</strong> list — one-tap favorites you configure in the inspector. A favorite can be:</p>
+  <ul>
+    <li>a speaker <strong>input source</strong> (from the speakers' own <code>source_list</code> — receiver inputs, Sonos favorites, Music Assistant sources) → calls <code>select_source</code>; the active input gets a checkmark;</li>
+    <li>a <strong>custom media id / URI</strong> (a stream URL, a Music Assistant playlist/track, a Spotify URI via Music Assistant…) → calls <code>play_media</code>;</li>
+    <li>an <strong>Apple Music</strong> item (a pinned song, album, or playlist) → plays locally via MusicKit (iOS).</li>
+  </ul>
+  <p>Each favorite can optionally pin its own <strong>target speakers</strong> ("play X on Y"); otherwise it acts on your current selection. Choosing a favorite with pinned targets makes those speakers the card's selection.</p>
+
+  <h3>Browse (the unified browser)</h3>
+  <p>The stacked-squares chip opens the <strong>unified media browser</strong> — one surface with four tabs:</p>
+  <ul>
+    <li><strong>Music</strong> — Apple Music: browse and search the catalog of the account signed in on this device.</li>
+    <li><strong>Home</strong> — the Home Assistant media library tree (folders, anything HA exposes, including NAS shares mounted in HA). The chosen item plays on the <strong>widget's selected speakers</strong> via <code>play_media</code>.</li>
+    <li><strong>Plex</strong> — pick a server, drill into libraries and items. The selected item's <strong>Plex stream URL is handed to the selected speakers</strong> via <code>play_media</code> (typed video or music). Sign in under Settings → Media → Plex.</li>
+    <li><strong>NAS</strong> — pick a saved server → share → folder → file. NAS files play <strong>locally on this device</strong> in a built-in player (speakers can't read SMB); the file is downloaded to temp and removed when the player closes. Add a NAS under Settings → Media → Network Storage.</li>
+  </ul>
+
+  <div class="note warn"><span class="h">Where playback lands</span> Home Assistant and Plex items play on the <strong>selected speakers</strong>. NAS files and Apple Music play <strong>locally on the device you're holding</strong> — Apple Music routes through the system AirPlay / Bluetooth picker, not HA. This split is deliberate: speakers can't read SMB, and Apple Music DRM is local-only.</div>
+
+  <h2>Apple Music</h2>
+  <p>Turn on <strong>Apple Music</strong> in the inspector to add "<em>This device</em> · Apple Music" to the speaker picker. Picking it swaps the card to a full Apple Music controller — local play/pause, skip, shuffle, repeat, a <strong>scrubbable</strong> progress bar, album art, an AirPlay route picker, the browse button, and a visualizer. An explicit speaker choice always wins, so picking HA speakers or "All speakers" reliably leaves Apple Music. (Apple's DRM blocks reading the live audio, so the visualizer animates with playback rather than the real waveform.)</p>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Show artwork</td><td>Draw the album art chip / hero. Off → text-only card (the equalizer moves inline instead).</td></tr>
+    <tr><td>Artwork as background</td><td>Fill the whole tile with the art behind a dark scrim; text and controls go white.</td></tr>
+    <tr><td>Volume slider</td><td>Show the volume control. On Apple TV it's −/+ step buttons (no slider on tvOS).</td></tr>
+    <tr><td>Progress bar</td><td>Show the live position / duration bar. It advances locally in real time while playing. (Defaults on; only appears on tall-enough tiles.)</td></tr>
+    <tr><td>Playing animation</td><td>While music plays: <strong>Equalizer bars</strong>, <strong>Pulsing artwork</strong> (art breathes), <strong>Spinning vinyl</strong> (art becomes a turning record), or <strong>None</strong>. Defaults to bars.</td></tr>
+    <tr><td>Speakers (selection)</td><td>Which of the pool's entities commands target. Saved and synced across devices; falls back to the first source.</td></tr>
+    <tr><td>Favorites &amp; quick sources</td><td>The one-tap source tiles: speaker inputs (from <code>source_list</code>), custom media ids / URIs, or pinned Apple Music items — each optionally bound to specific speakers.</td></tr>
+    <tr><td>Play Apple Music on this device</td><td>Adds "This device · Apple Music" to the picker and enables local MusicKit playback (iOS only).</td></tr>
+    <tr><td>Visualizer (Apple Music)</td><td>The animation on the Apple Music card: <strong>None</strong>, <strong>Equalizer bars</strong>, <strong>Flowing wave</strong>, <strong>Floating orbs</strong>, or <strong>Pulse rings</strong>.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Transport that reads the player</span> Shuffle and repeat only appear when the player advertises them (<code>supported_features</code>). For a device that supports turn-on (Apple TV, receiver, TV), pressing play wakes it first, so audio doesn't quietly resume behind a screensaver. Artwork is fetched with your HA token, so token-required images (Apple TV, YouTube) actually load.</div>
+
+  <div class="note warn"><span class="h">On Apple TV</span> The card draws the same, but tvOS skips the slider and uses focusable −/+ volume buttons and full-screen pickers. Saved speaker selections are still honored.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

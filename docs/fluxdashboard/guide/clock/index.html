@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clock Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Clock</h1>
+    <p class="lede">A live clock — digital or analog, in several designs, with an optional date line. It ticks on its own, scales to fill whatever space you give it, and follows your page theme by default.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The clock shows the current time and updates automatically. In <strong>digital</strong> style it renders large numerals with an optional weekday-month-day line below; in <strong>analog</strong> style it draws a face with hour and minute hands (and a second hand when seconds are on). The numerals or hands use your theme's text color unless you pick a custom one, and the whole widget grows to fill its tile.</p>
+
+  <div class="note tip"><span class="h">It fills the space</span> Time text scales down to fit, and the date line only appears once the widget is tall enough (digital) or large enough (analog) to show it cleanly.</div>
+
+  <h2>Designs</h2>
+  <p>Pick a <strong>Style</strong> first; the design choices change to match it.</p>
+
+  <h3>Digital — Font</h3>
+  <table class="opts">
+    <tr><th>Font</th><th>What it looks like</th></tr>
+    <tr><td>Rounded</td><td>Soft rounded numerals (the default).</td></tr>
+    <tr><td>System</td><td>The standard system font.</td></tr>
+    <tr><td>Serif</td><td>A serif typeface.</td></tr>
+    <tr><td>Monospaced</td><td>Fixed-width digits.</td></tr>
+  </table>
+
+  <h3>Analog — Face</h3>
+  <table class="opts">
+    <tr><th>Face</th><th>What it looks like</th></tr>
+    <tr><td>Classic</td><td>A ring around the dial with twelve tick marks (the hour ticks are heavier).</td></tr>
+    <tr><td>Minimal</td><td>No ring, just four ticks at the quarter positions.</td></tr>
+    <tr><td>Modern</td><td>A ring with no ticks — hands only.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Switching style keeps you valid</span> Changing from digital to analog (or back) resets the design to that style's default — <strong>Rounded</strong> for digital, <strong>Classic</strong> for analog.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Clock</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing).</li>
+    <li>Pick a <strong>Style</strong> and design, then tune the toggles below.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Style</td><td><strong>Digital</strong> or <strong>Analog</strong>.</td></tr>
+    <tr><td>Font / Face</td><td>The design for the chosen style (see above) — <strong>Font</strong> for digital, <strong>Face</strong> for analog.</td></tr>
+    <tr><td>Bold <span class="muted">(digital only)</span></td><td>Heavier numerals when on, medium weight when off.</td></tr>
+    <tr><td>24-hour time <span class="muted">(digital only)</span></td><td>Show <code>14:30</code> instead of <code>2:30</code>.</td></tr>
+    <tr><td>Show AM/PM <span class="muted">(digital, 12-hour only)</span></td><td>Append <code>AM</code>/<code>PM</code>. Hidden when 24-hour time is on.</td></tr>
+    <tr><td>Show seconds</td><td>Add seconds to the time (digital) or a sweeping second hand (analog). The clock also ticks every second instead of every 30 seconds.</td></tr>
+    <tr><td>Show date</td><td>Show a weekday · month · day line under the clock, when there's room for it.</td></tr>
+    <tr><td>Color</td><td>Color for the time text and hands. Leave it to follow your page theme.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">The second hand uses your accent</span> On an analog clock, the hour and minute hands take the time color; the sweeping second hand and the center hub use the accent color (the same custom color if you set one, otherwise the theme accent).</div>
+
+  <h2>Notes</h2>
+  <p>The clock has no settings to connect — it reads the device's own time and time zone, so it always shows local time on whatever screen it's running on. It needs no Home Assistant entity.</p>
+  <div class="note tip"><span class="h">Want actions on a schedule?</span> The clock just displays the time. To <em>do</em> something at a set time, add a <strong>Time trigger</strong> in Automations.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Sources — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Configuration</div>
+    <h1>Media Sources</h1>
+    <p class="lede">The media widget's browser spans every source you've connected: Home Assistant media, your Plex servers, and SMB network storage (NAS). You pick something to play from one place — where it ends up depends on the source.</p>
+  </div>
+
+  <p>Open the browser from a <strong>media widget</strong> and you get a tab for each source — <strong>Music</strong>, <strong>Home</strong>, <strong>Plex</strong>, and <strong>NAS</strong>. Plex and NAS are set up once in <strong>Settings → Media</strong>; after that they appear in the browser ready to play.</p>
+
+  <h2>Home Assistant media</h2>
+  <p>The <strong>Home</strong> tab browses Home Assistant's own media tree — the same <code>media_source</code> browser the Home Assistant app shows. Flux starts at the root and lets you tap into folders; playable items show a play button.</p>
+  <ul>
+    <li><strong>What it shows</strong> — whatever Home Assistant exposes as a media source: your <em>Local Media</em> folder, TTS, camera clips, and any media integrations you've added.</li>
+    <li><strong>NAS mounted in Home Assistant</strong> — if your NAS is mounted inside Home Assistant (for example as a media directory), it appears here as part of the Home Assistant tree, not under the separate NAS tab.</li>
+  </ul>
+  <div class="note tip"><span class="h">Two ways to reach a NAS</span> A share mounted into Home Assistant shows up under <strong>Home</strong> and plays on your speakers. The same files reached directly over SMB show up under <strong>NAS</strong> and play on this device. Same files, different path, different destination.</div>
+
+  <h2>Plex</h2>
+  <p>Plex uses the documented plex.tv sign-in — no account password is ever entered in Flux. Set it up in <strong>Settings → Media → Plex</strong>:</p>
+  <ol class="steps">
+    <li>Tap <strong>Sign in to Plex</strong>. Flux requests a short <strong>4-character code</strong> from plex.tv.</li>
+    <li>Enter that code at <strong>plex.tv/link</strong> (or tap <strong>Authorize in Plex</strong>, which opens Plex with the code already filled in). Flux polls until you authorize, then stores only the <strong>access token in your Keychain</strong>.</li>
+    <li>Flux discovers the <strong>servers</strong> on your account. Pick one (Flux prefers a local connection when available).</li>
+    <li><strong>Browse</strong> the server's libraries — Music, Movies, TV — down through artists, albums, shows, and seasons to individual tracks, movies, and episodes.</li>
+    <li>Tap a playable item to play it. Flux builds a direct <strong>stream URL</strong> (your token appended) and hands it to the widget's speakers.</li>
+  </ol>
+  <div class="note"><span class="h">Where Plex playback goes</span> From a media widget's browser, Plex plays on the widget's <strong>selected speakers</strong> — Flux passes the stream URL to <code>media_player.play_media</code> (content type <code>music</code> for audio, <code>video</code> for movies/episodes/shows/seasons). The standalone browser in Settings plays Plex in a built-in player on this device.</div>
+
+  <h2>NAS (SMB)</h2>
+  <p>Flux talks to SMB file servers directly. Set one up in <strong>Settings → Media → Network Storage</strong>:</p>
+  <ol class="steps">
+    <li><strong>Discover</strong> servers on your network. Flux browses Bonjour for SMB, AFP, and NFS file-sharing services and lists what it finds. Tap one to pre-fill its address.</li>
+    <li>Or <strong>add manually</strong>: enter the host or IP, the SMB port (default <code>445</code>), the share/volume name, and a username and password. (Leave the credentials empty for a guest / public share.)</li>
+    <li>The <strong>password is stored in your Keychain</strong>, synced across your devices — never in plain settings. Only the non-secret connection info is saved.</li>
+    <li><strong>Browse</strong>: pick a saved server, then a share, then drill through folders. Flux marks audio and video files as playable.</li>
+    <li>Tap a media file to play it.</li>
+  </ol>
+  <div class="note"><span class="h">SMB only for browsing</span> Discovery finds SMB, AFP, and NFS boxes, but Flux reads files over <strong>SMB</strong>. Use the SMB share for browsing and playback.</div>
+
+  <h2>Where it plays</h2>
+  <p>The destination depends on the source — this is the part worth remembering:</p>
+  <table class="opts">
+    <tr><th>Source</th><th>Plays on</th><th>How</th></tr>
+    <tr><td>Home Assistant media</td><td>The widget's selected speakers</td><td><code>media_player.play_media</code> with the media's content id.</td></tr>
+    <tr><td>Plex</td><td>The widget's selected speakers</td><td>Plex stream URL → <code>media_player.play_media</code>.</td></tr>
+    <tr><td>NAS (SMB)</td><td>This device</td><td>Flux downloads the file to a temp location and plays it locally (AVPlayer). A speaker can't read SMB.</td></tr>
+  </table>
+
+  <h2>Notes</h2>
+  <ul>
+    <li><strong>The speaker has to reach the Plex stream URL.</strong> Flux hands the chosen server connection's URL to the speaker, so that speaker must be able to reach your Plex server on the network. A local-only Plex address won't work for a speaker that lives elsewhere.</li>
+    <li><strong>SMB can't go to a speaker.</strong> NAS files always play on this device — there's no way to send an SMB path to a <code>media_player</code>. If you want a NAS file on your speakers, mount the share inside Home Assistant and play it from the <strong>Home</strong> tab instead.</li>
+    <li><strong>NAS playback is a whole-file download.</strong> Flux fetches the file to a temp location before playing — fine for audio; large video is a later streaming refinement.</li>
+  </ul>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

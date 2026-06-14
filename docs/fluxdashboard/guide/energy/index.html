@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Energy Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Energy</h1>
+    <p class="lede">A live power-flow diagram. Solar, grid, home, and battery each become a node, and animated dots stream between them in the real direction power is moving — pulling from the sun, importing or exporting on the grid, charging or draining the battery.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The energy widget reads up to five power sensors and draws them as a <strong>flow diagram</strong>. <strong>Solar</strong>, <strong>Grid</strong>, and <strong>Home</strong> nodes always appear; a <strong>Battery</strong> node appears when you turn it on. Faint lines connect each source to Home, and when power is actually flowing, glowing dots animate along the line — <strong>more power means more dots, moving faster</strong>. Each node shows its icon and (optionally) its current value.</p>
+
+  <p>The widget adapts to its size on the dashboard:</p>
+  <ul>
+    <li><strong>Mini</strong> (very small tile) — just the home power figure, big and legible, under a house icon.</li>
+    <li><strong>Small</strong> — a compact stat grid (solar, home, grid, and battery if enabled) instead of the diagram.</li>
+    <li><strong>Full</strong> — the animated flow diagram.</li>
+  </ul>
+
+  <div class="note tip"><span class="h">Direction is read from the sign</span> Flux doesn't guess. <strong>Grid</strong> positive means importing (line flows grid → home); negative means exporting (home → grid). <strong>Battery</strong> positive means discharging (battery → home); negative means charging (home → battery). The grid node icon even flips to an export arrow while you're sending power back.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Energy</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and assign your power sensors under <strong>Power Sensors</strong>.</li>
+    <li>At minimum pick a <strong>Solar production</strong> and <strong>Grid</strong> sensor. Add a battery (and battery level) if you have one. Leave <strong>Home use</strong> empty to have Flux compute it.</li>
+  </ol>
+
+  <div class="note"><span class="h">What kind of entity</span> Each slot wants a <strong>power sensor in W or kW</strong> (the widget also understands MW). It reads the entity's unit of measurement and normalizes everything to watts internally, so you can mix a kW solar sensor with a W grid sensor.</div>
+
+  <h2>Power sensors</h2>
+  <table class="opts">
+    <tr><th>Slot</th><th>What to assign</th></tr>
+    <tr><td>Solar production</td><td>Current solar output. Clamped to zero or above (no negative solar).</td></tr>
+    <tr><td>Grid (+import / −export)</td><td>Net grid power. <strong>Positive = importing</strong> from the grid, <strong>negative = exporting</strong> to it.</td></tr>
+    <tr><td>Battery (+discharge / −charge)</td><td>Battery power. <strong>Positive = discharging</strong> (feeding the home), <strong>negative = charging</strong>. Only shown when <em>Show battery</em> is on.</td></tr>
+    <tr><td>Battery level %</td><td>Optional state-of-charge sensor. When set, the battery node shows a percentage instead of its wattage. Only shown when <em>Show battery</em> is on.</td></tr>
+    <tr><td>Home use (optional)</td><td>Your home's consumption. <strong>Leave empty</strong> and Flux computes it as <code>solar + grid + battery</code>.</td></tr>
+  </table>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Arrange node positions…</td><td>Opens a full-screen editor where you drag the Solar, Grid, Home, and Battery nodes anywhere you like. Dragging turns off auto-layout so your placement sticks.</td></tr>
+    <tr><td>Show battery</td><td>Adds the Battery node (and its flow line) and the Battery / Battery-level slots. On by default.</td></tr>
+    <tr><td>Show values</td><td>Shows each node's current power figure under its icon. Off shows icons only. On by default.</td></tr>
+  </table>
+
+  <div class="note tip"><span class="h">Auto-layout vs. drag</span> Until you arrange nodes by hand, Flux auto-positions them for the tile's shape — sources spread well away from Home so the flow lines stay clear, with a different arrangement for wide versus tall tiles. The moment you drag a node, auto-layout switches off and your positions are kept. Node circles are also auto-shrunk so two can never overlap.</div>
+
+  <h2>How the flow animates</h2>
+  <p>Each connecting line carries dots only when its sensor reads more than ~1 W. The <strong>number of dots scales with the power</strong> (more watts, more dots) and the <strong>speed scales too</strong>, so a hard-charging battery or a heavy grid draw visibly moves faster than a trickle. A line with no flow stays a faint static thread.</p>
+
+  <h2>Units &amp; values</h2>
+  <p>Values are formatted automatically: anything under 1 kW reads in whole watts (e.g. <code>740 W</code>), and 1 kW or more reads in kilowatts to one decimal (e.g. <code>3.2 kW</code>). The battery node shows a <strong>percentage</strong> when a battery-level sensor is assigned, otherwise its wattage.</p>
+
+  <div class="note warn"><span class="h">Node colors are fixed</span> Solar is orange, Grid is purple, Home is green, and Battery is teal — these are baked into the diagram so the flow is always readable at a glance.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

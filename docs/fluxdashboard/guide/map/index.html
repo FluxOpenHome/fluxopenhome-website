@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Map</h1>
+    <p class="lede">A live location map. Pick the people and phones you care about and Flux draws each one as a pin where they are right now. The camera auto-fits — it frames everyone with padding and re-zooms whenever someone moves, so nobody ever drifts off the visible map.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The map shows a pin for each selected tracker. Coordinates come straight from your Home Assistant <code>person</code> and <code>device_tracker</code> entities (their <code>latitude</code> / <code>longitude</code> attributes), so pins move live as those entities update. Each pin is either an <strong>avatar</strong> — a circle with a photo or a 2-letter label — or a small color-coded <strong>dot</strong> you tap to reveal who it is. Inside the tile the map doesn't pan or zoom by hand; the auto-fit owns the camera so everyone always stays in frame.</p>
+
+  <div class="note tip"><span class="h">Pins move on their own</span> You don't refresh anything. When a person or device_tracker entity reports a new location, its pin slides to the new spot and the map re-frames so the whole group stays visible.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Map</strong>.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) and tap <strong>Add person / phone</strong>.</li>
+    <li>Pick a <code>person</code> or <code>device_tracker</code> entity. Repeat for everyone you want on the map.</li>
+    <li>For each tracker, optionally set a 2-letter label, a color, and a photo for the pin.</li>
+  </ol>
+
+  <div class="note"><span class="h">No coordinates, no pin</span> A tracker only appears once its entity reports <code>latitude</code> and <code>longitude</code>. If you've added people but the tile is empty, the selected entities haven't reported a location yet.</div>
+
+  <h2>Full screen</h2>
+  <p>Tap the widget to open the <strong>full-screen map</strong>. On iPhone and iPad this gives you full native pan and zoom — drag to move, pinch to zoom — and a close button in the top corner. Pins here show the tracked person's Home Assistant photo (<code>entity_picture</code>) when one exists, falling back to the colored circle and label.</p>
+
+  <div class="note warn"><span class="h">On Apple TV</span> The full-screen map fills the whole screen with no static controls. Press the remote's <strong>Play/Pause</strong> button to summon a pan/zoom panel — a directional pad to move the map, plus zoom in/out, recenter, and close buttons. Press Play/Pause again (or Menu) to dismiss it. The map itself isn't remote-interactive on tvOS; the panel is what drives it.</p>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Pin style</td><td><strong>Avatars</strong> — circles with a photo or initials, always visible. <strong>Small dots</strong> — compact color-coded dots; tap a dot on the widget to reveal that person's avatar and name, tap again to collapse it back to a dot. Default is avatars.</td></tr>
+    <tr><td>Person / phone</td><td>Each tracker is a Home Assistant <code>person</code> or <code>device_tracker</code> entity. Add as many as you like with <strong>Add person / phone</strong>.</td></tr>
+    <tr><td>Label</td><td>A short label drawn in the pin, kept to 2 letters. Leave it blank to use the initials of the entity's friendly name.</td></tr>
+    <tr><td>Color</td><td>The pin/dot color. Drives the small-dot color and the fallback circle behind the label when there's no photo. Defaults to the theme accent.</td></tr>
+    <tr><td>Photo</td><td>An avatar image shown in the pin instead of the letters. Stored at a reduced size to keep dashboards light.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Photos in full screen vs. tile</span> In the tile, the pin photo is the image you attach in the inspector. In the full-screen map, Flux prefers the tracked person's Home Assistant photo (<code>entity_picture</code>) when one is available.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

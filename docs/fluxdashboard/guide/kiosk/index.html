@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiosk Mode — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Configuration</div>
+    <h1>Kiosk Mode</h1>
+    <p class="lede">Turn a mounted iPad or iPhone into a dedicated wall panel. Flux fills the screen edge-to-edge, hides all chrome, swipes between your dashboard's pages, keeps the display awake, and — after an idle stretch — slides into a screensaver that any touch (or even walking up to it) brings back.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>Kiosk Mode is a <strong>borderless wall panel</strong> for a device that lives on the wall. It shows your dashboard full-screen with the status bar and system overlays hidden, and lets you <strong>swipe between pages</strong>. A page indicator appears only when the dashboard has more than one page. While the panel is up, the screen <strong>stays awake</strong> — and after the idle timeout it shows a screensaver that protects the panel and wakes the moment someone interacts.</p>
+
+  <div class="note tip"><span class="h">The screensaver is wall-panel only</span> The screensaver runs <strong>only</strong> inside the full-screen Kiosk wall panel — never over your normal dashboard, even with the keep-awake toggle on. Any touch brings the dashboard back.</div>
+
+  <h2>Enter &amp; exit</h2>
+  <ol class="steps">
+    <li>Open <strong>Kiosk Mode</strong> from your dashboard to launch the full-screen wall panel.</li>
+    <li>Swipe left and right to move between the dashboard's pages.</li>
+    <li>To leave, find the <strong>hidden exit button</strong> in the corner you chose and <strong>press and hold it for one second</strong>. It's almost invisible at rest and brightens with a filling ring as you hold, so a casual touch won't exit.</li>
+  </ol>
+
+  <p>You pick which corner holds the exit button in settings — <strong>Top Left</strong>, <strong>Top Right</strong>, <strong>Bottom Left</strong>, or <strong>Bottom Right</strong>.</p>
+
+  <div class="note"><span class="h">Optional Face ID / passcode</span> Turn on <strong>Require Face ID / passcode to exit</strong> and holding the exit button also asks for Face ID, Touch ID, or your device passcode first — so a guest can't simply hold the button to get out. If the device has no passcode set at all (authentication isn't possible), Flux won't trap you and just exits.</div>
+
+  <h2>Screensaver</h2>
+  <p>After the device sits idle for the timeout you set, the panel fades into a screensaver. Pick how long to wait before it starts — <strong>1, 2, 5, 10, or 30 minutes</strong> — and choose a style:</p>
+  <table class="opts">
+    <tr><th>Style</th><th>What you see</th></tr>
+    <tr><td>Flux logo</td><td>An animated Flux logo screen.</td></tr>
+    <tr><td>Aurora</td><td>A soft, drifting aurora.</td></tr>
+    <tr><td>Digital clock</td><td>A large digital clock on black that slowly re-positions every minute to protect OLED panels from burn-in.</td></tr>
+    <tr><td>Analog clock</td><td>A large analog clock on black, with the same gentle drift; shows seconds.</td></tr>
+    <tr><td>Dimmed dashboard</td><td>Your dashboard stays visible through a darkening scrim, with a small clock in the bottom corner. A slider sets how dark.</td></tr>
+    <tr><td>Black screen</td><td>A plain black screen — the darkest, simplest option.</td></tr>
+  </table>
+
+  <p>For the clock styles you can toggle <strong>Show date</strong> and <strong>24-hour time</strong>. For the dimmed-dashboard style, a <strong>Dim amount</strong> slider controls how much the scrim darkens the dashboard.</p>
+
+  <div class="note"><span class="h">Easy on the eyes</span> The clock styles use a dim grey that's gentle on OLED panels and at night, and the clock drifts position once a minute so a static image never burns into the screen.</div>
+
+  <h2>Wake on motion</h2>
+  <p>Turn on <strong>Wake on motion (front camera)</strong> and, while the screensaver is showing, the <strong>front camera</strong> watches for movement at a few low-resolution frames per second. Walk up to the device and the dashboard wakes <em>before</em> you touch it. A <strong>Motion sensitivity</strong> slider runs from <strong>Low</strong> (needs a big movement) to <strong>High</strong> (a flicker wakes it) — raise it if it doesn't wake reliably, lower it if it wakes on its own.</p>
+
+  <div class="note tip"><span class="h">Nothing leaves the device</span> Motion processing happens entirely on the device — frames are never recorded and nothing is sent anywhere.</div>
+
+  <h2>Keep awake</h2>
+  <p>While the wall panel is up, Flux disables the system idle timer so the display never sleeps. The <strong>Kiosk Mode</strong> toggle in Settings also keeps the screen awake while Flux is open. The screensaver is what stands in for sleep on a panel that never powers down its screen — and any touch dismisses it instantly.</p>
+
+  <h2>True lockdown</h2>
+  <p>iOS reserves the swipe-up home gesture for itself, so <strong>Flux can't block it alone</strong>. For a real kiosk lockdown that also blocks the home swipe, turn on iOS <strong>Guided Access</strong>:</p>
+  <ol class="steps">
+    <li>Open <strong>Settings › Accessibility › Guided Access</strong> and turn it <strong>On</strong>.</li>
+    <li>Launch Flux and enter the Kiosk wall panel.</li>
+    <li><strong>Triple-click the side button</strong> while in Flux to lock it down.</li>
+  </ol>
+  <p>With Guided Access on, only your passcode — and the Flux exit button — gets out. The wall panel shows a self-dismissing hint pointing you to Guided Access whenever it isn't already locked down; you can dismiss it or choose "Don't show again."</p>
+
+  <div class="note warn"><span class="h">Guided Access is the only true lockdown</span> Without it, the panel can be left with a home swipe. With it, the device is genuinely pinned to Flux. This is an iOS limitation, not a Flux one.</div>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>The screensaver is a pure overlay — it never changes hardware brightness. (If a panel is ever found dimmed to black on launch, Flux restores a normal brightness as a safety net.)</li>
+    <li>A safe brightness is restored automatically on launch so a crash mid-screensaver can never leave the normal dashboard dark.</li>
+    <li>Setting changes — timeout, style, sensitivity, dim level — take effect right away, without leaving and re-entering the panel.</li>
+  </ul>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

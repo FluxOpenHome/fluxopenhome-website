@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Guide</div>
+    <h1>Settings</h1>
+    <p class="lede">One screen for everything that isn't a dashboard: your Home Assistant connection, iCloud sync across your devices, units, media sources, automatic dashboard backups, kiosk mode, geofence zones, and where Flux automations run. Your connection and your dashboards sync over iCloud to every device on the same Apple ID — and every dashboard is snapshotted automatically, so nothing is ever lost.</p>
+  </div>
+
+  <div class="note tip"><span class="h">Two things sync, automatically</span> Your <strong>Home Assistant connection</strong> and all your <strong>dashboards</strong> ride iCloud between devices signed into the same Apple ID. Set Flux up once; your other iPhone, iPad, and Apple TV catch up on their own. On top of that, every dashboard is <strong>backed up locally</strong> on each launch and after every edit, and any of those snapshots can be restored.</div>
+
+  <h2>Home Assistant</h2>
+  <p>The top section shows your live connection. The connection is always configurable here (and in onboarding) — it's never hard-coded.</p>
+  <table class="opts">
+    <tr><th>Field</th><th>What it shows</th></tr>
+    <tr><td>Status</td><td>Connected, Connecting…, Authenticating…, Disconnected, or the failure message — with a colored icon (green / orange / red).</td></tr>
+    <tr><td>Server</td><td>The base URL Flux is using (truncated in the middle when long). Works on your local network or over Home Assistant Cloud / Nabu Casa.</td></tr>
+    <tr><td>Name</td><td>Your Home Assistant location name, as reported by the server.</td></tr>
+    <tr><td>HA Version</td><td>The Home Assistant version your server is running.</td></tr>
+  </table>
+  <p>Below that are the connection actions:</p>
+  <table class="opts">
+    <tr><th>Action</th><th>What it does</th></tr>
+    <tr><td>Reconnect</td><td>Restarts the connection with your saved server and token.</td></tr>
+    <tr><td>Disconnect</td><td>Signs out but <strong>keeps</strong> your saved token (hidden) so you can reconnect instantly.</td></tr>
+    <tr><td>Forget This Server &amp; Token</td><td>Removes the server and token from the Keychain entirely. Use this to switch to a different server.</td></tr>
+  </table>
+  <div class="note"><span class="h">Local or remote, same setup</span> Flux works locally and over Home Assistant Cloud (Nabu Casa). Disconnect is reversible; Forget is the clean slate.</div>
+
+  <h2>Units</h2>
+  <p>A single picker controls how Flux displays temperatures, distances, speeds, mass, volume, pressure, area, precipitation, and flow throughout your dashboards.</p>
+  <table class="opts">
+    <tr><th>Choice</th><th>What it does</th></tr>
+    <tr><td>Match Home Assistant</td><td>Leaves every value exactly as your server sends it — no conversion.</td></tr>
+    <tr><td>Metric (SI)</td><td>Converts values to SI units for display (°C, km, m/s, kg, L, …).</td></tr>
+    <tr><td>Imperial (US)</td><td>Converts values to US/Imperial units for display (°F, mi, mph, lb, gal, …).</td></tr>
+  </table>
+  <div class="note"><span class="h">Display only</span> The conversion changes what you see, not what's stored in Home Assistant. Values already in the chosen system pass through unchanged.</div>
+
+  <h2>Media</h2>
+  <p>Three ways to find and play media. See the <a href="../media-sources/">Media Sources</a> guide for the full picture of where each one plays.</p>
+  <table class="opts">
+    <tr><th>Source</th><th>What it does</th></tr>
+    <tr><td>Browse Home Assistant Media</td><td>Opens your Home Assistant media library to browse and pick items.</td></tr>
+    <tr><td>Network Storage (NAS)</td><td>Add an SMB file server on your network and browse it directly.</td></tr>
+    <tr><td>Plex</td><td>Sign in to Plex and play from your libraries.</td></tr>
+  </table>
+  <div class="note tip"><span class="h">Where it plays</span> Home Assistant and Plex items play on your selected speakers; NAS files play locally on the device you're holding. The <a href="../media-sources/">Media Sources</a> page explains the split.</div>
+
+  <h2>Sync (iCloud)</h2>
+  <p>Flux uses iCloud (CloudKit) to keep your dashboards and connection in step across devices. This section makes that visible instead of leaving it a mystery.</p>
+  <table class="opts">
+    <tr><th>Field</th><th>What it shows / does</th></tr>
+    <tr><td>iCloud Sync</td><td>A live status label: <strong>Active</strong>, <strong>Checking…</strong>, <strong>On — restart Flux to start syncing</strong>, <strong>Off — not signed into iCloud</strong>, <strong>Unavailable — iCloud restricted</strong>, <strong>Unavailable in this build</strong>, or <strong>Off — disabled on this device</strong>. The icon is green when healthy, orange otherwise.</td></tr>
+    <tr><td>Sync this device</td><td>Toggle this device in or out of sync. Changes take effect the next time Flux launches.</td></tr>
+    <tr><td>Last sent</td><td>When this device last exported changes to iCloud (or "Nothing yet").</td></tr>
+    <tr><td>Last received</td><td>When this device last imported changes from iCloud (or "Nothing yet").</td></tr>
+    <tr><td>Sync error</td><td>Shown only while a failure is actually current — it clears itself once a later sync succeeds, so a recovered hiccup doesn't linger as "still broken".</td></tr>
+  </table>
+  <div class="note"><span class="h">Devices merge, never overwrite</span> Devices merge their dashboards by identity — they never overwrite each other. Turning "Sync this device" off only stops this device from syncing; it never changes which dashboards exist or where they're visible. (The store unbinds at the next launch.)</div>
+  <div class="note warn"><span class="h">Needs iCloud</span> If you're signed out of iCloud, sign in via the system Settings app and relaunch Flux. If a build was signed without iCloud capability, dashboards stay local — but Wi-Fi / QR sync still works.</div>
+
+  <h2>Hidden Dashboards</h2>
+  <p>This section appears only when one or more dashboards are scoped to a single device, so they don't show here. Each one lists with a tap to make it available on all your devices again. The dashboards still exist — this just brings a device-only dashboard back into the shared set, so no dashboard is ever unreachable.</p>
+
+  <h2>Safety — Dashboard Backups</h2>
+  <p>Opens <strong>Dashboard Backups</strong>, where Flux's automatic snapshots live. Flux writes a snapshot of all dashboards at every launch and after every edit session — you never have to remember to back up.</p>
+  <table class="opts">
+    <tr><th>In the backups screen</th><th>What it does</th></tr>
+    <tr><td>Recover Lost Dashboards</td><td>If a dashboard was on this device but isn't anymore, it's listed here with its page and widget counts. Tap <strong>Recover</strong> to bring it back as a fresh, fully-synced dashboard.</td></tr>
+    <tr><td>Snapshot list</td><td>Each snapshot shows its date, the dashboards it contains, and the dashboard / widget counts. Tap one to restore it.</td></tr>
+    <tr><td>Restore</td><td>The backup's dashboards are added back as <strong>new</strong> dashboards — nothing currently in the app is touched or replaced. Restored dashboards sync to your other devices automatically.</td></tr>
+  </table>
+  <div class="note tip"><span class="h">Additive, never destructive</span> Restoring and recovering only ever <em>add</em> dashboards. Your current dashboards are left exactly as they are.</div>
+
+  <h2>Display — Kiosk Mode</h2>
+  <p>Opens <strong>Kiosk Mode</strong>: keep a wall-mounted iPad or iPhone awake, with a clock screensaver and wake-on-motion via the front camera. Full details are in the <a href="../kiosk/">Kiosk Mode</a> guide; in short, the screen below covers:</p>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Kiosk Mode</td><td>Keeps the screen awake while Flux is open. The screensaver only runs in the full-screen wall panel after the idle timeout — never over your normal dashboard; any touch brings it back.</td></tr>
+    <tr><td>Exit button corner</td><td>Which corner holds the subtle exit button in the wall panel (press and hold one second to leave).</td></tr>
+    <tr><td>Require Face ID / passcode to exit</td><td>Also asks for Face ID, Touch ID, or your passcode before leaving the wall panel.</td></tr>
+    <tr><td>Start after</td><td>Idle timeout before the screensaver begins (1, 2, 5, 10, or 30 minutes).</td></tr>
+    <tr><td>Style</td><td>Flux logo, Aurora, Digital clock, Analog clock, Dimmed dashboard, or Black screen. Clock styles add Show date and 24-hour time; the dimmed style adds a Dim amount slider.</td></tr>
+    <tr><td>Wake on motion (front camera)</td><td>Uses the front camera to wake the panel when someone approaches, with an adjustable sensitivity.</td></tr>
+  </table>
+  <div class="note warn"><span class="h">For a complete lock</span> To also block the home swipe, turn on iOS Guided Access (triple-click the side button while in Flux). The in-app kiosk keeps the panel awake and tidy; Guided Access is the true lockdown.</div>
+
+  <h2>Location — Geofence Zones</h2>
+  <p>Opens a full-screen, pannable map. Tap anywhere to drop a zone circle; tap a pin to select it. A floating card names the zone, sizes its radius (in meters, or feet / miles in imperial — your choice), and deletes it. These zones (Home, Work, the dock…) then appear as one-tap choices in every automation Location trigger, so automations can run when this iPhone or iPad enters or leaves a zone.</p>
+
+  <h2>Flux Automations</h2>
+  <p>A single toggle: <strong>Run automations on this device</strong>. Automations that include Apple Home devices run in Flux on whichever device has this enabled.</p>
+  <div class="note"><span class="h">Don't run them twice</span> Apple TV defaults to on (it's always awake), so this toggle is blocked on other devices while a paired Apple TV is the runner — otherwise every automation would fire twice. To run them on a handheld instead, turn automations off on the Apple TV first. Enable it elsewhere only if you don't have an Apple TV.</div>
+
+  <h2>About</h2>
+  <table class="opts">
+    <tr><th>Field</th><th>What it shows</th></tr>
+    <tr><td>App</td><td>FluxOpenHome.</td></tr>
+    <tr><td>Version</td><td>The app version and build number.</td></tr>
+  </table>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

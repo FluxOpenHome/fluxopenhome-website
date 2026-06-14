@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camera Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Camera</h1>
+    <p class="lede">A live camera tile. Streams any Home Assistant camera (HLS, WebRTC, MJPEG or polled snapshots) or an Apple Home camera through HomeKit, with a tap-to-expand full-screen viewer, optional pan/tilt/zoom, clip recording, and motion or doorbell alerts that pop up on your dashboard.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The camera widget fills its tile with a live feed. Tap the tile to open a <strong>full-screen viewer</strong>; tap the feed again to shrink it back down. Flux picks the best stream method automatically, and every state — loading spinner, live image, or error — fills the same frame so the tile never jumps size when the feed connects.</p>
+
+  <div class="note tip"><span class="h">Home Assistant and Apple Home</span> A normal HA camera streams over URLs (HLS / WebRTC / MJPEG / snapshot). An Apple Home camera (entity id contains <code>ahk_</code>) streams through HomeKit's own APIs instead — tiles poll snapshots and full screen starts the live HomeKit stream. Apple Home cameras have no recording or PTZ APIs, so those controls don't appear for them.</p></div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Camera</strong>.</li>
+    <li>Pick the camera entity.</li>
+    <li>Open the widget's <strong>inspector</strong> (tap the widget while editing) to set the stream method, fit, motion/doorbell alerts, PTZ, and recording.</li>
+  </ol>
+
+  <h2>Live feed &amp; snapshots</h2>
+  <p>The <strong>Stream</strong> setting controls how the feed is delivered:</p>
+  <ul>
+    <li><strong>Auto</strong> — prefers HLS when the camera reports an <code>hls</code> or <code>web_rtc</code> frontend stream type (this covers WebRTC cameras like UniFi Protect, which still serve HLS through Home Assistant's stream API), otherwise falls back to MJPEG.</li>
+    <li><strong>HLS</strong> — smooth playback through an <code>AVPlayer</code>.</li>
+    <li><strong>WebRTC</strong> — low-latency; served as HLS via Home Assistant's camera stream API.</li>
+    <li><strong>MJPEG</strong> — a continuous multipart frame stream.</li>
+    <li><strong>Snapshot</strong> — a still image re-fetched about every 1.5 seconds; the last frame is held until the next one arrives so it never flickers.</li>
+  </ul>
+  <div class="note"><span class="h">Self-healing feeds</span> Long-lived tiles watch their own playback. An HLS stream that stalls (segment expiry, a network blip, backgrounding) is rebuilt automatically; an MJPEG stream that delivers no frame for 8 seconds reconnects. A tile that started before the connection was up keeps retrying instead of freezing on a blank frame.</div>
+
+  <h2>Full-screen viewer</h2>
+  <p>Tapping a tile opens the camera full screen on a black background. The viewer shows a <strong>Record</strong> button (HA cameras only), a close button, and — when enabled — on-screen PTZ controls. Tapping the feed itself closes the viewer. The same viewer is what opens when you tap a motion pop-up.</p>
+
+  <h2>Motion &amp; doorbell alerts</h2>
+  <p>A camera can watch a trigger entity and surface an in-app pop-up and/or a local notification when it fires. Flux polls the configured cameras once a second from the main screen.</p>
+  <ul>
+    <li><strong>Trigger type</strong> — <strong>Motion</strong> or <strong>Doorbell</strong>. This changes the wording ("Motion detected" vs. "Doorbell ringing"), the icon, and which sensor Flux auto-wires.</li>
+    <li><strong>Auto-wired sensor</strong> — if you don't pick a trigger entity, Flux finds one on the camera's own device: a <code>binary_sensor</code> with a matching device class (<code>motion</code>/<code>occupancy</code> for motion; <code>doorbell</code>/<code>sound</code>/<code>occupancy</code> for doorbell). You can override it by picking any entity yourself.</li>
+    <li><strong>Trigger edge</strong> — a <code>binary_sensor</code> fires on its off→on transition. An <code>event.*</code> entity (e.g. a doorbell-press event) fires when its state timestamp changes.</li>
+    <li><strong>Pop-up scope</strong> — where the pop-up may appear: <strong>Off</strong>, <strong>Only on this dashboard</strong> (just when that dashboard is the one on screen), or <strong>Any screen</strong>.</li>
+    <li><strong>Notify on trigger</strong> — also sends a local notification (with sound) even when the app isn't focused on a relevant screen. Notification permission is requested the first time it's needed.</li>
+  </ul>
+  <p>The pop-up shows the camera name, a live preview of the feed, and an <strong>Open</strong> button; tapping the preview or Open expands it to the full-screen viewer. Only one pop-up shows at a time.</p>
+
+  <h2>Pan / tilt / zoom</h2>
+  <p>Enable <strong>Pan / tilt / zoom controls</strong> to overlay a directional pad and zoom buttons in the full-screen viewer. Each press calls your camera's PTZ service (default <code>onvif.ptz</code>) with ONVIF-style directions — pan <code>LEFT</code>/<code>RIGHT</code>, tilt <code>UP</code>/<code>DOWN</code>, zoom <code>ZOOM_IN</code>/<code>ZOOM_OUT</code> — targeted at the camera entity.</p>
+
+  <h2>Recordings</h2>
+  <p>The <strong>Record</strong> button in the full-screen viewer (and the "Record a clip" tap action) calls Home Assistant's <code>camera.record</code> service. The clip records for the set duration, stops automatically, and saves into your Home Assistant's <code>/media/recordings</code>.</p>
+  <ul>
+    <li><strong>Duration</strong> — clip length in seconds (5–600).</li>
+    <li><strong>Lookback</strong> — seconds of pre-roll captured before you pressed record (requires a camera that supports it).</li>
+    <li><strong>File path</strong> — where the clip is written; templated, default <code>/media/recordings/{{ entity_id }}.mp4</code>. Use a timestamped path so repeating clips don't overwrite each other.</li>
+  </ul>
+  <p>Play saved clips with the <strong>View recordings</strong> tap action, or from <strong>Settings › Media</strong>.</p>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Option</th><th>What it does</th></tr>
+    <tr><td>Stream</td><td>Delivery method: <strong>Auto (best available)</strong>, <strong>HLS (smooth)</strong>, <strong>WebRTC (low latency)</strong>, <strong>MJPEG</strong>, or <strong>Snapshot (still)</strong>.</td></tr>
+    <tr><td>Fit</td><td><strong>Fill</strong> crops the feed to fill the tile; <strong>Fit</strong> shows the whole frame letterboxed.</td></tr>
+    <tr><td>Trigger</td><td><strong>Motion</strong> or <strong>Doorbell</strong> — sets the alert wording/icon and which sensor is auto-wired.</td></tr>
+    <tr><td>Motion sensor / Doorbell entity</td><td>The trigger entity. Leave unset to auto-detect a matching <code>binary_sensor</code> on the camera's device.</td></tr>
+    <tr><td>Notify on trigger</td><td>Send a local notification (with sound) when the camera triggers.</td></tr>
+    <tr><td>Pop-up</td><td>In-app alert scope: <strong>Off</strong>, <strong>Only on this dashboard</strong>, or <strong>Any screen</strong>.</td></tr>
+    <tr><td>Pan / tilt / zoom controls</td><td>Show PTZ controls in full screen.</td></tr>
+    <tr><td>PTZ service</td><td>The <code>domain.service</code> called for PTZ moves (default <code>onvif.ptz</code>). Shown only when PTZ is enabled.</td></tr>
+    <tr><td>Record duration</td><td>Clip length in seconds (5–600) for <code>camera.record</code>.</td></tr>
+    <tr><td>Recording file path</td><td>Templated destination for clips (default <code>/media/recordings/{{ entity_id }}.mp4</code>).</td></tr>
+  </table>
+
+  <div class="note warn"><span class="h">A camera under other widgets stays tappable</span> The video layer is purely visual and never grabs touches, so widgets stacked on top of a camera still respond to taps. Camera taps are handled by the widget's own gesture.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>

@@ -38,7 +38,6 @@
         <a href="/support.html" class="nav-link">Support</a>
       </nav>
       <div class="header-actions">
-        <a href="/store" class="btn btn-primary btn-sm">Shop</a>
         <button class="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
         </button>
@@ -62,7 +61,6 @@
       <a href="/support.html" class="nav-link">Support</a>
     </div>
     <div class="mobile-nav-footer">
-      <a href="/store" class="btn btn-primary btn-lg" style="width:100%">Shop Now</a>
     </div>
   </nav>
 
@@ -73,7 +71,7 @@
 
           <span class="badge badge-accent">Legal</span>
           <h1>Privacy Policy</h1>
-          <p class="effective">Effective June 9, 2026 &nbsp;·&nbsp; Last updated June 12, 2026</p>
+          <p class="effective">Effective June 9, 2026 &nbsp;·&nbsp; Last updated June 14, 2026</p>
 
           <p class="lead">Flux Open Home builds software that connects <strong>directly</strong> to the systems you already own. Our apps are designed to be private by default: we do not operate a cloud service that sits between you and your devices, we do not require an account, and we do not collect, track, or sell your personal data.</p>
 
@@ -83,12 +81,12 @@
           <ul>
             <li><strong>No account required.</strong> You connect the app straight to your own Home Assistant and, optionally, your own Apple Home.</li>
             <li><strong>No analytics, no tracking, no advertising.</strong> We do not embed third-party trackers or ad SDKs.</li>
-            <li><strong>No data sent to us.</strong> Your dashboards, entities, camera feeds, calendars, music, and settings stay on your device, your Home Assistant, and — only if you choose — your own private Apple iCloud.</li>
-            <li><strong>Your credentials stay with you,</strong> stored in the iOS Keychain and, if you enable sync, in your private iCloud — never on a Flux server.</li>
+            <li><strong>Nothing leaves your device automatically.</strong> Your dashboards, entities, camera feeds, calendars, music, and settings stay on your device, your Home Assistant, and — only if you choose — your own private Apple iCloud. The <em>one</em> exception is feedback you deliberately send us through the in-app form (see §6) — that, and only that, goes to a Flux Open Home server.</li>
+            <li><strong>Your credentials stay with you,</strong> stored in the iOS Keychain and, if you enable sync, in your private iCloud — never on a Flux server. This includes any Plex token or NAS sign-in you add.</li>
           </ul>
 
           <h2>2. Information we collect</h2>
-          <p>The app itself does <strong>not</strong> collect personal information and sends nothing to Flux Open Home servers. There is no Flux Open Home account, and we operate no backend that receives your data. Specifically:</p>
+          <p>In normal use the app does <strong>not</strong> collect personal information and sends nothing to Flux Open Home servers. There is no Flux Open Home account. The only time anything is sent to us is when you choose to submit feedback through the in-app form — described in §6, "Feedback you send us." Otherwise:</p>
           <ul>
             <li><strong>Connection details</strong> — the address (URL) of your Home Assistant and your access token are stored locally in the device's encrypted Keychain so the app can connect. If you enable iCloud sync (see §5), the connection may also be stored in your own private iCloud database so your other devices — for example, your Apple TV — can configure themselves automatically. In all cases it is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> and is never transmitted to us.</li>
             <li><strong>Dashboards &amp; preferences</strong> — the layouts, widgets, floor plans, automations, and settings you create are stored on your device, and may sync across your own devices through your private iCloud account if you enable it. We have no access to any of it.</li>
@@ -125,38 +123,58 @@
           <h3>Local network</h3>
           <p>Flux uses the local network to discover and reach your Home Assistant (via Bonjour) and to send your dashboards to your Apple TV over Wi-Fi. The Apple TV sync stays on your local network and is encrypted; it is not sent through any Flux server.</p>
 
-          <h2>5. iCloud sync</h2>
+          <h2>5. Media sources you connect (Home Assistant, Plex, NAS)</h2>
+          <p>The media widget can play from sources you connect. In every case the connection is made <strong>directly from your device</strong> to that source — Flux Open Home is not in the path and receives none of it.</p>
+          <ul>
+            <li><strong>Home Assistant media</strong> — your server's media library is browsed and played through your own Home Assistant connection.</li>
+            <li><strong>Plex</strong> — if you sign in, the linking step uses Plex's own service (plex.tv) and the resulting access token is stored only in your device's Keychain. Browsing and playback happen directly between your device and your Plex server, governed by <a href="https://www.plex.tv/about/privacy-legal/privacy-preferences/" target="_blank" rel="noopener">Plex's privacy policy</a>. Flux does not receive your Plex library or viewing history.</li>
+            <li><strong>Network storage (NAS)</strong> — you can add an SMB file server discovered on your local network. Its address and username are stored on your device and the password in the Keychain; files are read directly from your NAS over your local network and played on your device. Nothing about your NAS or its contents is sent to us.</li>
+          </ul>
+
+          <h2>6. Feedback you send us</h2>
+          <p>Flux includes an optional in-app form for feature requests and bug reports. It is <strong>never sent automatically</strong> — only when you fill it out and tap Send. When you do, the following is transmitted to a Flux Open Home server and stored so we can read, respond to, and act on it:</p>
+          <ul>
+            <li>what you write (your feature request or bug description);</li>
+            <li>a screenshot, <strong>only if you choose to attach one</strong>;</li>
+            <li>your name and/or email, <strong>only if you provide them</strong> — you may instead submit anonymously;</li>
+            <li>basic technical context to help us reproduce issues: the app version and build, your device type (e.g. iPhone, iPad, or Apple TV), and OS version;</li>
+            <li>the IP address of the request, recorded in standard server logs.</li>
+          </ul>
+          <p>We use this <strong>solely</strong> to improve Flux and to follow up with you if you left contact details. We do not sell it, share it for advertising, or use it to build a profile, and if you submit anonymously we have no way to identify you. To request deletion of feedback you've sent, contact us (§14).</p>
+
+          <h2>7. iCloud sync</h2>
           <p>If you enable it, Flux can sync your dashboards, settings, and Home Assistant connection across your own Apple devices using Apple's iCloud (CloudKit) in your <strong>private</strong> database. This data is stored in your personal iCloud account and is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Flux Open Home cannot read it. You can turn sync off in the app's settings at any time.</p>
 
-          <h2>6. Notifications</h2>
+          <h2>8. Notifications</h2>
           <p>If you enable alerts, push delivery is handled through Apple's notification service and/or your own Home Assistant. We do not maintain a notification server that profiles you.</p>
 
-          <h2>7. Permissions the app may request</h2>
+          <h2>9. Permissions the app may request</h2>
           <p>You will only be asked for a permission when you use the feature that needs it, and you can change or revoke any of them at any time in the iOS or tvOS Settings app:</p>
           <ul>
             <li><strong>Apple Home (HomeKit)</strong> — to show and control your Apple Home accessories.</li>
             <li><strong>Location</strong> (including background) — for geofence automations and Apple Weather.</li>
-            <li><strong>Local Network</strong> — to discover your Home Assistant and sync to your Apple TV.</li>
+            <li><strong>Local Network</strong> — to discover your Home Assistant, find a NAS on your network, and sync to your Apple TV.</li>
             <li><strong>Calendar</strong> — to display and add Apple Calendar events.</li>
             <li><strong>Apple Music</strong> — to play and control music from your subscription.</li>
+            <li><strong>Photos</strong> — only if you choose a screenshot from your library to attach to feedback.</li>
             <li><strong>Camera</strong> — to scan a pairing QR code and (optionally) wake a kiosk screen.</li>
             <li><strong>Microphone &amp; Speech Recognition</strong> — to add calendar events by voice.</li>
             <li><strong>Notifications</strong> (optional) — to deliver alerts you enable.</li>
           </ul>
 
-          <h2>8. Third-party services</h2>
-          <p>We do not share your information with third parties, because we do not have it. The app does not include advertising networks or analytics services. Some optional features connect your device directly to Apple services (HomeKit, WeatherKit, Apple Music, iCloud, speech recognition), which are governed by Apple's own privacy terms. Any external content you add (for example, a camera feed URL or a map tile) is requested directly by your device from the source you specify.</p>
+          <h2>10. Third-party services</h2>
+          <p>We do not share your information with third parties, and the app includes no advertising networks or analytics services. Some optional features connect your device directly to Apple services (HomeKit, WeatherKit, Apple Music, iCloud, speech recognition), which are governed by Apple's own privacy terms. If you use Plex, your device connects directly to Plex (plex.tv for sign-in, then your own Plex server), governed by Plex's privacy policy. A NAS you add is reached directly over your local network. Any other external content you add (for example, a camera feed URL or a map tile) is requested directly by your device from the source you specify. The only data that reaches a Flux Open Home server is feedback you choose to submit (§6).</p>
 
-          <h2>9. Data security</h2>
-          <p>Sensitive values such as access tokens are stored using Apple's Keychain, and any iCloud sync uses your private, encrypted iCloud database. Because your personal data is not collected by us, there is no Flux Open Home database of it to be breached. You remain in control of your Home Assistant, your Apple Home, and their own security.</p>
+          <h2>11. Data security</h2>
+          <p>Sensitive values such as your Home Assistant token, Plex token, and NAS password are stored using Apple's Keychain, and any iCloud sync uses your private, encrypted iCloud database. The only personal data we hold is the feedback you choose to submit (§6); it is stored on our server to let us respond and improve the app, kept no longer than needed, and never sold. Everything else stays on your device, your Home Assistant, and your own iCloud — there is no broader Flux Open Home database of your activity to be breached. You remain in control of your Home Assistant, your Apple Home, and their own security.</p>
 
-          <h2>10. Children's privacy</h2>
+          <h2>12. Children's privacy</h2>
           <p>Our apps are not directed to children under 13 and do not knowingly collect personal information from them.</p>
 
-          <h2>11. Changes to this policy</h2>
+          <h2>13. Changes to this policy</h2>
           <p>We may update this Privacy Policy from time to time. Material changes will be reflected here with an updated "Last updated" date. Continued use of the apps after a change constitutes acceptance of the revised policy.</p>
 
-          <h2>12. Contact us</h2>
+          <h2>14. Contact us</h2>
           <p>Questions about this policy or your privacy? Reach us through our <a href="/support.html">Support page</a> or by email at <a href="mailto:support@fluxopenhome.com">support@fluxopenhome.com</a>.</p>
 
           <p style="margin-top:2.5rem"><a href="/" class="btn btn-secondary btn-sm">&larr; Back to home</a></p>
@@ -193,6 +211,7 @@
           <ul>
             <li><a href="/open-source.html">Open Source</a></li>
             <li><a href="/support.html">Support</a></li>
+            <li><a href="/fluxdashboard/guide/">App Guide &amp; Widgets</a></li>
             <li><a href="/fluxdashboard.html">Flux App</a></li>
             <li><a href="/ios-app.html">Flux Controller</a></li>
             <li><a href="/fluxdashboard/privacy.html">Privacy</a></li>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stack Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Stack</h1>
+    <p class="lede">A container that auto-arranges other widgets in a single row or column. Its members are real widgets from the page — any kind, fully interactive — that render inside the stack instead of on the canvas, sharing the space equally and reflowing the moment you flip the direction.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>A stack adopts widgets that already live on the page and lays them out in one line — <strong>horizontal</strong> (a row) or <strong>vertical</strong> (a column). Each member keeps its own entity, styling, icons, and controls; a control widget inside a stack still toggles, a thermostat still dials. Members <strong>share the stack's space equally</strong> along its direction, so two members each take half, three each take a third, and so on. Flip the direction or change the spacing and everything reflows instantly — there's no rebuild and no layout to hand-edit.</p>
+
+  <div class="note tip"><span class="h">Members are full widgets</span> A stack doesn't hold a special "stack item" type. It holds ordinary page widgets by reference. Tap a member in the stack's settings and you get that widget's complete inspector — entity, label, icon, colors, everything a standalone widget has.</div>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Stack</strong>.</li>
+    <li>Open the stack's <strong>inspector</strong> (tap the widget while editing).</li>
+    <li>Add members — pick existing page widgets, select several entities at once, or create a brand-new widget straight into the stack.</li>
+    <li>Set the <strong>direction</strong> and <strong>spacing</strong>, and drag members into the order you want.</li>
+  </ol>
+
+  <div class="note"><span class="h">An empty stack is invisible</span> While editing, an empty stack shows a placeholder card so you can find and tap it. At runtime an empty stack draws nothing — it won't blot out whatever sits beneath it on the page.</div>
+
+  <h2>Members</h2>
+  <p>The stack's settings list every member with its icon and name. Three ways to add members, plus reorder and remove:</p>
+  <ul>
+    <li><strong>Add entities — pick several</strong> — choose multiple entities at once; Flux creates a control widget for each one and drops them all into the stack.</li>
+    <li><strong>Add widgets from this page</strong> — adopt widgets that already exist on the page. The picker only offers widgets that aren't already in a stack (and never another stack).</li>
+    <li><strong>New widget in stack…</strong> — create a brand-new widget of any kind and place it directly into the stack, without a detour through the canvas.</li>
+    <li><strong>Reorder</strong> — drag members in the list; the order is the layout order along the stack's direction.</li>
+    <li><strong>Remove</strong> — tap the red minus. The widget isn't deleted — it returns to the canvas where it was.</li>
+  </ul>
+
+  <div class="note tip"><span class="h">Edit any member in place</span> Tap a member's row to open its own full settings sheet — the same inspector it would have as a standalone widget. Changes apply immediately inside the stack.</div>
+
+  <div class="note warn"><span class="h">No stacks inside stacks</span> A stack can't be a member of another stack. The "new widget" and "add from page" pickers both exclude stacks, and a nested stack reference simply won't render. This keeps the layout finite and easy to reason about.</div>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Direction</td><td><strong>Horizontal</strong> arranges members in a row; <strong>Vertical</strong> arranges them in a column. Switching reflows the layout instantly.</td></tr>
+    <tr><td>Spacing</td><td>Gap between members, <code>0</code>–<code>24</code> (steps of 2). The same value is also used as the stack's inner padding.</td></tr>
+    <tr><td>Items</td><td>The ordered list of member widgets. Add, reorder by drag, or remove. The header shows the current count.</td></tr>
+    <tr><td>Show Name</td><td>The stack's own label switch is authoritative for its members: turned off, it silences every member's name; turned on, it shows each member's name at the stack's label position.</td></tr>
+  </table>
+
+  <div class="note"><span class="h">Equal sizing, not fixed sizing</span> There's no per-member size or distribution control. Members always split the stack's space equally along its direction; to give one member more room, give it its own stack or place it on the canvas.</div>
+
+  <div class="note warn"><span class="h">On Apple TV</span> Interactive members stay interactive inside a stack — taps reach the individual member's controls. The stack's "Show Name" toggle drives whether member names appear.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>
