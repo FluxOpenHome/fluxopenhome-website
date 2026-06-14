@@ -16,8 +16,10 @@
   <div class="hero">
     <div class="eyebrow">Widget</div>
     <h1>Irrigation</h1>
-    <p class="lede">A smart sprinkler panel. Each zone maps to any Home Assistant entity — a switch, a valve, or a custom service — with timed or toggle runs, a live countdown, per-zone photos or head-type icons, schedules, and an automatic rain-skip.</p>
+    <p class="lede">A smart sprinkler panel. Each zone maps to any Home Assistant entity — a switch, a valve, or a custom service — with timed or toggle runs, a live countdown, per-zone photos or head-type icons, and a rain-status badge.</p>
   </div>
+
+  <div class="note danger"><span class="h">⚠ Important — your responsibility</span> You are responsible for ensuring your hardware (valves, controllers, wiring, and Home Assistant entities) is correctly configured and safe to use with the irrigation widget, and you are fully responsible for any use of it. The widget controls real valves over your network. <strong>If internet or network connectivity is lost while an automation or timed run is in progress, a valve may remain open and water continuously.</strong> Always provide an independent fail-safe at the hardware level (e.g. a controller that closes valves on its own, a mechanical timer, or a flow shut-off). Flux is provided "as is," without warranty; use it at your own risk. See <a href="#responsibility">Safety &amp; responsibility</a> below.</div>
 
   <h2>What it does</h2>
   <p>The irrigation widget shows a grid of <strong>zone tiles</strong>. Tap a tile to start or stop that zone. In <strong>timed</strong> mode the tile counts down and shuts the zone off automatically; in <strong>toggle</strong> mode it simply turns the zone on or off. A running zone shows a water-flow animation and a colored ring. An optional <strong>master</strong> control and a <strong>rain</strong> badge appear in the header.</p>
@@ -49,6 +51,9 @@
   <h2>How a tap works</h2>
   <p>Tapping an idle zone calls the on-service for its control method. For a timed run, Flux records an end time, shows the countdown, and schedules the off-service. Tapping a running zone stops it immediately. A zone reads as "running" when its entity state is <code>on</code>, <code>open</code>, <code>running</code>, or <code>watering</code>, or while its local timer is active.</p>
 
+  <div class="note tip"><span class="h">Scheduling is coming with the Flux controller</span> Right now the irrigation widget is for <strong>running zones manually</strong> (tap to start/stop, with optional timed runs). In-app <strong>schedules</strong> are temporarily turned off: relying on the app and your network to close a valve isn't safe enough on its own. Automatic watering will return paired with Flux's dedicated irrigation controller, which closes valves at the hardware level even if the network or app goes away.</div>
+
+  <!-- SCHEDULES SECTION HIDDEN until the Flux irrigation controller ships (hardware fail-safe).
   <h2>Schedules</h2>
   <p>Build <strong>programs</strong> that run zones automatically:</p>
   <ul>
@@ -58,9 +63,10 @@
     <li><strong>Rain skip</strong> — the whole program is skipped when the rain rule says so.</li>
   </ul>
   <div class="note"><span class="h">Where schedules run</span> One device runs the schedule (the same "runs here" rule the Flux automation engine uses), checks the clock every 30 seconds, and won't double-fire a start time. The device running the schedule must be awake for a run to fire.</div>
+  -->
 
-  <h2>Weather skip</h2>
-  <p>Set a weather source — a Home Assistant weather/binary_sensor entity (or Apple Weather) — and Flux shows a <strong>Rain</strong> badge and skips rain-enabled zones/programs when it's raining. (Threshold rules like "skip if rain chance over X%" or "rained in the last N hours" are planned; today the skip follows the chosen rain entity/condition.)</p>
+  <h2>Weather status</h2>
+  <p>Set a weather source — a Home Assistant weather/binary_sensor entity (or Apple Weather) — and Flux shows a <strong>Rain</strong> badge so you can decide whether to skip a manual run. (Automatic rain-skipping returns with scheduling.)</p>
 
   <h2>Widget options</h2>
   <table class="opts">
@@ -72,6 +78,16 @@
   </table>
 
   <div class="note warn"><span class="h">On Apple TV</span> Zone tiles are focusable with the remote. Photos are stored at a reduced size to keep dashboards light, since they sync with your layout.</div>
+
+  <h2 id="responsibility">Safety &amp; responsibility</h2>
+  <p>Please read this before relying on the irrigation widget to control real valves.</p>
+  <ul>
+    <li><strong>You are responsible for your hardware.</strong> It is your responsibility to ensure your valves, controllers, wiring, water supply, and the Home Assistant entities you map are correctly configured, compatible, and safe for use with the irrigation widget.</li>
+    <li><strong>You are fully responsible for using the widget.</strong> Starting, stopping, and scheduling watering is entirely under your control and at your own risk, including any water use, damage, flooding, or cost that results.</li>
+    <li><strong>Network loss can leave a valve open.</strong> Flux sends commands over your network and, for timed runs and schedules, sends the "off" command at the end of the run. If internet or local network connectivity is lost — or the device running the schedule sleeps, is turned off, or loses power — while a zone is open, the "off"/"close" command may never reach the valve and <strong>the valve can stay open and run water continuously</strong>. Flux cannot guarantee a valve will close.</li>
+    <li><strong>Use an independent fail-safe.</strong> Always have a hardware-level safeguard that does not depend on Flux or your network — for example an irrigation controller that closes its own valves, a mechanical/timer shut-off, or a flow/leak shut-off valve. Do not rely on the app as the only thing that stops watering.</li>
+    <li><strong>No warranty.</strong> The irrigation widget is provided "as is," without warranty of any kind. To the maximum extent permitted by law, the developers are not liable for any damages or losses arising from its use.</li>
+  </ul>
 
   <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
 </div>
