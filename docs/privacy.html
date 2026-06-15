@@ -96,14 +96,20 @@
           <h2>3. How the app connects</h2>
           <p>The app communicates with your Home Assistant over the connection you configure — your local network, or a remote connection such as Home Assistant Cloud (Nabu Casa) or your own reverse proxy. That traffic flows between your device and your Home Assistant only. Flux Open Home is not a party to it.</p>
 
-          <h2>4. Permissions the app may request</h2>
+          <h2>4. Permissions &amp; Apple services the app may use</h2>
+          <p>The app asks for a permission only when you use the feature that needs it, and explains why at the prompt. You can change or revoke any of them at any time in the iOS Settings app.</p>
           <ul>
-            <li><strong>Local Network</strong> — to discover and reach your Home Assistant on your Wi-Fi.</li>
+            <li><strong>Local Network</strong> — to discover and reach your Home Assistant, and to send dashboards to your Apple TV, on your Wi-Fi.</li>
+            <li><strong>Location</strong> — for two features you choose to enable: location-based ("geofence") automations, and the optional Apple Weather card. Your location is used on your device and, for weather, passed to Apple's WeatherKit to fetch the forecast — never to Flux Open Home.</li>
+            <li><strong>Camera</strong> — to scan the on-screen pairing code when you connect an Apple TV, and, only if you turn it on, to wake a wall-mounted kiosk screen when you walk up. Nothing is recorded, stored, or transmitted. (Live camera <em>feeds</em> shown in the app are streamed from your Home Assistant, not the device camera.)</li>
+            <li><strong>Microphone &amp; Speech Recognition</strong> — only when you tap the microphone to add a calendar event by voice. Your speech is transcribed to text so it can become an event; audio is not stored or sent to Flux Open Home.</li>
+            <li><strong>Calendars</strong> — if you use the calendar widget, to show your Apple Calendar events alongside your Home Assistant calendars and to add events you create. Calendar data stays on your device and in your Apple/iCloud account.</li>
+            <li><strong>Apple Home (HomeKit)</strong> — if you choose to show Apple Home accessories, to read and control them alongside Home Assistant. This stays between your device and Apple Home; Flux Open Home never receives it.</li>
+            <li><strong>Apple Music</strong> — if you enable it on the media widget, to play your own Apple Music subscription on the device through Apple's MusicKit. Playback is local; we do not receive your library or listening activity.</li>
             <li><strong>Notifications</strong> (optional) — to deliver alerts you choose to enable. Push delivery, if used, is handled through Apple and/or your Home Assistant's notification service.</li>
             <li><strong>Photos</strong> — only if you choose a screenshot from your library to attach to feedback.</li>
-            <li><strong>Camera/Microphone</strong> are <em>not</em> used for capture; camera <em>feeds</em> shown in the app are streamed from your Home Assistant.</li>
           </ul>
-          <p>You can change or revoke these permissions at any time in the iOS Settings app.</p>
+          <p>Apple Music, Apple Weather, Apple Home, and Apple Calendar are Apple services; your use of them is also governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Flux Open Home is not in the path for any of them.</p>
 
           <h2>5. Media sources you connect (Home Assistant, Plex, NAS)</h2>
           <p>The media widget can play from sources you connect. In every case the connection is made <strong>directly from your device</strong> to that source — Flux Open Home is not in the path and receives none of it.</p>
