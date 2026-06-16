@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Widget — Flux Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/fluxdashboard/guide/"><span class="dot"></span> Flux Guide</a>
+  <a class="back" href="/fluxdashboard/guide/">← All widgets</a>
+</div></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Widget</div>
+    <h1>Launch</h1>
+    <p class="lede">The next rocket launch, front and center — mission, provider, launch pad, date and time, and a <strong>live countdown</strong> that ticks down to T‑0. It updates itself and rolls straight to the next launch the moment one lifts off.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>The Launch widget shows the next upcoming orbital rocket launch worldwide. It displays the mission name, the launch provider and vehicle, the pad and location, the scheduled time, and a big <strong>T‑minus countdown</strong> updating every second. A status badge (for example <strong>GO</strong> or <strong>TBD</strong>) reflects the launch's current state, and the launch photo can sit faded behind the text.</p>
+
+  <div class="note tip"><span class="h">It always shows the <em>next</em> one</span> When a launch reaches T‑0, the widget automatically advances to the next upcoming launch — no action needed. The countdown then counts down to the new one.</div>
+
+  <h2>Where the data comes from</h2>
+  <p>Launch data is provided by <strong>Launch Library 2</strong>, the free public launch database from <a href="https://thespacedevs.com/llapi" target="_blank" rel="noopener">The Space Devs</a>. Each device fetches it directly — there is no Flux server in between — and caches it locally, so your dashboard keeps working offline on the last known data.</p>
+
+  <div class="note"><span class="h">Stays current, automatically</span> Flux refreshes the data on an adaptive schedule: about every <strong>5 minutes</strong> when a launch is within 90 minutes (so delays, holds and scrubs show fast), every 15 minutes within 12 hours, and every 30 minutes otherwise. The live countdown updates every second regardless.</div>
+
+  <h2>Filter by country</h2>
+  <p>Don't care about every country's launches? In the widget's inspector, the <strong>Countries</strong> section lets you choose which launch sites to include:</p>
+  <ul>
+    <li><strong>All countries</strong> — the default; shows every upcoming launch.</li>
+    <li><strong>Uncheck a country</strong> to hide its launches — for example, uncheck <em>China</em> and you'll never see Chinese launches.</li>
+    <li><strong>Check just one</strong> (uncheck the rest) to see only that country — for example, only <em>United States</em> launches.</li>
+  </ul>
+  <p>The list only shows countries that currently have upcoming launches, so it stays short. The filter is per‑widget, so you can keep one tile for US‑only launches and another for everything.</p>
+
+  <h2>Add it</h2>
+  <ol class="steps">
+    <li>Enter edit mode, tap <strong>Add Widget</strong>, choose <strong>Launch</strong>.</li>
+    <li>It drops onto the dashboard and begins fetching the next launch (give it a moment the first time).</li>
+    <li>Open the widget's <strong>inspector</strong> (tap it while editing) to set the country filter and toggles.</li>
+  </ol>
+
+  <h2>Settings</h2>
+  <table class="opts">
+    <tr><th>Setting</th><th>What it does</th></tr>
+    <tr><td>Show launch photo</td><td>Display the launch/vehicle photo faded behind the text. Turn off for a plain card.</td></tr>
+    <tr><td>Show provider &amp; vehicle</td><td>Show the launch provider and rocket (for example "SpaceX · Falcon 9").</td></tr>
+    <tr><td>Countries</td><td>Choose which countries' launches to show (see above). All countries by default.</td></tr>
+  </table>
+
+  <h2>Notes</h2>
+  <p>The Launch widget needs <strong>no Home Assistant entity</strong> — it pulls its own data over the internet. It works on iPhone, iPad, and Apple TV. Resize it larger to reveal the launch photo plus the pad and location lines; shrink it and it collapses to the countdown and mission.</p>
+  <div class="note tip"><span class="h">Build automations around launches</span> Want a light to flash when a launch is imminent? Launch‑based automation triggers are on the roadmap — see <a href="/fluxdashboard/guide/automations/">Automations</a>.</div>
+
+  <footer>Flux — fluxopenhome.com · <a href="/fluxdashboard/guide/">All widgets</a></footer>
+</div>
+</body>
+</html>
