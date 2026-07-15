@@ -23,6 +23,8 @@
       <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
       <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
+        <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+        <a href="/products/night-light" class="nav-link">Night Light</a>
         <a href="/open-source.html" class="nav-link active">Open Source</a>
         <a href="/support.html" class="nav-link">Support</a>
       </nav>
@@ -45,6 +47,8 @@
     </div>
     <div class="mobile-nav-links">
       <a href="/" class="nav-link">Home</a>
+      <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+      <a href="/products/night-light" class="nav-link">Night Light</a>
       <a href="/open-source.html" class="nav-link">Open Source</a>
       <a href="/support.html" class="nav-link">Support</a>
     </div>
@@ -102,15 +106,6 @@
           <p>All firmware, add-ons, and documentation are public on GitHub.</p>
         </div>
         <div class="flux-repo-grid">
-          <!-- Irrigation Controller -->
-          <a href="https://github.com/FluxOpenHome/IrrigationController" target="_blank" rel="noopener" class="flux-repo-card">
-            <div class="repo-name">IrrigationController</div>
-            <div class="repo-desc">ESP32-S3 smart irrigation controller with 8-32 zones, weather-based scheduling, and rain sensor support.</div>
-            <div class="repo-meta">
-              <span><span class="lang-dot yaml"></span> YAML</span>
-              <span>v1.2.7</span>
-            </div>
-          </a>
           <!-- Night Light -->
           <a href="https://github.com/FluxOpenHome/NightLight" target="_blank" rel="noopener" class="flux-repo-card">
             <div class="repo-name">NightLight</div>
@@ -118,33 +113,6 @@
             <div class="repo-meta">
               <span><span class="lang-dot yaml"></span> YAML</span>
               <span>ESPHome</span>
-            </div>
-          </a>
-          <!-- HA Add-on -->
-          <a href="https://github.com/FluxOpenHome/ha-flux-irrigation-addons" target="_blank" rel="noopener" class="flux-repo-card">
-            <div class="repo-name">ha-flux-irrigation-addons</div>
-            <div class="repo-desc">Home Assistant add-on with homeowner dashboard, weather-based smart irrigation, and Gophr probe integration.</div>
-            <div class="repo-meta">
-              <span><span class="lang-dot python"></span> Python</span>
-              <span>v1.2.2</span>
-            </div>
-          </a>
-          <!-- Remote -->
-          <a href="https://github.com/FluxOpenHome/IrrigationControllerRemote" target="_blank" rel="noopener" class="flux-repo-card">
-            <div class="repo-name">IrrigationControllerRemote</div>
-            <div class="repo-desc">Wall-mounted touchscreen remote for irrigation control.</div>
-            <div class="repo-meta">
-              <span><span class="lang-dot yaml"></span> YAML</span>
-              <span>v2.16.0</span>
-            </div>
-          </a>
-          <!-- Gophr -->
-          <a href="https://github.com/FluxOpenHome/Gophr" target="_blank" rel="noopener" class="flux-repo-card">
-            <div class="repo-name">Gophr</div>
-            <div class="repo-desc">Capacitive soil moisture probe with 3-depth sensing. ESPHome-based with solar charging and deep sleep.</div>
-            <div class="repo-meta">
-              <span><span class="lang-dot yaml"></span> YAML</span>
-              <span>v1.4.5</span>
             </div>
           </a>
         </div>
@@ -157,16 +125,8 @@
         <div class="flux-ha-grid">
           <div class="flux-ha-content">
             <h2>Home Assistant Integration</h2>
-            <p>All Flux products are designed for seamless Home Assistant integration. Install the Flux Irrigation Add-on for advanced features:</p>
-            <ul class="flux-feature-list">
-              <li>Weather-based smart irrigation with 9 configurable rules</li>
-              <li>Gophr moisture probe monitoring and automated watering decisions</li>
-              <li>Homeowner dashboard with zone scheduling and control</li>
-              <li>Rain sensor management with configurable delay (1-72 hours)</li>
-              <li>PDF system reports for water usage tracking</li>
-              <li>Connection key sharing for management company access</li>
-            </ul>
-            <a href="https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FFluxOpenHome%2Fha-flux-irrigation-addons" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Install Add-on</a>
+            <p>All Flux products are designed for seamless Home Assistant integration. The Night Light auto-discovers in Home Assistant via ESPHome, and the Flux app connects directly to your Home Assistant server.</p>
+            <a href="/fluxdashboard.html" class="btn btn-primary btn-lg">Explore the Flux App</a>
           </div>
           <div class="flux-ha-image">
             <img src="/assets/icon-homeassistant.svg" alt="Home Assistant" width="200" height="200" style="opacity:0.6">
@@ -216,11 +176,8 @@
         <div class="flux-footer-col">
           <h4>Products</h4>
           <ul>
+            <li><a href="/fluxdashboard.html">Flux App (HA Dashboard)</a></li>
             <li><a href="/products/night-light">Night Light</a></li>
-            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
-            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
-            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
-            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
           </ul>
         </div>
         <div class="flux-footer-col">

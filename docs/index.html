@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flux Open Home - Open Source Smart Home Products</title>
-  <meta name="description" content="Open source smart home hardware built on ESPHome, designed for Home Assistant. From smart lighting to intelligent irrigation, hardware you truly own.">
+  <title>Flux Open Home - Flux HA Dashboard App &amp; Open Source Night Light</title>
+  <meta name="description" content="Flux Open Home makes Flux, the beautiful Home Assistant dashboard app for iPhone, iPad, and Apple TV, and the open source Flux Night Light built on ESPHome.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -23,6 +23,8 @@
       <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
       <nav class="main-nav">
         <a href="/" class="nav-link active">Home</a>
+        <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+        <a href="/products/night-light" class="nav-link">Night Light</a>
         <a href="/open-source.html" class="nav-link">Open Source</a>
         <a href="/support.html" class="nav-link">Support</a>
       </nav>
@@ -45,6 +47,8 @@
     </div>
     <div class="mobile-nav-links">
       <a href="/" class="nav-link">Home</a>
+      <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+      <a href="/products/night-light" class="nav-link">Night Light</a>
       <a href="/open-source.html" class="nav-link">Open Source</a>
       <a href="/support.html" class="nav-link">Support</a>
     </div>
@@ -59,11 +63,11 @@
       <div class="flux-hero-pattern" aria-hidden="true"></div>
       <div class="container">
         <div class="flux-hero-content">
-          <h1>Open Source Smart Home Products</h1>
-          <p class="flux-hero-subtitle">Built on ESPHome. Designed for Home Assistant. Open to everyone. From smart lighting to intelligent irrigation, Flux Open Home makes smart home hardware that you truly own.</p>
+          <h1>Beautiful Dashboards. Open Hardware.</h1>
+          <p class="flux-hero-subtitle">Flux Open Home makes Flux, the most beautiful Home Assistant dashboard app for iPhone, iPad, and Apple TV — and the open source Flux Night Light, built on ESPHome and designed for Home Assistant.</p>
           <div class="flux-hero-actions">
-            <a href="/store" class="btn btn-primary btn-lg">Explore Products</a>
-            <a href="https://github.com/FluxOpenHome" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">View on GitHub</a>
+            <a href="/fluxdashboard.html" class="btn btn-primary btn-lg">Get the Flux App</a>
+            <a href="/products/night-light" class="btn btn-outline-white btn-lg">Buy the Night Light</a>
           </div>
         </div>
       </div>
@@ -74,52 +78,25 @@
       <div class="container">
         <div class="flux-section-header">
           <h2>Our Products</h2>
-          <p>Open source hardware for your smart home. Buy assembled or build it yourself.</p>
+          <p>A beautiful dashboard app for your smart home, and open source hardware you truly own.</p>
         </div>
-        <div class="flux-product-grid">
+        <div class="flux-product-grid" style="grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto">
+          <a href="/fluxdashboard.html" class="flux-product-card">
+            <div class="flux-product-card-image">
+              <img src="/assets/flux/flux-ipad.png" alt="Flux HA Dashboard app on iPad">
+            </div>
+            <div class="flux-product-card-body">
+              <h3>Flux App — HA Dashboard</h3>
+              <p>The most beautiful way to control Home Assistant. Native dashboards, living floor plans, and Apple Music on iPhone, iPad, and Apple TV.</p>
+            </div>
+          </a>
           <a href="/products/night-light" class="flux-product-card">
             <div class="flux-product-card-image">
               <img src="/assets/placeholder-nightlight.svg" alt="Flux Night Light">
             </div>
             <div class="flux-product-card-body">
               <h3>Night Light</h3>
-              <p>16 addressable LEDs with 13 built-in effects. Board-only or fully assembled.</p>
-            </div>
-          </a>
-          <a href="/products/irrigation-controller" class="flux-product-card">
-            <div class="flux-product-card-image">
-              <img src="/assets/placeholder-irrigation.svg" alt="Flux Irrigation Controller">
-            </div>
-            <div class="flux-product-card-body">
-              <h3>Irrigation Controller</h3>
-              <p>8-32 zone smart irrigation with weather-based scheduling and rain sensor support.</p>
-            </div>
-          </a>
-          <a href="/products/irrigation-remote" class="flux-product-card">
-            <div class="flux-product-card-image">
-              <img src="/assets/placeholder-remote.svg" alt="Flux Controller Remote">
-            </div>
-            <div class="flux-product-card-body">
-              <h3>Controller Remote</h3>
-              <p>Wall-mounted touchscreen for quick zone control. Battery powered with USB-C rechargeable.</p>
-            </div>
-          </a>
-          <a href="/products/gophr-probe" class="flux-product-card">
-            <div class="flux-product-card-image">
-              <img src="/assets/placeholder-gophr.svg" alt="Gophr Soil Moisture Probe">
-            </div>
-            <div class="flux-product-card-body">
-              <h3>Gophr Probe</h3>
-              <p>3-depth soil moisture sensing with solar charging. Available in WiFi and Cellular versions.</p>
-            </div>
-          </a>
-          <a href="/products/tph-sensor" class="flux-product-card">
-            <div class="flux-product-card-image">
-              <img src="/assets/placeholder-tph-sensor.svg" alt="Flux TPH Sensor">
-            </div>
-            <div class="flux-product-card-body">
-              <h3>TPH Sensor</h3>
-              <p>Temperature, pressure, and humidity monitoring. ESP32 + BME280 for greenhouse applications.</p>
+              <p>16 addressable LEDs with 13 built-in effects. Open source, built on ESPHome. In stock and available now.</p>
             </div>
           </a>
         </div>
@@ -175,11 +152,8 @@
         <div class="flux-footer-col">
           <h4>Products</h4>
           <ul>
+            <li><a href="/fluxdashboard.html">Flux App (HA Dashboard)</a></li>
             <li><a href="/products/night-light">Night Light</a></li>
-            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
-            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
-            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
-            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
           </ul>
         </div>
         <div class="flux-footer-col">

@@ -23,6 +23,8 @@
       <a href="/" class="logo"><img src="/assets/flux-logo.svg" alt="Flux Open Home" width="160" height="40"></a>
       <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
+        <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+        <a href="/products/night-light" class="nav-link">Night Light</a>
         <a href="/open-source.html" class="nav-link">Open Source</a>
         <a href="/support.html" class="nav-link active">Support</a>
       </nav>
@@ -45,6 +47,8 @@
     </div>
     <div class="mobile-nav-links">
       <a href="/" class="nav-link">Home</a>
+      <a href="/fluxdashboard.html" class="nav-link">Flux App</a>
+      <a href="/products/night-light" class="nav-link">Night Light</a>
       <a href="/open-source.html" class="nav-link">Open Source</a>
       <a href="/support.html" class="nav-link">Support</a>
     </div>
@@ -90,59 +94,6 @@
               <li><a href="/guides/night-light/#effects">Effects &amp; Colors</a></li>
               <li><a href="/guides/night-light/#wled">WLED Alternative</a></li>
               <li><a href="/guides/night-light/#3d-print">3D Print Housing</a></li>
-            </ul>
-          </div>
-          <!-- Irrigation Controller -->
-          <div class="flux-support-card">
-            <img src="/assets/placeholder-irrigation.svg" alt="Irrigation Controller">
-            <h3>Irrigation Controller</h3>
-            <ul>
-              <li><a href="/ios-app.html">Flux Controller iOS App</a></li>
-              <li><a href="/guides/irrigation-controller/">Setup &amp; Installation Guide</a></li>
-              <li><a href="/guides/irrigation-controller/#troubleshooting">Troubleshooting</a></li>
-              <li><a href="/guides/irrigation-controller/#rain-sensor">Rain Sensor Setup</a></li>
-              <li><a href="/guides/irrigation-controller/#expansion">Expansion Boards</a></li>
-            </ul>
-          </div>
-          <!-- Home Assistant Add-on -->
-          <div class="flux-support-card">
-            <img src="/assets/icon-homeassistant.svg" alt="Home Assistant" style="padding:20px;background:#f8f9fa;border-radius:8px">
-            <h3>Home Assistant Add-on</h3>
-            <ul>
-              <li><a href="/guides/ha-addon/">Installation Guide</a></li>
-              <li><a href="/guides/ha-addon/#weather">Weather Rule Setup</a></li>
-              <li><a href="/guides/ha-addon/#connection-key">Connection Keys</a></li>
-              <li><a href="/guides/ha-addon/#gophr">Gophr Probe Mapping</a></li>
-            </ul>
-          </div>
-          <!-- Controller Remote -->
-          <div class="flux-support-card">
-            <img src="/assets/placeholder-remote.svg" alt="Controller Remote">
-            <h3>Controller Remote</h3>
-            <ul>
-              <li><a href="/guides/irrigation-remote/">Setup Guide</a></li>
-              <li><a href="/guides/irrigation-remote/#specs">Hardware Specs</a></li>
-              <li><a href="/guides/irrigation-remote/#pair">Pairing with Controller</a></li>
-            </ul>
-          </div>
-          <!-- Gophr Soil Probe -->
-          <div class="flux-support-card">
-            <img src="/assets/placeholder-gophr.svg" alt="Gophr Probe">
-            <h3>Gophr Soil Probe</h3>
-            <ul>
-              <li><a href="/guides/gophr-probe/">Setup Guide</a></li>
-              <li><a href="/guides/gophr-probe/#sleep-solar">Solar &amp; Battery Guide</a></li>
-              <li><a href="/guides/gophr-probe/#map-zones">Zone Mapping</a></li>
-            </ul>
-          </div>
-          <!-- TPH Sensor -->
-          <div class="flux-support-card">
-            <img src="/assets/placeholder-tph-sensor.svg" alt="TPH Sensor">
-            <h3>TPH Sensor</h3>
-            <ul>
-              <li><a href="/guides/tph-sensor/">Setup Guide</a></li>
-              <li><a href="/guides/tph-sensor/#automations">Greenhouse Automations</a></li>
-              <li><a href="/guides/tph-sensor/#readings">Reading Your Data</a></li>
             </ul>
           </div>
         </div>
@@ -198,7 +149,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
-              <p>Our products are designed to work with Home Assistant. The Irrigation Controller, Gophr Probe, and TPH Sensor all use ESPHome firmware and integrate seamlessly with your Home Assistant setup. The Night Light can also be flashed with WLED as an alternative firmware.</p>
+              <p>Our products are designed to work with Home Assistant. The Night Light uses ESPHome firmware and integrates seamlessly with your Home Assistant setup, and it can also be flashed with WLED as an alternative firmware or controlled through its built-in web server.</p>
             </div>
           </div>
           <div class="faq-item">
@@ -212,38 +163,11 @@
           </div>
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              <span>How many zones does the Irrigation Controller support?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer">
-              <p>The base unit supports 8 zones. With expansion boards (MCP23017 I2C), you can expand up to 32 zones total. Zone 8 can also be configured as a master valve or pump start relay.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>What protocols does the Gophr probe support?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer">
-              <p>Gophr comes in two versions: Home Assistant WiFi ($100) which connects via ESPHome for full local control through the HA Add-on, and Cellular ($150) which has a built-in cellular modem for remote locations beyond WiFi range.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>Is the Management Dashboard required?</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer">
-              <p>Absolutely not. The management dashboard is entirely optional. All Flux products work independently with Home Assistant. The dashboard is a convenience layer for professionals who manage multiple properties &mdash; it does not gate any hardware functionality.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
               <span>How do firmware updates work?</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
-              <p>All Flux devices support OTA (Over-the-Air) updates. When connected to Home Assistant, updates can be pushed from the ESPHome dashboard. The Night Light also has a built-in web server for direct browser-based updates, and GitHub-hosted firmware releases.</p>
+              <p>All Flux devices support OTA (Over-the-Air) updates. When connected to Home Assistant, updates can be pushed from the ESPHome dashboard. The Night Light also has a built-in web server for direct browser-based updates, and GitHub-hosted firmware releases. The Flux app updates through the App Store.</p>
             </div>
           </div>
         </div>
@@ -269,7 +193,7 @@
             <div class="card-body">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4a90d9" stroke-width="2" style="margin-bottom:16px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <h4>Email Support</h4>
-              <p>For account, billing, or management dashboard questions, email us at <strong>info@fluxengineering.com</strong></p>
+              <p>For orders, billing, or general questions, email us at <strong>info@fluxengineering.com</strong></p>
             </div>
           </a>
         </div>
@@ -293,11 +217,8 @@
         <div class="flux-footer-col">
           <h4>Products</h4>
           <ul>
+            <li><a href="/fluxdashboard.html">Flux App (HA Dashboard)</a></li>
             <li><a href="/products/night-light">Night Light</a></li>
-            <li><a href="/products/irrigation-controller">Irrigation Controller</a></li>
-            <li><a href="/products/irrigation-remote">Controller Remote</a></li>
-            <li><a href="/products/gophr-probe">Gophr Probe</a></li>
-            <li><a href="/products/tph-sensor">TPH Sensor</a></li>
           </ul>
         </div>
         <div class="flux-footer-col">
